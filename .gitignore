@@ -1,2 +1,4 @@
 *__pycache__*
 dataset/Cifar10/
+system/models/Cifar10/FedAvg_server.pt
+results/
