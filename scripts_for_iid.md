@@ -1,4 +1,3 @@
-
 # IID Data Generation and Experiment Scripts
 
 ## Data Generation
@@ -24,7 +23,6 @@ python main.py \
     -ls 1 \
     -nc 100 \
     -jr 0.2 \
-    -bt 0.5 \
     -lr 0.01 \
     -lbs 64 \
     -go "iid_p20_q0_gr2500"
@@ -40,7 +38,6 @@ python main.py \
     -ls 2 \
     -nc 100 \
     -jr 0.2 \
-    -bt 0.5 \
     -lr 0.01 \
     -lbs 64 \
     -go "iid_p20_q0_gr1250"
@@ -57,7 +54,6 @@ python main.py \
     -ls 5 \
     -nc 100 \
     -jr 0.2 \
-    -bt 0.5 \
     -lr 0.01 \
     -lbs 64 \
     -go "iid_p20_q0_gr500"
@@ -73,12 +69,10 @@ python main.py \
     -ls 10 \
     -nc 100 \
     -jr 0.2 \
-    -bt 0.5 \
     -lr 0.01 \
     -lbs 64 \
     -go "iid_p20_q0_gr250"
 ```
-
 
 ## SCAFFOLD Experiments (IID Data)
 
@@ -93,7 +87,6 @@ python main.py \
     -ls 1 \
     -nc 100 \
     -jr 0.2 \
-    -bt 0.5 \
     -lr 0.01 \
     -slr 1.0 \
     -lbs 64 \
@@ -110,7 +103,6 @@ python main.py \
     -ls 2 \
     -nc 100 \
     -jr 0.2 \
-    -bt 0.5 \
     -lr 0.01 \
     -slr 1.0 \
     -lbs 64 \
@@ -127,7 +119,6 @@ python main.py \
     -ls 5 \
     -nc 100 \
     -jr 0.2 \
-    -bt 0.5 \
     -lr 0.01 \
     -slr 1.0 \
     -lbs 64 \
@@ -145,13 +136,9 @@ python main.py \
     -ls 10 \
     -nc 100 \
     -jr 0.2 \
-    -bt 0.5 \
     -lr 0.01 \
     -slr 1.0 \
     -lbs 64 \
     -go "iid_scaffold_p20_q0_gr250"
 ```
-
-📌 Summary of Experiments (IID Data)
-
 
