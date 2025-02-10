@@ -18,3 +18,5 @@ echo export TMPDIR='$PWD'/tmp >> ~/.bashrc
 cd $now_path
 source ~/.bashrc
 conda env create -f env_cuda_latest.yaml
+
+conda activate pfllib

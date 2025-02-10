@@ -2,7 +2,9 @@
 ## Data Generation
 
 ```shell
+cd dataset
 python generate_Cifar10.py noniid unbalance dir
+cd ../system
 ```
 
 
