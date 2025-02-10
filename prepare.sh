@@ -3,7 +3,8 @@ now_path=`pwd`
 # Install miniconda
 cd
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-sh Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh -b
+~/miniconda3/bin/conda init bash  # Add this line
 
 # Configure ~/.bashrc
 echo alias p=\"ps -aux|grep zhangjq|grep 'python -u'\" >> ~/.bashrc
