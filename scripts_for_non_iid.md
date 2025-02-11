@@ -14,7 +14,7 @@ cd ../system
 
 This is the reference setting with 2500 global rounds and 1 local epoch.
 
-
+- Running Jisoo1
 
 ```shell
 python main.py \
