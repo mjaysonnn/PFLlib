@@ -134,8 +134,11 @@ python main.py \
 ```
 
 🔹 Experiment 2: (gr=1250, ls=2)
-```shell
 
+Running on Jisoo4
+
+```shell
+cd ..
 cd dataset || exit
 python generate_Cifar10.py iid balance -
 cd ../system || exit
@@ -156,8 +159,9 @@ python main.py \
 ```
 
 🔹 Experiment 3: (gr=500, ls=5)
-```shell
 
+```shell
+cd ..
 cd dataset || exit
 python generate_Cifar10.py iid balance -
 cd ../system || exit
@@ -179,7 +183,7 @@ python main.py \
 🔹 Experiment 4: (gr=250, ls=10)
 
 ```shell
-
+cd ..
 cd dataset || exit
 python generate_Cifar10.py iid balance -
 cd ../system || exit
