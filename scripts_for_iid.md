@@ -160,6 +160,8 @@ python main.py \
 
 🔹 Experiment 3: (gr=500, ls=5)
 
+Running on Jiso5
+
 ```shell
 cd ..
 cd dataset || exit
