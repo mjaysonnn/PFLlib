@@ -84,19 +84,49 @@ class clientSCAFFOLD(Client):
         self.global_model = model
 
     def update_yc(self, max_local_epochs=None):
+        # print(f"Client {self.id}: num_batches={self.num_batches}, max_local_epochs={max_local_epochs}, learning_rate={self.learning_rate}")
+
+        # Prevent division by zero
+        if self.num_batches == 0:
+            print(f"Warning: Skipping client {self.id} because num_batches is 0.")
+            return  # Skip this client
+
         if max_local_epochs is None:
             max_local_epochs = self.local_epochs
+        if max_local_epochs == 0:
+            print(f"Warning: Skipping client {self.id} because max_local_epochs is 0.")
+            return
+
+        if self.learning_rate == 0:
+            print(f"Warning: Skipping client {self.id} because learning_rate is 0.")
+            return
+        
+        assert len(self.client_c) == len(self.global_c), "Control variate mismatch"
+
+        scaling_factor = 1 / (self.num_batches * max_local_epochs * self.learning_rate)
+        
         for ci, c, x, yi in zip(self.client_c, self.global_c, self.global_model.parameters(), self.model.parameters()):
-            ci.data = ci - c + 1/self.num_batches/max_local_epochs/self.learning_rate * (x - yi)
+            ci.data = ci - c + scaling_factor * (x - yi)
 
     def delta_yc(self, max_local_epochs=None):
         if max_local_epochs is None:
             max_local_epochs = self.local_epochs
+
+        # Handle division by zero case
+        if self.num_batches == 0:
+            # print(f"Warning: Skipping client {self.id} in delta_yc() because num_batches is 0.")
+            delta_y = [torch.zeros_like(x) for x in self.global_model.parameters()]
+            delta_c = [torch.zeros_like(c) for c in self.global_c]
+            return delta_y, delta_c
+
         delta_y = []
         delta_c = []
+        
+        scaling_factor = 1 / (self.num_batches * max_local_epochs * self.learning_rate)
+        
         for c, x, yi in zip(self.global_c, self.global_model.parameters(), self.model.parameters()):
             delta_y.append(yi - x)
-            delta_c.append(- c + 1/self.num_batches/max_local_epochs/self.learning_rate * (x - yi))
+            delta_c.append(- c + scaling_factor * (x - yi))  # Prevent division by zero
 
         return delta_y, delta_c
 
