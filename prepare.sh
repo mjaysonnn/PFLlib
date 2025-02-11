@@ -29,4 +29,5 @@ source ~/.bashrc  # Ensure changes take effect
 conda env create -f env_cuda_latest.yaml
 
 # Activate Conda environment
+conda init
 conda activate pfllib
