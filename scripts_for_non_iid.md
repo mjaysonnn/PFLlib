@@ -153,6 +153,8 @@ python main.py \
 
 🔹 Experiment 4: (gr=250, ls=10)
 
+Running on View3
+
 ```shell
 python main.py \
     -data Cifar10 \
