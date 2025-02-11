@@ -14,6 +14,8 @@ cd ../system
 
 This is the reference setting with 2500 global rounds and 1 local epoch.
 
+
+
 ```shell
 python main.py \
     -data Cifar10 \
@@ -25,7 +27,7 @@ python main.py \
     -jr 0.2 \
     -bt 0.5 \
     -lr 0.01 \
-    -lbs 64 \
+    -lbs 32 \
     -go "dir_p20_q0_gr2500"
 ```
 
@@ -43,7 +45,7 @@ python main.py \
     -jr 0.2 \
     -bt 0.5 \
     -lr 0.01 \
-    -lbs 64 \
+    -lbs 32 \
     -go "dir_p20_q0_gr1250"
 ```
 
@@ -60,7 +62,7 @@ python main.py \
     -jr 0.2 \
     -bt 0.5 \
     -lr 0.01 \
-    -lbs 64 \
+    -lbs 32 \
     -go "dir_p20_q0_gr500"
 ```
 ￼
@@ -78,13 +80,15 @@ python main.py \
     -jr 0.2 \
     -bt 0.5 \
     -lr 0.01 \
-    -lbs 64 \
+    -lbs 32 \
     -go "dir_p20_q0_gr250"
 ```
 
 ## SCAFFOLD Experiments (Non-IID Data)
 
 📝 Experiment 1: (gr=2500, ls=1)
+
+Jisoo5
 
 ```shell
 python main.py \
@@ -98,7 +102,7 @@ python main.py \
     -bt 0.5 \
     -lr 0.01 \
     -slr 1.0 \
-    -lbs 64 \
+    -lbs 32 \
     -go "scaffold_p20_q0_gr2500"
 ```
 
@@ -116,7 +120,7 @@ python main.py \
     -bt 0.5 \
     -lr 0.01 \
     -slr 1.0 \
-    -lbs 64 \
+    -lbs 32 \
     -go "scaffold_p20_q0_gr1250"
 ```
 
@@ -134,7 +138,7 @@ python main.py \
     -bt 0.5 \
     -lr 0.01 \
     -slr 1.0 \
-    -lbs 64 \
+    -lbs 32 \
     -go "scaffold_p20_q0_gr500"
 ```
 
@@ -152,7 +156,7 @@ python main.py \
     -bt 0.5 \
     -lr 0.01 \
     -slr 1.0 \
-    -lbs 64 \
+    -lbs 32 \
     -go "scaffold_p20_q0_gr250"
 ```
 

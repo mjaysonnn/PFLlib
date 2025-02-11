@@ -24,7 +24,7 @@ python main.py \
     -nc 100 \
     -jr 0.2 \
     -lr 0.01 \
-    -lbs 64 \
+    -lbs 32 \
     -go "iid_p20_q0_gr2500"
 ```
 
@@ -39,7 +39,7 @@ python main.py \
     -nc 100 \
     -jr 0.2 \
     -lr 0.01 \
-    -lbs 64 \
+    -lbs 32 \
     -go "iid_p20_q0_gr1250"
 ```
 
@@ -55,7 +55,7 @@ python main.py \
     -nc 100 \
     -jr 0.2 \
     -lr 0.01 \
-    -lbs 64 \
+    -lbs 32 \
     -go "iid_p20_q0_gr500"
 ```
 
@@ -70,7 +70,7 @@ python main.py \
     -nc 100 \
     -jr 0.2 \
     -lr 0.01 \
-    -lbs 64 \
+    -lbs 32 \
     -go "iid_p20_q0_gr250"
 ```
 
@@ -89,7 +89,7 @@ python main.py \
     -jr 0.2 \
     -lr 0.01 \
     -slr 1.0 \
-    -lbs 64 \
+    -lbs 32 \
     -go "iid_scaffold_p20_q0_gr2500"
 ```
 
@@ -105,7 +105,7 @@ python main.py \
     -jr 0.2 \
     -lr 0.01 \
     -slr 1.0 \
-    -lbs 64 \
+    -lbs 32 \
     -go "iid_scaffold_p20_q0_gr1250"
 ```
 
@@ -121,7 +121,7 @@ python main.py \
     -jr 0.2 \
     -lr 0.01 \
     -slr 1.0 \
-    -lbs 64 \
+    -lbs 32 \
     -go "iid_scaffold_p20_q0_gr500"
 ```
 
@@ -138,7 +138,7 @@ python main.py \
     -jr 0.2 \
     -lr 0.01 \
     -slr 1.0 \
-    -lbs 64 \
+    -lbs 32 \
     -go "iid_scaffold_p20_q0_gr250"
 ```
 
