@@ -93,7 +93,7 @@ python main.py \
 
 📝 Experiment 1: (gr=2500, ls=1)
 
-Jisoo5
+- Running on Jisoo5
 
 ```shell
 python main.py \
