@@ -3,7 +3,9 @@
 ## Data Generation
 
 ```shell
+cd dataset
 python generate_Cifar10.py iid balance -
+cd ../system
 ```
 
 - iid → Ensures the dataset is split independently and identically across all clients.
@@ -13,6 +15,8 @@ python generate_Cifar10.py iid balance -
 ## FedAvg Experiments (IID Data)
 
 📝 Experiment 1: (gr=2500, ls=1)
+
+Running on View4
 
 ```shell
 python main.py \
