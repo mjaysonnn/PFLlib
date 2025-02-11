@@ -19,6 +19,11 @@ cd ../system
 Running on View4
 
 ```shell
+
+cd dataset || exit
+python generate_Cifar10.py iid balance -
+cd ../system || exit
+
 python main.py \
     -data Cifar10 \
     -m ResNet18 \
@@ -37,6 +42,12 @@ python main.py \
 Running on View5
 
 ```shell
+
+cd dataset || exit
+python generate_Cifar10.py iid balance -
+cd ../system || exit
+
+
 python main.py \
     -data Cifar10 \
     -m ResNet18 \
@@ -52,7 +63,14 @@ python main.py \
 
 🔹 Experiment 3: (gr=500, ls=5)
 
+Running on Jisoo1
+
 ```shell
+
+cd dataset || exit
+python generate_Cifar10.py iid balance -
+cd ../system || exit
+
 python main.py \
     -data Cifar10 \
     -m ResNet18 \
@@ -68,6 +86,11 @@ python main.py \
 
 🔹 Experiment 4: (gr=250, ls=10)
 ```shell
+
+cd dataset || exit
+python generate_Cifar10.py iid balance -
+cd ../system || exit
+
 python main.py \
     -data Cifar10 \
     -m ResNet18 \
@@ -86,6 +109,11 @@ python main.py \
 📝 Experiment 1: (gr=2500, ls=1)
 
 ```shell
+
+cd dataset || exit
+python generate_Cifar10.py iid balance -
+cd ../system || exit
+
 python main.py \
     -data Cifar10 \
     -m ResNet18 \
@@ -102,6 +130,12 @@ python main.py \
 
 🔹 Experiment 2: (gr=1250, ls=2)
 ```shell
+
+cd dataset || exit
+python generate_Cifar10.py iid balance -
+cd ../system || exit
+
+
 python main.py \
     -data Cifar10 \
     -m ResNet18 \
@@ -118,6 +152,11 @@ python main.py \
 
 🔹 Experiment 3: (gr=500, ls=5)
 ```shell
+
+cd dataset || exit
+python generate_Cifar10.py iid balance -
+cd ../system || exit
+
 python main.py \
     -data Cifar10 \
     -m ResNet18 \
@@ -135,6 +174,11 @@ python main.py \
 🔹 Experiment 4: (gr=250, ls=10)
 
 ```shell
+
+cd dataset || exit
+python generate_Cifar10.py iid balance -
+cd ../system || exit
+
 python main.py \
     -data Cifar10 \
     -m ResNet18 \
