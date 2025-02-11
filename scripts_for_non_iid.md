@@ -72,6 +72,8 @@ python main.py \
 
 🔹 Experiment 4: gr = 250, ls = 10
 
+-- Running Jisoo4
+
 ```shell
 python main.py \
     -data Cifar10 \
