@@ -184,6 +184,8 @@ python main.py \
 
 🔹 Experiment 4: (gr=250, ls=10)
 
+Running on View1
+
 ```shell
 cd ..
 cd dataset || exit
