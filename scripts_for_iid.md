@@ -111,8 +111,10 @@ python main.py \
 
 📝 Experiment 1: (gr=2500, ls=1)
 
-```shell
+Running on Jisoo3
 
+```shell
+cd ..
 cd dataset || exit
 python generate_Cifar10.py iid balance -
 cd ../system || exit
