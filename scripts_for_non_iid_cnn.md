@@ -81,6 +81,33 @@ python main.py \
     -go "dir_p20_q0_gr1250"
 ```
 
+
+## Scaffold Experiment 4: (gr=1250, ls=2)
+
+- View5
+
+```shell
+cd ..
+cd dataset
+python generate_Cifar10.py noniid unbalance dir
+cd ../system
+
+python main.py \
+    -data Cifar10 \
+    -m CNN \
+    -algo SCAFFOLD \
+    -gr 1250 \
+    -ls 2 \
+    -nc 100 \
+    -jr 0.2 \
+    -bt 0.5 \
+    -lr 0.01 \
+    -slr 1.0 \
+    -lbs 32 \
+    -go "scaffold_p20_q0_gr1250"
+```
+
+
 🔹 Experiment 3: gr = 500, ls = 5
 
 -- Running Jisoo3
