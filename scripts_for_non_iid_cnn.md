@@ -40,7 +40,14 @@ python main.py \
 
 📝 Experiment 2: (gr=2500, ls=1)
 
+- View3
+
 ```shell
+cd ..
+cd dataset
+python generate_Cifar10.py noniid unbalance dir
+cd ../system
+
 python main.py \
     -data Cifar10 \
     -m CNN \
