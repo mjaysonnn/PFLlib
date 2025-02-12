@@ -14,12 +14,16 @@ cd ../system
 
 This is the reference setting with 2500 global rounds and 1 local epoch.
 
-- Running Jisoo1
+- View2
 
 ```shell
+cd ..
+cd dataset
+python generate_Cifar10.py noniid unbalance dir
+cd ../system
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo FedAvg \
     -gr 2500 \
     -ls 1 \
@@ -31,14 +35,41 @@ python main.py \
     -go "dir_p20_q0_gr2500"
 ```
 
+
+## SCAFFOLD (Non-IID Data)
+
+📝 Experiment 2: (gr=2500, ls=1)
+
+```shell
+python main.py \
+    -data Cifar10 \
+    -m CNN \
+    -algo SCAFFOLD \
+    -gr 2500 \
+    -ls 1 \
+    -nc 100 \
+    -jr 0.2 \
+    -bt 0.5 \
+    -lr 0.01 \
+    -slr 1.0 \
+    -lbs 32 \
+    -go "scaffold_p20_q0_gr2500"
+```
+
+
+
 🔹 Experiment 2: gr = 1250, ls = 2
 
 - Running Jisoo2
 
 ```shell
+cd ..
+cd dataset
+python generate_Cifar10.py noniid unbalance dir
+cd ../system
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo FedAvg \
     -gr 1250 \
     -ls 2 \
@@ -55,9 +86,13 @@ python main.py \
 -- Running Jisoo3
 
 ```shell
+cd ..
+cd dataset
+python generate_Cifar10.py noniid unbalance dir
+cd ../system
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo FedAvg \
     -gr 500 \
     -ls 5 \
@@ -75,9 +110,13 @@ python main.py \
 -- Running Jisoo4
 
 ```shell
+cd ..
+cd dataset
+python generate_Cifar10.py noniid unbalance dir
+cd ../system
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo FedAvg \
     -gr 250 \
     -ls 10 \
@@ -98,7 +137,7 @@ python main.py \
 ```shell
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo SCAFFOLD \
     -gr 2500 \
     -ls 1 \
@@ -118,7 +157,7 @@ Running on View1
 ```shell
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo SCAFFOLD \
     -gr 1250 \
     -ls 2 \
@@ -138,7 +177,7 @@ Running on View2
 ```shell
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo SCAFFOLD \
     -gr 500 \
     -ls 5 \
@@ -158,7 +197,7 @@ Running on View3
 ```shell
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo SCAFFOLD \
     -gr 250 \
     -ls 10 \

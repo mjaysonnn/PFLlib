@@ -26,7 +26,7 @@ cd ../system || exit
 
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo FedAvg \
     -gr 2500 \
     -ls 1 \
@@ -50,7 +50,7 @@ cd ../system || exit
 
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo FedAvg \
     -gr 1250 \
     -ls 2 \
@@ -73,7 +73,7 @@ cd ../system || exit
 
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo FedAvg \
     -gr 500 \
     -ls 5 \
@@ -96,7 +96,7 @@ cd ../system || exit
 
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo FedAvg \
     -gr 250 \
     -ls 10 \
@@ -121,7 +121,7 @@ cd ../system || exit
 
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo SCAFFOLD \
     -gr 2500 \
     -ls 1 \
@@ -146,7 +146,7 @@ cd ../system || exit
 
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo SCAFFOLD \
     -gr 1250 \
     -ls 2 \
@@ -170,7 +170,7 @@ cd ../system || exit
 
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo SCAFFOLD \
     -gr 500 \
     -ls 5 \
@@ -194,7 +194,7 @@ cd ../system || exit
 
 python main.py \
     -data Cifar10 \
-    -m ResNet18 \
+    -m CNN \
     -algo SCAFFOLD \
     -gr 250 \
     -ls 10 \
