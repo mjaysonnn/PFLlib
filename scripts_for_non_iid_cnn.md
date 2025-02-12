@@ -8,11 +8,7 @@ cd ../system
 ```
 
 
-## FedAvg
-
-📝 Experiment 1: (gr=2500, ls=1)
-
-This is the reference setting with 2500 global rounds and 1 local epoch.
+## FedAvg Experiment 1: (gr=2500, ls=1)
 
 - View2
 
@@ -36,9 +32,7 @@ python main.py \
 ```
 
 
-## SCAFFOLD (Non-IID Data)
-
-📝 Experiment 2: (gr=2500, ls=1)
+## SCAFFOLD Experiment 2: (gr=2500, ls=1)
 
 - View3
 
@@ -63,17 +57,16 @@ python main.py \
     -go "scaffold_p20_q0_gr2500"
 ```
 
+## FedAvg Experiment 3: (gr = 1250, ls = 2)
 
-
-🔹 Experiment 2: gr = 1250, ls = 2
-
-- Running Jisoo2
+- View4
 
 ```shell
 cd ..
 cd dataset
 python generate_Cifar10.py noniid unbalance dir
 cd ../system
+
 python main.py \
     -data Cifar10 \
     -m CNN \
