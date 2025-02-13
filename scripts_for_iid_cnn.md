@@ -35,8 +35,56 @@ python main.py \
     -go "iid_p20_q0_gr2500"
 ```
 
+## Experiment 2 Scaffold, gr=2500, ls=1
 
-## Experiment 2 Scaffold, gr=1250, ls=2
+### View4
+
+```shell
+cd ..
+cd dataset
+python generate_Cifar10.py iid balance -
+cd ../system
+
+
+python main.py \
+    -data Cifar10 \
+    -m CNN \
+    -algo SCAFFOLD \
+    -gr 2500 \
+    -ls 1 \
+    -nc 100 \
+    -jr 0.2 \
+    -lr 0.01 \
+    -slr 1.0 \
+    -lbs 32 \
+    -go "iid_scaffold_p20_q0_gr2500"
+```
+
+## Experiment 3 FedAvg, gr=1250, ls=2
+
+### 
+
+```shell
+cd ..
+cd dataset || exit
+python generate_Cifar10.py iid balance -
+cd ../system || exit
+
+
+python main.py \
+    -data Cifar10 \
+    -m CNN \
+    -algo FedAvg \
+    -gr 1250 \
+    -ls 2 \
+    -nc 100 \
+    -jr 0.2 \
+    -lr 0.01 \
+    -lbs 32 \
+    -go "iid_fedavg_p20_q0_gr1250"
+```
+
+## Experiment 4 Scaffold, gr=1250, ls=2
 
 ### View1
 
@@ -45,7 +93,6 @@ cd ..
 cd dataset || exit
 python generate_Cifar10.py iid balance -
 cd ../system || exit
-
 
 python main.py \
     -data Cifar10 \
@@ -61,7 +108,7 @@ python main.py \
     -go "iid_scaffold_p20_q0_gr1250"
 ```
 
-## Experiment 3 FedAvg, gr = 500, ls = 5
+## Experiment 5 FedAvg, gr = 500, ls = 5
 
 ### View2
 
@@ -85,90 +132,15 @@ python main.py \
     -go "iid_p20_q0_gr500"
 ```
 
-## Experiment 4 Scaffold, gr=250, ls=10
+## Experiment 6 Scaffold, gr=500, ls=5
 
-### View3
+### 
 
 ```shell
 cd ..
 cd dataset 
 python generate_Cifar10.py iid balance -
 cd ../system 
-
-python main.py \
-    -data Cifar10 \
-    -m CNN \
-    -algo SCAFFOLD \
-    -gr 1250 \
-    -ls 2 \
-    -nc 100 \
-    -jr 0.2 \
-    -lr 0.01 \
-    -slr 1.0 \
-    -lbs 32 \
-    -go "iid_scaffold_p20_q0_gr1250"
-```
-
-## SCAFFOLD Experiments (IID Data)
-
-📝 Experiment 1: (gr=2500, ls=1)
-
-Running on Jisoo3
-
-```shell
-cd ..
-cd dataset || exit
-python generate_Cifar10.py iid balance -
-cd ../system || exit
-
-python main.py \
-    -data Cifar10 \
-    -m CNN \
-    -algo SCAFFOLD \
-    -gr 2500 \
-    -ls 1 \
-    -nc 100 \
-    -jr 0.2 \
-    -lr 0.01 \
-    -slr 1.0 \
-    -lbs 32 \
-    -go "iid_scaffold_p20_q0_gr2500"
-```
-
-🔹 Experiment 2: (gr=1250, ls=2)
-
-Running on Jisoo4
-
-```shell
-cd ..
-cd dataset || exit
-python generate_Cifar10.py iid balance -
-cd ../system || exit
-
-
-python main.py \
-    -data Cifar10 \
-    -m CNN \
-    -algo SCAFFOLD \
-    -gr 1250 \
-    -ls 2 \
-    -nc 100 \
-    -jr 0.2 \
-    -lr 0.01 \
-    -slr 1.0 \
-    -lbs 32 \
-    -go "iid_scaffold_p20_q0_gr1250"
-```
-
-🔹 Experiment 3: (gr=500, ls=5)
-
-Running on Jiso5
-
-```shell
-cd ..
-cd dataset || exit
-python generate_Cifar10.py iid balance -
-cd ../system || exit
 
 python main.py \
     -data Cifar10 \
@@ -184,15 +156,40 @@ python main.py \
     -go "iid_scaffold_p20_q0_gr500"
 ```
 
-🔹 Experiment 4: (gr=250, ls=10)
 
-Running on View1
+## Experiment 7 FedAvg, gr=250, ls=10
+
+### 
 
 ```shell
 cd ..
 cd dataset || exit
 python generate_Cifar10.py iid balance -
 cd ../system || exit
+
+python main.py \
+    -data Cifar10 \
+    -m CNN \
+    -algo FedAvg \
+    -gr 250 \
+    -ls 10 \
+    -nc 100 \
+    -jr 0.2 \
+    -lr 0.01 \
+    -lbs 32 \
+    -go "iid_scaffold_p20_q0_gr250"
+```
+
+## Experiment 8 Scaffold, gr=250, ls=10
+
+### 
+
+```shell
+cd ..
+cd dataset || exit
+python generate_Cifar10.py iid balance -
+cd ../system || exit
+
 
 python main.py \
     -data Cifar10 \
@@ -207,4 +204,3 @@ python main.py \
     -lbs 32 \
     -go "iid_scaffold_p20_q0_gr250"
 ```
-
