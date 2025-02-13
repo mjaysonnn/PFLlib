@@ -182,7 +182,7 @@ python main.py \
 
 ## Experiment 8 Scaffold, gr=250, ls=10
 
-### 
+### Jisoo2
 
 ```shell
 cd ..
