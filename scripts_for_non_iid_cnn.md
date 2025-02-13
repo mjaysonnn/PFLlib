@@ -8,7 +8,7 @@ cd ../system
 ```
 
 
-## FedAvg Experiment 1: (gr=2500, ls=1)
+## Experiment 1 FedAvg, gr=2500, ls=1
 
 ### View2
 
@@ -32,7 +32,7 @@ python main.py \
 ```
 
 
-## SCAFFOLD Experiment 2: (gr=2500, ls=1)
+## Experiment 2 SCAFFOLD, gr=2500, ls=1
 
 ### View3
 
@@ -58,7 +58,7 @@ python main.py \
     
 ```
 
-## FedAvg Experiment 3: (gr = 1250, ls = 2)
+## Experiment 3 FedAvg, gr = 1250, ls = 2
 
 ### View4
 
