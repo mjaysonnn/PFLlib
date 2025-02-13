@@ -18,9 +18,9 @@ cd ../system
 
 ```shell
 cd ..
-cd dataset || exit
+cd dataset 
 python generate_Cifar10.py iid balance -
-cd ../system || exit
+cd ../system 
 
 python main.py \
     -data Cifar10 \
@@ -32,7 +32,7 @@ python main.py \
     -jr 0.2 \
     -lr 0.01 \
     -lbs 32 \
-    -go "iid_p20_q0_gr2500"
+    -go "iid_fedavg_p20_q0_gr2500"
 ```
 
 ## Experiment 2 Scaffold, gr=2500, ls=1
@@ -66,9 +66,9 @@ python main.py \
 
 ```shell
 cd ..
-cd dataset || exit
+cd dataset 
 python generate_Cifar10.py iid balance -
-cd ../system || exit
+cd ../system 
 
 
 python main.py \
@@ -90,9 +90,9 @@ python main.py \
 
 ```shell
 cd ..
-cd dataset || exit
+cd dataset 
 python generate_Cifar10.py iid balance -
-cd ../system || exit
+cd ../system 
 
 python main.py \
     -data Cifar10 \
@@ -129,7 +129,7 @@ python main.py \
     -jr 0.2 \
     -lr 0.01 \
     -lbs 32 \
-    -go "iid_p20_q0_gr500"
+    -go "iid_fedavg_p20_q0_gr500"
 ```
 
 ## Experiment 6 Scaffold, gr=500, ls=5
@@ -163,9 +163,9 @@ python main.py \
 
 ```shell
 cd ..
-cd dataset || exit
+cd dataset 
 python generate_Cifar10.py iid balance -
-cd ../system || exit
+cd ../system 
 
 python main.py \
     -data Cifar10 \
@@ -177,7 +177,7 @@ python main.py \
     -jr 0.2 \
     -lr 0.01 \
     -lbs 32 \
-    -go "iid_scaffold_p20_q0_gr250"
+    -go "iid_fedavg_p20_q0_gr250"
 ```
 
 ## Experiment 8 Scaffold, gr=250, ls=10
@@ -186,9 +186,9 @@ python main.py \
 
 ```shell
 cd ..
-cd dataset || exit
+cd dataset 
 python generate_Cifar10.py iid balance -
-cd ../system || exit
+cd ../system 
 
 
 python main.py \
