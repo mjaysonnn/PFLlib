@@ -55,6 +55,7 @@ python main.py \
     -slr 1.0 \
     -lbs 32 \
     -go "scaffold_p20_q0_gr2500"
+    
 ```
 
 ## FedAvg Experiment 3: (gr = 1250, ls = 2)
