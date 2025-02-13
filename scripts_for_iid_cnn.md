@@ -12,14 +12,12 @@ cd ../system
 - balance → Ensures each client receives approximately the same amount of data.
 - "-" → No specific partition method needed (as it’s IID).
 
-## FedAvg Experiments (IID Data)
+## Experiment 1 FedAvg, gr=2500, ls=1
 
-📝 Experiment 1: (gr=2500, ls=1)
-
-Running on View4
+### Jisoo5
 
 ```shell
-
+cd ..
 cd dataset || exit
 python generate_Cifar10.py iid balance -
 cd ../system || exit
@@ -36,6 +34,7 @@ python main.py \
     -lbs 32 \
     -go "iid_p20_q0_gr2500"
 ```
+
 
 🔹 Experiment 2: (gr=1250, ls=2)
 
