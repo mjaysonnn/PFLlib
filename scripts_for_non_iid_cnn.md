@@ -183,7 +183,7 @@ python main.py \
     -go "dir_p20_q0_gr250"
 ```
 
-## Scaffold Experiment 8: gr = 250, ls = 10
+## Experiment 8 Scaffold : gr = 250, ls = 10
 
 ### Jisoo4
 
