@@ -109,7 +109,7 @@ python main.py \
 ```
 
 
-## FedAvg Experiment 5: gr = 500, ls = 5  
+## Experiment 5 FedAvg: gr = 500, ls = 5  
 
 ### Jisoo1
 
