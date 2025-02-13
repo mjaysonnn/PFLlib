@@ -160,6 +160,8 @@ python main.py \
 
 ## FedAvg Experiment 7: gr = 250, ls = 10
 
+### Jisoo3
+
 ```shell
 cd ..
 cd dataset
