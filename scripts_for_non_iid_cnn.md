@@ -133,7 +133,7 @@ python main.py \
 ```
 ￼
 
-## Scaffold Experiment 6: gr = 500, ls = 5  
+## Experiment 6 Scaffold : gr = 500, ls = 5  
 
 ### Jisoo2
 
