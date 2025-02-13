@@ -86,7 +86,7 @@ python main.py \
 
 ## Experiment 4 Scaffold, gr=1250, ls=2
 
-### View1
+### View3
 
 ```shell
 cd ..
@@ -134,7 +134,7 @@ python main.py \
 
 ## Experiment 6 Scaffold, gr=500, ls=5
 
-### 
+### Jisoo1
 
 ```shell
 cd ..
