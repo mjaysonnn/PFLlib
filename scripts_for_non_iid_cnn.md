@@ -10,7 +10,7 @@ cd ../system
 
 ## FedAvg Experiment 1: (gr=2500, ls=1)
 
-- View2
+### View2
 
 ```shell
 cd ..
@@ -34,7 +34,7 @@ python main.py \
 
 ## SCAFFOLD Experiment 2: (gr=2500, ls=1)
 
-- View3
+### View3
 
 ```shell
 cd ..
@@ -59,7 +59,7 @@ python main.py \
 
 ## FedAvg Experiment 3: (gr = 1250, ls = 2)
 
-- View4
+### View4
 
 ```shell
 cd ..
@@ -84,7 +84,7 @@ python main.py \
 
 ## Scaffold Experiment 4: (gr=1250, ls=2)
 
-- View5
+### View5
 
 ```shell
 cd ..
@@ -108,9 +108,9 @@ python main.py \
 ```
 
 
-🔹 Experiment 3: gr = 500, ls = 5
+## FedAvg Experiment 5: gr = 500, ls = 5  
 
--- Running Jisoo3
+### Jisoo1
 
 ```shell
 cd ..
@@ -134,7 +134,6 @@ python main.py \
 
 🔹 Experiment 4: gr = 250, ls = 10
 
--- Running Jisoo4
 
 ```shell
 cd ..
