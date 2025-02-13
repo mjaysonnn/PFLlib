@@ -85,27 +85,28 @@ python main.py \
     -go "iid_p20_q0_gr500"
 ```
 
-🔹 Experiment 4: (gr=250, ls=10)
+## Experiment 4 Scaffold, gr=250, ls=10
 
-Running on Jisoo2
+### View3
 
 ```shell
 cd ..
-cd dataset || exit
+cd dataset 
 python generate_Cifar10.py iid balance -
-cd ../system || exit
+cd ../system 
 
 python main.py \
     -data Cifar10 \
     -m CNN \
-    -algo FedAvg \
-    -gr 250 \
-    -ls 10 \
+    -algo SCAFFOLD \
+    -gr 1250 \
+    -ls 2 \
     -nc 100 \
     -jr 0.2 \
     -lr 0.01 \
+    -slr 1.0 \
     -lbs 32 \
-    -go "iid_p20_q0_gr250"
+    -go "iid_scaffold_p20_q0_gr1250"
 ```
 
 ## SCAFFOLD Experiments (IID Data)
