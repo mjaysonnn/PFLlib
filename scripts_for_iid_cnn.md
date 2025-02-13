@@ -36,12 +36,12 @@ python main.py \
 ```
 
 
-🔹 Experiment 2: (gr=1250, ls=2)
+## Experiment 2 Scaffold, gr=1250, ls=2
 
-Running on View5
+### View1
 
 ```shell
-
+cd ..
 cd dataset || exit
 python generate_Cifar10.py iid balance -
 cd ../system || exit
@@ -50,14 +50,15 @@ cd ../system || exit
 python main.py \
     -data Cifar10 \
     -m CNN \
-    -algo FedAvg \
+    -algo SCAFFOLD \
     -gr 1250 \
     -ls 2 \
     -nc 100 \
     -jr 0.2 \
     -lr 0.01 \
+    -slr 1.0 \
     -lbs 32 \
-    -go "iid_p20_q0_gr1250"
+    -go "iid_scaffold_p20_q0_gr1250"
 ```
 
 🔹 Experiment 3: (gr=500, ls=5)
