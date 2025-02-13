@@ -159,7 +159,7 @@ python main.py \
 
 ## Experiment 7 FedAvg, gr=250, ls=10
 
-### 
+### View1
 
 ```shell
 cd ..
