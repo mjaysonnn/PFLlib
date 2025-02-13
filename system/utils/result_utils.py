@@ -18,7 +18,6 @@
 import h5py
 import numpy as np
 import os
-import time
 
 
 def average_data(algorithm="", dataset="", goal="", times=10):
@@ -34,9 +33,9 @@ def average_data(algorithm="", dataset="", goal="", times=10):
 
 def get_all_results_for_one_algo(algorithm="", dataset="", goal="", times=10):
     test_acc = []
-    timestamp = time.strftime("%Y%m%d-%H%M%S")  # Format: YYYYMMDD-HHMMSS
+    algorithms_list = [algorithm] * times
     for i in range(times):
-        file_name = f"{dataset}_{algorithm}_{goal}_{i}_{timestamp}"  # Add timestamp to filename
+        file_name = dataset + "_" + algorithms_list[i] + "_" + goal + "_" + str(i)
         test_acc.append(np.array(read_data_then_delete(file_name, delete=False)))
 
     return test_acc
