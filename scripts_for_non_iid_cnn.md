@@ -83,7 +83,7 @@ python main.py \
 ```
 
 
-## Scaffold Experiment 4: (gr=1250, ls=2)
+## Experiment 4 Scaffold: (gr=1250, ls=2)
 
 ### View5
 
