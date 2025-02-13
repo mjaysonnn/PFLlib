@@ -61,15 +61,16 @@ python main.py \
     -go "iid_scaffold_p20_q0_gr1250"
 ```
 
-🔹 Experiment 3: (gr=500, ls=5)
+## Experiment 3 FedAvg, gr = 500, ls = 5
 
-Running on Jisoo1
+### View2
+
 
 ```shell
 
-cd dataset || exit
+cd dataset 
 python generate_Cifar10.py iid balance -
-cd ../system || exit
+cd ../system 
 
 python main.py \
     -data Cifar10 \
