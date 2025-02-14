@@ -8,7 +8,7 @@ This document outlines the FedAvg and SCAFFOLD experiments using Cifar10 dataset
 Run the following commands to generate the dataset before running experiments:
 
 ```bash
-cd dataset
+cd ../dataset
 python generate_Cifar10.py noniid unbalance dir
 cd ../system
 ```
@@ -57,16 +57,16 @@ python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr
 # SCAFFOLD - 2500 rounds, 1 local step
 python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 2500 -ls 1 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_p20_q0_gr2500"
 
-# FedAvg (On-Demand: 20, Spot: 5, -jr=0.25)
+# Spot (On-Demand: 20, Spot: 5, -jr=0.25)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_p20_q5_r2500"
 
-# FedAvg (On-Demand: 20, Spot: 10, -jr=0.3)
+# Spot (On-Demand: 20, Spot: 10, -jr=0.3)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_p20_q10_r2500"
 
-# FedAvg (On-Demand: 20, Spot: 15, -jr=0.35)
+# Spot (On-Demand: 20, Spot: 15, -jr=0.35)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_p20_q15_r2500"
 
-# FedAvg (On-Demand: 20, Spot: 20, -jr=0.4)
+# Spot (On-Demand: 20, Spot: 20, -jr=0.4)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_p20_q20_r2500"
 ```
 
