@@ -24,11 +24,18 @@ from threading import Thread
 class FedAvg(Server):
     def __init__(self, args, times):
         super().__init__(args, times)
+        print(args)
+        self.on_demand_clients = args.on_demand_clients  # Fraction of clients that are on-demand
+        self.spot_clients = args.spot_clients            # Fraction of clients that are spot
+        # self.participated_clients = int(self.num_clients * self.join_ratio)  # Clients participating per round
+        
 
         # select slow clients
         self.set_slow_clients()
         self.set_clients(clientAVG)
 
+        exit()
+        
         print(f"\nJoin ratio / total clients: {self.join_ratio} / {self.num_clients}")
         print("Finished creating server and clients.")
 
