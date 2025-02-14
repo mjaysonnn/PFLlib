@@ -25,7 +25,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 | 🟢 2500  | 1  | SCAFFOLD |  |
 | 🟢 2500  | 1  | Spot(p20_q5) | `Jisoo1` (Done) |
 | 🟢 2500  | 1  | Spot(p20_q10) | `Jisoo2` (Done) |
-| 🔵 2500  | 1  | Spot(p20_q15) | `Jisoo3` |
+| 🟢 2500  | 1  | Spot(p20_q15) | `Jisoo3` (Done) |
 | 🔵 2500  | 1  | Spot(p20_q20) | `Jisoo4` |
 | 🟢 1250  | 2  | FedAvg |  |
 | 🟢 1250  | 2  | SCAFFOLD |  |
@@ -38,7 +38,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 | 🔵 500  | 5  | Spot(p20_q5) | `View4` |
 | 🔵 500  | 5  | Spot(p20_q10) | `View5` |
 | 🔵 500  | 5  | Spot(p20_q15) | `Jisoo2` |
-| 🔵 500  | 5  | Spot(p20_q20) |  |
+| 🔵 500  | 5  | Spot(p20_q20) | `Jisoo3` |
 | 🟢 250   | 10 | FedAvg |  |
 | 🟢 250   | 10 | SCAFFOLD |  |
 | 🔵 250  | 10  | Spot(p20_q5) |  |
@@ -114,6 +114,9 @@ python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 
 # FedAvg (On-Demand: 20, Spot: 20, -jr=0.4)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_p20_q20_r500"
 ```
+
+
+
 
 ## -gr 250 (Local Steps: -ls 10)
 
