@@ -497,8 +497,17 @@ if __name__ == "__main__":
     parser.add_argument('-mo', "--momentum", type=float, default=0.1)
     parser.add_argument('-klw', "--kl_weight", type=float, default=0.0)
 
-
+    parser.add_argument('-od', "--on_demand_clients", type=int, default=20, 
+                        help="Number of on-demand client groups")
+    parser.add_argument('-sp', "--spot_clients", type=int, default=0,  # Changed '-spot' to '-sp'
+                        help="Number of spot instance groups")
+    
     args = parser.parse_args()
+
+
+    # Ensure the total number of clients is not exceeded
+    if args.on_demand_clients + args.spot_clients > args.num_clients * args.join_ratio:
+        raise ValueError("The sum of on-demand and spot clients exceeds the total number of clients.")
 
     os.environ["CUDA_VISIBLE_DEVICES"] = args.device_id
 
@@ -506,10 +515,10 @@ if __name__ == "__main__":
         print("\ncuda is not avaiable.\n")
         args.device = "cpu"
 
-    print("=" * 50)
+    print("\n==== Experiment Configuration ====")
     for arg in vars(args):
-        print(arg, '=',getattr(args, arg))
-    print("=" * 50)
+        print(f"{arg.ljust(25)} : {getattr(args, arg)}")  # Aligns the output nicely
+    print("==================================\n")
 
     # with torch.profiler.profile(
     #     activities=[
