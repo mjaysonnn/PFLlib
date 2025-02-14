@@ -17,6 +17,7 @@ cd ..
 cd dataset
 python generate_Cifar10.py noniid unbalance dir
 cd ../system
+
 python main.py \
     -data Cifar10 \
     -m CNN \
@@ -25,10 +26,12 @@ python main.py \
     -ls 1 \
     -nc 100 \
     -jr 0.2 \
+    --on_demand_clients 15 \
+    --spot_clients 5 \
     -bt 0.5 \
     -lr 0.01 \
     -lbs 32 \
-    -go "dir_p20_q0_gr2500"
+    -go "non_iid_p20_q0_gr2500"
 ```
 
 
