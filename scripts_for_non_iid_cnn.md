@@ -31,7 +31,7 @@ python main.py \
     -bt 0.5 \
     -lr 0.01 \
     -lbs 32 \
-    -go "non_iid_p20_q0_gr2500"
+    -go "non_iid_cnn_p20_q0_r2500"
 ```
 
 
