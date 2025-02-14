@@ -24,8 +24,17 @@ import time
 import random
 from utils.data_utils import read_client_data
 from utils.dlg import DLG
+import random
+from scipy.stats import rv_discrete
+from scipy.special import factorial# Import for truncated Poisson distribution
 
-
+def truncated_poisson(mu, lower, upper):
+    """Create a truncated Poisson distribution without subclassing."""
+    xk = np.arange(lower, upper + 1)
+    pmf = np.exp(-mu) * (mu**xk) / factorial(xk)
+    pmf /= pmf.sum()  # Normalize
+    return rv_discrete(values=(xk, pmf))  # ✅ SciPy-approved method
+        
 class Server(object):
     def __init__(self, args, times):
         # Set up the main attributes
@@ -108,12 +117,55 @@ class Server(object):
             self.send_slow_rate)
 
     def select_clients(self):
+        """
+        Selects clients randomly while ensuring fairness.
+        Assigns part of them as on-demand, and the rest as spot.
+        Uses np.random.choice() exactly as in the original code.
+        """
+        # ✅ Use original logic for determining the number of selected clients
         if self.random_join_ratio:
             self.current_num_join_clients = np.random.choice(range(self.num_join_clients, self.num_clients+1), 1, replace=False)[0]
         else:
             self.current_num_join_clients = self.num_join_clients
         selected_clients = list(np.random.choice(self.clients, self.current_num_join_clients, replace=False))
+                
+        
+        # ✅ If `args.local_epochs = 1`, remove all spot clients (since they'd be the same as on-demand)
+        if self.args.local_epochs == 1:
+            num_on_demand = min(self.on_demand_clients, len(selected_clients))  # Ensure we don’t exceed selected count
+            selected_clients = selected_clients[:num_on_demand]  # ✅ Only keep on-demand clients in selected_clients
+            on_demand_clients = selected_clients  # ✅ All selected clients are on-demand
+            spot_clients = []  # ✅ Remove spot clients completely
+        elif self.args.local_epochs == 0:
+            print("⚠ No clients selected because local_epochs = 0.")
+            return []  # No clients should be selected
+        else:
+            # ✅ Assign a portion as on-demand, and the rest as spot
+            num_on_demand = min(self.on_demand_clients, len(selected_clients)) 
+            on_demand_clients = selected_clients[:num_on_demand]  
+            spot_clients = selected_clients[num_on_demand:]  
 
+        # 🔄 **Update Local Epochs for Selected Clients**
+        for client in on_demand_clients:
+            client.local_epochs = self.args.local_epochs  # ✅ FIXED for on-demand clients
+
+        # ✅ Apply to spot clients **only if args.local_epochs > 1**
+        if self.args.local_epochs > 1:
+            for client in spot_clients:
+                mu = max(1, self.args.local_epochs * 0.75)  # Spot clients train 75% of max on average
+                lower, upper = 1, self.args.local_epochs  # Truncate range
+
+                # ✅ Create instance correctly without extra arguments
+                tpoisson = truncated_poisson(mu, lower, upper)  
+                client.local_epochs = int(tpoisson.rvs())  # Ensure integer output
+
+        # ✅ Print Selection Details
+        print(f"\n=== Client Selection for Round {self.times} ===")
+        print(f"Total Selected: {len(selected_clients)} / {self.num_clients}")
+        for client in selected_clients:
+            print(f" - Client {client.id}: Local Epochs = {client.local_epochs} ({'On-Demand' if client in on_demand_clients else 'Spot'})")
+        print("========================================\n")
+        
         return selected_clients
 
     def send_models(self):
