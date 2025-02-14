@@ -124,39 +124,47 @@ class Server(object):
         """
         # ✅ Use original logic for determining the number of selected clients
         if self.random_join_ratio:
-            self.current_num_join_clients = np.random.choice(range(self.num_join_clients, self.num_clients+1), 1, replace=False)[0]
+            self.current_num_join_clients = np.random.choice(
+                range(self.num_join_clients, self.num_clients + 1), 1, replace=False)[0]
         else:
             self.current_num_join_clients = self.num_join_clients
-        selected_clients = list(np.random.choice(self.clients, self.current_num_join_clients, replace=False))
-                
-        
-        # ✅ If `args.local_epochs = 1`, remove all spot clients (since they'd be the same as on-demand)
+
+        # ✅ Ensure we don't try to select more clients than available
+        num_to_select = min(self.current_num_join_clients, len(self.clients))
+        selected_clients = list(np.random.choice(self.clients, num_to_select, replace=False))
+
+        # ✅ Edge Case: If no clients are selected, return empty list
+        if not selected_clients:
+            print("⚠ Warning: No clients selected!")
+            return []
+
+        # ✅ Assign On-Demand and Spot Clients
+        num_on_demand = min(self.on_demand_clients, len(selected_clients))
+        on_demand_clients = selected_clients[:num_on_demand]
+        spot_clients = selected_clients[num_on_demand:]
+
+        # ✅ Handling Local Epochs Logic
         if self.args.local_epochs == 1:
-            num_on_demand = min(self.on_demand_clients, len(selected_clients))  # Ensure we don’t exceed selected count
-            selected_clients = selected_clients[:num_on_demand]  # ✅ Only keep on-demand clients in selected_clients
-            on_demand_clients = selected_clients  # ✅ All selected clients are on-demand
-            spot_clients = []  # ✅ Remove spot clients completely
+            # ✅ Randomly assign `0` or `1` local epochs to spot clients
+            for client in spot_clients:
+                client.local_epochs = np.random.choice([0, 1])  # Randomly pick 0 or 1
+
         elif self.args.local_epochs == 0:
             print("⚠ No clients selected because local_epochs = 0.")
-            return []  # No clients should be selected
+            return []  # Explicitly return an empty list when local_epochs is 0
+
         else:
-            # ✅ Assign a portion as on-demand, and the rest as spot
-            num_on_demand = min(self.on_demand_clients, len(selected_clients)) 
-            on_demand_clients = selected_clients[:num_on_demand]  
-            spot_clients = selected_clients[num_on_demand:]  
+            # ✅ Update local epochs for On-Demand clients (Fixed)
+            for client in on_demand_clients:
+                client.local_epochs = self.args.local_epochs
 
-        # 🔄 **Update Local Epochs for Selected Clients**
-        for client in on_demand_clients:
-            client.local_epochs = self.args.local_epochs  # ✅ FIXED for on-demand clients
-
-        # ✅ Apply to spot clients **only if args.local_epochs > 1**
-        if self.args.local_epochs > 1:
+            # ✅ Update local epochs for Spot clients (Truncated Poisson)
             for client in spot_clients:
-                mu = max(1, self.args.local_epochs * 0.75)  # Spot clients train 75% of max on average
+                mu = max(1, self.args.local_epochs * 0.75)  # Mean = 75% of max local epochs
                 lower, upper = 1, self.args.local_epochs  # Truncate range
 
-                # ✅ Create instance correctly without extra arguments
-                tpoisson = truncated_poisson(mu, lower, upper)  
+                # ✅ Generate local epochs using truncated Poisson distribution
+                tpoisson = truncated_poisson(mu, lower, upper)
                 client.local_epochs = int(tpoisson.rvs())  # Ensure integer output
 
         # ✅ Print Selection Details
@@ -165,7 +173,7 @@ class Server(object):
         for client in selected_clients:
             print(f" - Client {client.id}: Local Epochs = {client.local_epochs} ({'On-Demand' if client in on_demand_clients else 'Spot'})")
         print("========================================\n")
-        
+
         return selected_clients
 
     def send_models(self):
