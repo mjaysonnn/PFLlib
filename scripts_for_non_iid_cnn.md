@@ -1,5 +1,5 @@
 
-# Federated Learning Experiments: FedAvg vs SCAFFOLD
+# Federated Learning Experiments: FedAvg vs SCAFFOLD vs Spot
 
 This document outlines the FedAvg and SCAFFOLD experiments using Cifar10 dataset under different global rounds (-gr) and local steps (-ls).
 
@@ -9,7 +9,7 @@ Run the following commands to generate the dataset before running experiments:
 
 ```bash
 cd ../dataset
-python generate_Cifar10.py noniid unbalance dir
+python generate_Cifar10.py noniid - dir
 cd ../system
 ```
 
@@ -49,70 +49,93 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 ## Experiment Commands by Global Rounds
 
 
-
-
 ### -gr 2500 (Local Steps: -ls 1)
 ```bash
 # FedAvg - 2500 rounds, 1 local step
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q0_r2500"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_fedavg"
 
 # SCAFFOLD - 2500 rounds, 1 local step
-python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 2500 -ls 1 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_cnn_p20_q0_r2500"
+python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 2500 -ls 1 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_CNN_e1_scaffold"
 
-# Spot configurations
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q5_r2500"
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q10_r2500"
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q15_r2500"
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q20_r2500"
+# Spot (On-Demand: 20, Spot: 5, -jr=0.25)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_spotq5"
+
+# Spot (On-Demand: 20, Spot: 10, -jr=0.3)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_spotq10"
+
+# Spot (On-Demand: 20, Spot: 15, -jr=0.35)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_spotq15"
+
+# Spot (On-Demand: 20, Spot: 20, -jr=0.4)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_spotq20"
 ```
 
-
 ## -gr 1250 (Local Steps: -ls 2)
+
 ```bash
 # FedAvg - 1250 rounds, 2 local steps
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q0_r1250"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e2_fedavg"
 
 # SCAFFOLD - 1250 rounds, 2 local steps
-python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 1250 -ls 2 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_cnn_p20_q0_r1250"
+python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 1250 -ls 2 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_CNN_e2_scaffold"
 
-# Spot configurations
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q5_r1250"
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q10_r1250"
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q15_r1250"
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q20_r1250"
+# FedAvg (On-Demand: 20, Spot: 5, -jr=0.25)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e2_spotq5"
+
+# FedAvg (On-Demand: 20, Spot: 10, -jr=0.3)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e2_spotq10"
+
+# FedAvg (On-Demand: 20, Spot: 15, -jr=0.35)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e2_spotq15"
+
+# FedAvg (On-Demand: 20, Spot: 20, -jr=0.4)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e2_spotq20"
+
 ```
 
 
 ## -gr 500 (Local Steps: -ls 5)
-
 ```bash
 # FedAvg - 500 rounds, 5 local steps
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q0_r500"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e5_fedavg"
 
 # SCAFFOLD - 500 rounds, 5 local steps
-python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 500 -ls 5 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_cnn_p20_q0_r500"
+python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 500 -ls 5 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_CNN_e5_scaffold"
 
-# Spot configurations
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q5_r500"
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q10_r500"
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q15_r500"
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q20_r500"
+# FedAvg (On-Demand: 20, Spot: 5, -jr=0.25)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e5_spotq5"
+
+# FedAvg (On-Demand: 20, Spot: 10, -jr=0.3)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e5_spotq10"
+
+# FedAvg (On-Demand: 20, Spot: 15, -jr=0.35)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e5_spotq15"
+
+# FedAvg (On-Demand: 20, Spot: 20, -jr=0.4)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e5_spotq20"
 ```
+
+
 
 
 ## -gr 250 (Local Steps: -ls 10)
 
 ```bash
 # FedAvg - 250 rounds, 10 local steps
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q0_r250"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e10_fedavg"
 
 # SCAFFOLD - 250 rounds, 10 local steps
-python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 250 -ls 10 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_cnn_p20_q0_r250"
+python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 250 -ls 10 -nc 100 -jr 0.2 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_CNN_e10_scaffold"
 
-# Spot configurations
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q5_r250"
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q10_r250"
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q15_r250"
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_cnn_p20_q20_r250"
+# Spot (On-Demand: 20, Spot: 5, -jr=0.25)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e10_spotq5"
+
+# Spot (On-Demand: 20, Spot: 10, -jr=0.3)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e10_spotq10"
+
+# FedAvg (On-Demand: 20, Spot: 15, -jr=0.35)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e10_spotq15"
+
+# FedAvg (On-Demand: 20, Spot: 20, -jr=0.4)
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e10_spotq20"
 ```
-
