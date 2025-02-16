@@ -147,7 +147,7 @@ class Server(object):
         if self.args.local_epochs == 1:
             # ✅ Randomly assign `0` or `1` local epochs to spot clients
             for client in spot_clients:
-                client.local_epochs = np.random.choice([0, 1])  # Randomly pick 0 or 1
+                client.local_epochs = np.random.binomial(1, 0.75)  # 75% chance of 1, 25% chance of 0
 
         elif self.args.local_epochs == 0:
             print("⚠ No clients selected because local_epochs = 0.")
@@ -160,7 +160,7 @@ class Server(object):
 
             # ✅ Update local epochs for Spot clients (Truncated Poisson)
             for client in spot_clients:
-                mu = max(1, self.args.local_epochs * 0.75)  # Mean = 75% of max local epochs
+                mu = max(1, self.args.local_epochs * np.random.uniform(0.7, 0.95))  # Random factor between 60%-90%
                 lower, upper = 1, self.args.local_epochs  # Truncate range
 
                 # ✅ Generate local epochs using truncated Poisson distribution
