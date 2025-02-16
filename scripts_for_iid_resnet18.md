@@ -20,30 +20,30 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 
 | Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm | Run Name  |
 |-----------------------|--------------------|------------|------------|
-| 🟢 2500  | 1  | FedAvg |  |
-| 🟢 2500  | 1  | SCAFFOLD |  |
-| 🟢 2500  | 1  | Spot(p20_q5) | `View4` (Done)  |
-| 🟢 2500  | 1  | Spot(p20_q10) | `View5` (Done) |
-| 🟢 2500  | 1  | Spot(p20_q15) | `Jisoo` (Done)|
-| 🟢 2500  | 1  | Spot(p20_q20) | `Jisoo2` (Done) |
-| 🟢 1250  | 2  | FedAvg |  |
-| 🟢 1250  | 2  | SCAFFOLD |  |
-| 🟢 1250  | 2  | Spot(p20_q5) | `Jisoo3` (Done) |
-| 🟢 1250  | 2  | Spot(p20_q10) | `Jisoo4` (Done) |
-| 🟢 1250  | 2  | Spot(p20_q15) | `View1` (Done) |
-| 🟢 1250  | 2  | Spot(p20_q20) | `View2` (Done)|
-| 🟢 500   | 5  | FedAvg |  |
-| 🟢 500   | 5  | SCAFFOLD |  |
-| 🟢 500  | 5  | Spot(p20_q5) | `View3` (Done) |
-| 🟢 500  | 5  | Spot(p20_q10) | `View4` (Done) |
-| 🟢 500  | 5  | Spot(p20_q15) | `View5` (Done) |
-| 🟢 500  | 5  | Spot(p20_q20) | `Jisoo5` (Done)|
-| 🟢 250   | 10 | FedAvg |  |
-| 🟢 250   | 10 | SCAFFOLD |  |
-| 🟢 250  | 10  | Spot(p20_q5) | `View3` (Done) |
-| 🟢 250  | 10  | Spot(p20_q10) | `View4` (Done)|
-| 🟢 250  | 10  | Spot(p20_q15) | `View5` (Done) |
-| 🔵 250  | 10  | Spot(p20_q20) | `Jisoo` |
+|  2500  | 1  | FedAvg |  |
+|  2500  | 1  | SCAFFOLD |  |
+| 🟢 2500  | 1  | Spot(p20_q5) | `View4` (Done) -> `View3`|
+|  2500  | 1  | Spot(p20_q10) | `View5` (Done) |
+|  2500  | 1  | Spot(p20_q15) | `Jisoo` (Done)|
+|  2500  | 1  | Spot(p20_q20) | `Jisoo2` (Done) |
+|  1250  | 2  | FedAvg |  |
+|  1250  | 2  | SCAFFOLD |  |
+|  1250  | 2  | Spot(p20_q5) | `Jisoo3` (Done) |
+|  1250  | 2  | Spot(p20_q10) | `Jisoo4` (Done) |
+|  1250  | 2  | Spot(p20_q15) | `View1` (Done) |
+|  1250  | 2  | Spot(p20_q20) | `View2` (Done)|
+|  500   | 5  | FedAvg |  |
+|  500   | 5  | SCAFFOLD |  |
+|  500  | 5  | Spot(p20_q5) | `View3` (Done) |
+|  500  | 5  | Spot(p20_q10) | `View4` (Done) |
+|  500  | 5  | Spot(p20_q15) | `View5` (Done) |
+|  500  | 5  | Spot(p20_q20) | `Jisoo5` (Done)|
+|  250   | 10 | FedAvg |  |
+|  250   | 10 | SCAFFOLD |  |
+|  250  | 10  | Spot(p20_q5) | `View3` (Done) |
+|  250  | 10  | Spot(p20_q10) | `View4` (Done)|
+|  250  | 10  | Spot(p20_q15) | `View5` (Done) |
+|  250  | 10  | Spot(p20_q20) | `Jisoo` |
 
 ## Experiment Commands by Global Rounds
 
