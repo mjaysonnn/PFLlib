@@ -43,7 +43,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 |  250  | 10  | Spot(p20_q5) | `View3` (Done) |
 |  250  | 10  | Spot(p20_q10) | `View4` (Done)|
 |  250  | 10  | Spot(p20_q15) | `View5` (Done) |
-|  250  | 10  | Spot(p20_q20) | `Jisoo` |
+|  250  | 10  | Spot(p20_q20) | `Jisoo` (Done) |
 
 ## Experiment Commands by Global Rounds
 
