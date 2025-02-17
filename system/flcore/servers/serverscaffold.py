@@ -27,6 +27,9 @@ from threading import Thread
 class SCAFFOLD(Server):
     def __init__(self, args, times):
         super().__init__(args, times)
+        
+        self.on_demand_clients = args.on_demand_clients  # Fraction of clients that are on-demand
+        self.spot_clients = args.spot_clients  
 
         # select slow clients
         self.set_slow_clients()

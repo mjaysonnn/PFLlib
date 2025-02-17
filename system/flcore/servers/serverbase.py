@@ -131,6 +131,8 @@ class Server(object):
 
         # ✅ Ensure we don't try to select more clients than available
         num_to_select = min(self.current_num_join_clients, len(self.clients))
+        
+        # Select clients randomly
         selected_clients = list(np.random.choice(self.clients, num_to_select, replace=False))
 
         # ✅ Edge Case: If no clients are selected, return empty list
