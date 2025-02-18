@@ -28,12 +28,12 @@ import random
 from scipy.stats import rv_discrete
 from scipy.special import factorial# Import for truncated Poisson distribution
 
-def truncated_poisson(mu, lower, upper):
-    """Create a truncated Poisson distribution without subclassing."""
-    xk = np.arange(lower, upper + 1)
-    pmf = np.exp(-mu) * (mu**xk) / factorial(xk)
-    pmf /= pmf.sum()  # Normalize
-    return rv_discrete(values=(xk, pmf))  # ✅ SciPy-approved method
+# def truncated_poisson(mu, lower, upper):
+#     """Create a truncated Poisson distribution without subclassing."""
+#     xk = np.arange(lower, upper + 1)
+#     pmf = np.exp(-mu) * (mu**xk) / factorial(xk)
+#     pmf /= pmf.sum()  # Normalize
+#     return rv_discrete(values=(xk, pmf))  # ✅ SciPy-approved method
         
 class Server(object):
     def __init__(self, args, times):
@@ -120,61 +120,36 @@ class Server(object):
         """
         Selects clients randomly while ensuring fairness.
         Assigns part of them as on-demand, and the rest as spot.
-        Uses np.random.choice() exactly as in the original code.
+        Uses uniform sampling instead of Poisson.
         """
-        # ✅ Use original logic for determining the number of selected clients
         if self.random_join_ratio:
             self.current_num_join_clients = np.random.choice(
                 range(self.num_join_clients, self.num_clients + 1), 1, replace=False)[0]
         else:
             self.current_num_join_clients = self.num_join_clients
 
-        # ✅ Ensure we don't try to select more clients than available
         num_to_select = min(self.current_num_join_clients, len(self.clients))
-        
-        # Select clients randomly
         selected_clients = list(np.random.choice(self.clients, num_to_select, replace=False))
 
-        # ✅ Edge Case: If no clients are selected, return empty list
         if not selected_clients:
             print("⚠ Warning: No clients selected!")
             return []
 
-        # ✅ Assign On-Demand and Spot Clients
         num_on_demand = min(self.on_demand_clients, len(selected_clients))
         on_demand_clients = selected_clients[:num_on_demand]
         spot_clients = selected_clients[num_on_demand:]
 
-        # ✅ Handling Local Epochs Logic
-        if self.args.local_epochs == 1:
-            # ✅ Randomly assign `0` or `1` local epochs to spot clients
-            for client in spot_clients:
-                client.local_epochs = np.random.binomial(1, 0.75)  # 75% chance of 1, 25% chance of 0
+        for client in on_demand_clients:
+            client.local_epochs = self.args.local_epochs
 
-        elif self.args.local_epochs == 0:
-            print("⚠ No clients selected because local_epochs = 0.")
-            return []  # Explicitly return an empty list when local_epochs is 0
+        for client in spot_clients:
+            client.local_epochs = np.random.randint(1, self.args.local_epochs + 1)  # Uniform Sampling
 
-        else:
-            # ✅ Update local epochs for On-Demand clients (Fixed)
-            for client in on_demand_clients:
-                client.local_epochs = self.args.local_epochs
-
-            # ✅ Update local epochs for Spot clients (Truncated Poisson)
-            for client in spot_clients:
-                mu = max(1, self.args.local_epochs * np.random.uniform(0.7, 0.95))  # Random factor between 60%-90%
-                lower, upper = 1, self.args.local_epochs  # Truncate range
-
-                # ✅ Generate local epochs using truncated Poisson distribution
-                tpoisson = truncated_poisson(mu, lower, upper)
-                client.local_epochs = int(tpoisson.rvs())  # Ensure integer output
-
-        # ✅ Print Selection Details
-        # print(f"\n=== Client Selection for Round {self.times} ===")
-        # print(f"Total Selected: {len(selected_clients)} / {self.num_clients}")
-        # for client in selected_clients:
-        #     print(f" - Client {client.id}: Local Epochs = {client.local_epochs} ({'On-Demand' if client in on_demand_clients else 'Spot'})")
-        # print("========================================\n")
+        print(f"\n=== Client Selection for Round {self.times} ===")
+        print(f"Total Selected: {len(selected_clients)} / {self.num_clients}")
+        for client in selected_clients:
+            print(f" - Client {client.id}: Local Epochs = {client.local_epochs} ({'On-Demand' if client in on_demand_clients else 'Spot'})")
+        print("========================================\n")
 
         return selected_clients
 
