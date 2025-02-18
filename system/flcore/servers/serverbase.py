@@ -145,11 +145,11 @@ class Server(object):
         for client in spot_clients:
             client.local_epochs = np.random.randint(1, self.args.local_epochs + 1)  # Uniform Sampling
 
-        print(f"\n=== Client Selection for Round {self.times} ===")
-        print(f"Total Selected: {len(selected_clients)} / {self.num_clients}")
-        for client in selected_clients:
-            print(f" - Client {client.id}: Local Epochs = {client.local_epochs} ({'On-Demand' if client in on_demand_clients else 'Spot'})")
-        print("========================================\n")
+        # print(f"\n=== Client Selection for Round {self.times} ===")
+        # print(f"Total Selected: {len(selected_clients)} / {self.num_clients}")
+        # for client in selected_clients:
+        #     print(f" - Client {client.id}: Local Epochs = {client.local_epochs} ({'On-Demand' if client in on_demand_clients else 'Spot'})")
+        # print("========================================\n")
 
         return selected_clients
 
