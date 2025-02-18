@@ -42,14 +42,14 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 | 500  | 5  | Spot(p20_q15) | `Jisoo2` (Done) -> `Jisoo2` (Done) |
 | 500  | 5  | Spot(p20_q20) | `Jisoo3` (Done) -> `Jisoo3` (Done) | -->
 
-| 250  | 10 | FedAvg | `Jisoo4` (Done) |
-| 250  | 10 | SCAFFOLD |  |
+| 250  | 10 | FedAvg | Done |
+| 250  | 10 | SCAFFOLD | Done |
 | 250  | 10  | Spot(p20_q5) | `Jisoo4` (Done) -> `Jisoo4` (Done) |
 | 250  | 10  | Spot(p20_q10) | `View1` (Done) -> `Jisoo5` (Done)|
 | 250  | 10  | Spot(p20_q15) | `View2` (Done) -> `View1` (Done) |
 | 250  | 10  | Spot(p20_q20) | `View3` (Done) -> `View2` (Done) |
 
-| 125  | 20 | FedAvg | |
+| 125  | 20 | FedAvg | `View2` | 🟢
 | 125  | 20 | SCAFFOLD | |
 | 125  | 20 | Spot(p20_q5) | |
 | 125  | 20 | Spot(p20_q10) | |
@@ -60,9 +60,9 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 ## Experiment Commands by Global Rounds
 
 
-### -gr 250 (Local Epochs: -ls 10)
+<!-- ### -gr 250 (Local Epochs: -ls 10) -->
 
-```bash
+<!-- ```bash
 # FedAvg - 250 rounds, 10 local steps
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_fedavg_c20"
 
@@ -80,7 +80,7 @@ python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr
 
 # FedAvg (On-Demand: 20, Spot: 20, -jr=0.4)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_spotq20_c20"
-```
+``` -->
 
 ### -gr 125 (Local Epochs: -ls 20)
 
