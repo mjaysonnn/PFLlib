@@ -170,11 +170,11 @@ class Server(object):
                 client.local_epochs = int(tpoisson.rvs())  # Ensure integer output
 
         # ✅ Print Selection Details
-        # print(f"\n=== Client Selection for Round {self.times} ===")
-        # print(f"Total Selected: {len(selected_clients)} / {self.num_clients}")
-        # for client in selected_clients:
-        #     print(f" - Client {client.id}: Local Epochs = {client.local_epochs} ({'On-Demand' if client in on_demand_clients else 'Spot'})")
-        # print("========================================\n")
+        print(f"\n=== Client Selection for Round {self.times} ===")
+        print(f"Total Selected: {len(selected_clients)} / {self.num_clients}")
+        for client in selected_clients:
+            print(f" - Client {client.id}: Local Epochs = {client.local_epochs} ({'On-Demand' if client in on_demand_clients else 'Spot'})")
+        print("========================================\n")
 
         return selected_clients
 
