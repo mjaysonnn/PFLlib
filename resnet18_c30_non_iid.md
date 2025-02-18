@@ -26,19 +26,22 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 | 🟢 2500  | 1  | Spot(p30_q5) | `View5`  |
 | 🟢 2500  | 1  | Spot(p30_q10) | `View2`|
 | 🟢 2500  | 1  | Spot(p30_q15) |`Jisoo5`|
-| 2500  | 1  | Spot(p30_q20) |  |
+| 🟢 2500  | 1  | Spot(p30_q20) | `View1` |
+
 | 1250  | 2  | FedAvg |  |
 | 1250  | 2  | SCAFFOLD |  |
 | 1250  | 2  | Spot(p30_q5) | |
 | 1250  | 2  | Spot(p30_q10) | |
 | 1250  | 2  | Spot(p30_q15) | |
 | 1250  | 2  | Spot(p30_q20) | |
+
 | 500   | 5  | FedAvg | |
 | 500   | 5  | SCAFFOLD |  |
 | 500  | 5  | Spot(p30_q5) |  |
 | 500  | 5  | Spot(p30_q10) | |
 | 500  | 5  | Spot(p30_q15) | |
 | 500  | 5  | Spot(p30_q20) | |
+
 | 250   | 10 | FedAvg | |
 | 250   | 10 | SCAFFOLD |  |
 | 250  | 10  | Spot(p30_q5) |  |
