@@ -20,7 +20,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 
 | Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm | Run Name  |
 |-----------------------|--------------------|------------|------------|
-|  2500  | 1  | FedAvg | `Jisoo5` (Done) |
+<!-- |  2500  | 1  | FedAvg | `Jisoo5` (Done) |
 |  2500  | 1  | SCAFFOLD | `View1` (Done)|
 |  2500  | 1  | Spot(p30_q5) | `Jisoo1` (Done) |
 |  2500  | 1  | Spot(p30_q10) | `View3` (DOne) |
@@ -39,7 +39,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 |  500  | 5  | Spot(p30_q5) | `View4` (Done) |
 |  500  | 5  | Spot(p30_q10) | `Jisoo2` (Done) |
 |  500  | 5  | Spot(p30_q15) | `View5` (Done) |
-|  500  | 5  | Spot(p30_q20) | `View2` (DOne) |
+|  500  | 5  | Spot(p30_q20) | `View2` (DOne) | -->
 
 |  250  | 10 | FedAvg | `Jisoo3` (DOne) |
 |  250  | 10 | SCAFFOLD | `Jisoo4` (Done) |
@@ -48,15 +48,51 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 |  🟢 250  | 10  | Spot(p30_q15) | `View4` |
 |  🟢 250  | 10  | Spot(p30_q20) | `View3` |
 
-
-
-
+|  125  | 20 | FedAvg        | |
+|  125  | 20 | SCAFFOLD      | |
+|  125  | 20 | Spot(p30_q5)  | |
+|  125  | 20 | Spot(p30_q10) | |
+|  125  | 20 | Spot(p30_q15) | |
+|  125  | 20 | Spot(p30_q20) | |
 
 
 ## Experiment Commands by Global Rounds
 
+### -gr 250 (Local Steps: -ls 10)
 
-### -gr 2500 (Local Steps: -ls 1)
+```bash
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e10_fedavg_c30"
+
+python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 250 -ls 10 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 --goal "iid_resnet18_e10_scaffold_c30"
+
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.35 --on_demand_clients 30 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e10_spotq5_c30"
+
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.4 --on_demand_clients 30 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e10_spotq10_c30"
+
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.45 --on_demand_clients 30 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e10_spotq15_c30"
+
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e10_spotq20_c30"
+```
+
+### --gr 125 (Local Steps: -ls 20)
+
+```bash
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e20_fedavg_c30"
+
+python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 125 -ls 20 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 --goal "iid_resnet18_e20_scaffold_c30"
+
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.35 --on_demand_clients 30 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e20_spotq5_c30"
+
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.4 --on_demand_clients 30 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e20_spotq10_c30"
+
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.45 --on_demand_clients 30 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e20_spotq15_c30"
+
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e20_spotq20_c30"
+```
+
+
+
+<!-- ### -gr 2500 (Local Steps: -ls 1)
 ```bash
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e1_fedavg_c30"
 
@@ -110,23 +146,8 @@ python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.45 --on_demand_clients 30 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e5_spotq15_c30"
 
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 5 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e5_spotq20_c30"
-```
+``` -->
 
 
 
 
-## -gr 250 (Local Steps: -ls 10)
-
-```bash
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e10_fedavg_c30"
-
-python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 250 -ls 10 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 --goal "iid_resnet18_e10_scaffold_c30"
-
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.35 --on_demand_clients 30 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e10_spotq5_c30"
-
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.4 --on_demand_clients 30 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e10_spotq10_c30"
-
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.45 --on_demand_clients 30 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e10_spotq15_c30"
-
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 --goal "iid_resnet18_e10_spotq20_c30"
-```
