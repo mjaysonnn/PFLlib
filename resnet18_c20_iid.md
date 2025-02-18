@@ -42,24 +42,24 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 |  500  | 5  | Spot(p20_q15) | `View5` (Done) -> `View3` (Done) |
 |  500  | 5  | Spot(p20_q20) | `Jisoo5` (Done) -> `View4` (Done)| -->
 
-|  250   | 10 | FedAvg | `Jisoo3` | 
-|  250   | 10 | SCAFFOLD | `Jisoo4` | 
-|  250  | 10  | Spot(p20_q5) |`Jisoo5` | 
-|  250  | 10  | Spot(p20_q10) | `View1` | 
-|  250  | 10  | Spot(p20_q15) | `View2` | 
-|  250  | 10  | Spot(p20_q20) | `View3` | 
+|  250   | 10 | FedAvg | |
+|  250   | 10 | SCAFFOLD | |
+|  250  | 10  | Spot(p20_q5) | |
+|  250  | 10  | Spot(p20_q10) | |
+|  250  | 10  | Spot(p20_q15) | |
+|  250  | 10  | Spot(p20_q20) | |
 
-|  125  | 20 | FedAvg | `View4` | 
-|  125  | 20 | SCAFFOLD | `View5` | 
-|  125  | 20 | Spot(p20_q5) | `Jisoo1` |  
-|  125  | 20 | Spot(p20_q10) | `Jisoo2` | 
-|  125  | 20 | Spot(p20_q15) | `Jisoo3` | 
-|  125  | 20 | Spot(p20_q20) | `Jisoo4` | 
+|  125  | 20 | FedAvg | |
+|  125  | 20 | SCAFFOLD | |
+|  125  | 20 | Spot(p20_q5) | |
+|  125  | 20 | Spot(p20_q10) | |
+|  125  | 20 | Spot(p20_q15) | |
+|  125  | 20 | Spot(p20_q20) | |
 
 
 ## Experiment Commands by Global Rounds
 
-<!-- ## -gr 250 (Local Epochs: -ls 10)
+## -gr 250 (Local Epochs: -ls 10)
 
 ```bash
 # FedAvg - 250 rounds, 10 local steps
@@ -79,7 +79,7 @@ python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr
 
 # Spot (On-Demand: 20, Spot: 20, -jr=0.4)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "iid_resnet18_e10_spotq20_uniform"
-``` -->
+```
 
 
 ## -gr 125 (Local Epochs: -ls 20)
