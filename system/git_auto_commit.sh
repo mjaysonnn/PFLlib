@@ -2,8 +2,8 @@
 
 # Check for changes
 if [[ ! -z $(git status --porcelain) ]]; then
-    # Stage all changes
-    git add .
+    # Stage all changes, including those in parent directories
+    git add -A
 
     # Commit changes with a message
     git commit -m "Automated commit: $(date +"%Y-%m-%d %H:%M:%S")"
