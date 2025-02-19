@@ -120,13 +120,11 @@ class Server(object):
         """
         Selects clients randomly while ensuring fairness.
         Assigns part of them as on-demand, and the rest as spot.
-        Uses uniform sampling instead of Poisson.
+        Uses stratified sampling for spot clients' local epochs.
         """
-        if self.random_join_ratio:
-            self.current_num_join_clients = np.random.choice(
-                range(self.num_join_clients, self.num_clients + 1), 1, replace=False)[0]
-        else:
-            self.current_num_join_clients = self.num_join_clients
+        # Select the number of joining clients
+        self.current_num_join_clients = np.random.choice(
+            range(self.num_join_clients, self.num_clients + 1), 1, replace=False)[0] if self.random_join_ratio else self.num_join_clients
 
         num_to_select = min(self.current_num_join_clients, len(self.clients))
         selected_clients = list(np.random.choice(self.clients, num_to_select, replace=False))
@@ -135,22 +133,83 @@ class Server(object):
             print("⚠ Warning: No clients selected!")
             return []
 
+        # Split into on-demand and spot clients
         num_on_demand = min(self.on_demand_clients, len(selected_clients))
-        on_demand_clients = selected_clients[:num_on_demand]
-        spot_clients = selected_clients[num_on_demand:]
+        on_demand_clients, spot_clients = selected_clients[:num_on_demand], selected_clients[num_on_demand:]
 
+        # Assign full local epochs to on-demand clients
         for client in on_demand_clients:
             client.local_epochs = self.args.local_epochs
 
-        for client in spot_clients:
-            client.local_epochs = np.random.randint(1, self.args.local_epochs + 1)  # Uniform Sampling
+        num_spot_clients = len(spot_clients)
+        spot_instances = max(1, self.args.spot_clients)  # Ensure valid bin count
 
+        if spot_instances > self.args.local_epochs:
+            # ⚠ More spot instances than local epochs → Use stratified binning
+            # print(f"⚠ Warning: spot_instances_client ({spot_instances}) > local_epochs ({self.args.local_epochs}). Using stratified binning.")
+
+            epoch_values = np.arange(1, self.args.local_epochs + 1)
+
+            # Step 1: Ensure each epoch is assigned at least once
+            assigned_epochs = list(epoch_values[:min(len(epoch_values), num_spot_clients)])
+
+            # Step 2: Divide remaining clients into bins
+            remaining_clients = num_spot_clients - len(assigned_epochs)
+
+            if remaining_clients > 0:
+                bin_size = max(1, self.args.local_epochs // remaining_clients)  # Ensure bin size is at least 1
+                epoch_bins = [list(range(i * bin_size + 1, min((i + 1) * bin_size + 1, self.args.local_epochs + 1)))
+                            for i in range(remaining_clients)]
+
+                # Adjust last bin to include any leftover epochs
+                last_bin_end = epoch_bins[-1][-1] if epoch_bins else 0
+                if last_bin_end < self.args.local_epochs:
+                    epoch_bins[-1].extend(range(last_bin_end + 1, self.args.local_epochs + 1))
+
+                # print(f"Epoch Bins for remaining clients: {epoch_bins}")
+
+                # Assign from bins
+                for i in range(remaining_clients):
+                    assigned_epochs.append(np.random.choice(epoch_bins[i]))
+
+            # Shuffle final epoch assignments for fairness
+            np.random.shuffle(assigned_epochs)
+
+            # Assign epochs to clients
+            for i, client in enumerate(spot_clients):
+                client.local_epochs = assigned_epochs[i]
+
+        else:
+            # ✅ Normal binning process when spot_instances <= local_epochs
+            bin_size = self.args.local_epochs // spot_instances
+            epoch_bins = [list(range(i * bin_size + 1, min((i + 1) * bin_size + 1, self.args.local_epochs + 1)))
+                        for i in range(spot_instances)]
+
+            # Adjust last bin if needed
+            last_bin_end = epoch_bins[-1][-1] if epoch_bins else 0
+            if last_bin_end < self.args.local_epochs:
+                epoch_bins[-1].extend(range(last_bin_end + 1, self.args.local_epochs + 1))
+
+            np.random.shuffle(epoch_bins)
+
+            for i, client in enumerate(spot_clients):
+                bin_choice = epoch_bins[i % spot_instances]
+                client.local_epochs = np.random.choice(bin_choice)
+
+        # ✅ Structured Debug Output
         # print(f"\n=== Client Selection for Round {self.times} ===")
-        # print(f"Total Selected: {len(selected_clients)} / {self.num_clients}")
+        # print(f"Total Selected Clients: {len(selected_clients)} / {self.num_clients}")
+        # print(f" - On-Demand Clients: {len(on_demand_clients)}")
+        # print(f" - Spot Clients: {len(spot_clients)}")
+        # print(f"Epoch Selection: {'Stratified Binning Used' if spot_instances > self.args.local_epochs else epoch_bins}")
+        # print("Assigned Local Epochs:")
         # for client in selected_clients:
-        #     print(f" - Client {client.id}: Local Epochs = {client.local_epochs} ({'On-Demand' if client in on_demand_clients else 'Spot'})")
+        #     status = "On-Demand" if client in on_demand_clients else "Spot"
+        #     print(f"   - Client {client.id}: {client.local_epochs} epochs ({status})")
         # print("========================================\n")
-
+        
+        # exit()
+        
         return selected_clients
 
     def send_models(self):
