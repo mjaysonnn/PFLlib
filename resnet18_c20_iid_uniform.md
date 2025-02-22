@@ -17,7 +17,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 | Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm | Run Name  | Status | 
 |-----------------------|--------------------|------------|------------|------------|
 |  2500   | 1 | FedAvg | `Jisoo1`|
-|  2500   | 1 | SCAFFOLD | |
+|  2500   | 1 | SCAFFOLD | `Jisoo2` |
 |  2500   | 1 | Spot(p20_q5) | |
 |  2500   | 1 | Spot(p20_q10) | |
 |  2500   | 1 | Spot(p20_q15) | |
