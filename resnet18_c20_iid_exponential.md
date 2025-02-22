@@ -16,19 +16,19 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 
 | Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm | Run Name  | Status | 
 |-----------------------|--------------------|------------|------------|------------|
-|  2500   | 1 | FedAvg | `Jisoo1`| Done
-|  2500   | 1 | SCAFFOLD | `Jisoo2` | Done
-|  2500   | 1 | Spot(p20_q5) | `Jisoo3` | Done
-|  2500   | 1 | Spot(p20_q10) | `Jisoo4` | Done
-|  2500   | 1 | Spot(p20_q15) | `Jisoo5`| Done
-|  2500   | 1 | Spot(p20_q20) | `View1` | Done
+|  2500   | 1 | FedAvg | |
+|  2500   | 1 | SCAFFOLD | |
+|  2500   | 1 | Spot(p20_q5) | |
+|  2500   | 1 | Spot(p20_q10) | |
+|  2500   | 1 | Spot(p20_q15) | |
+|  2500   | 1 | Spot(p20_q20) | |
 
-|  1250   | 2 | FedAvg | `View2` | Done
-|  1250   | 2 | SCAFFOLD | `View3` | Done
-|  1250   | 2 | Spot(p20_q5) | `View4`  | Done
-|  1250   | 2 | Spot(p20_q10) | `View5` | Done
-|  1250   | 2 | Spot(p20_q15) | `Jisoo1` |
-|  1250   | 2 | Spot(p20_q20) | `Jisoo2` |
+|  1250   | 2 | FedAvg | |
+|  1250   | 2 | SCAFFOLD | |
+|  1250   | 2 | Spot(p20_q5) | |
+|  1250   | 2 | Spot(p20_q10) | |
+|  1250   | 2 | Spot(p20_q15) | |
+|  1250   | 2 | Spot(p20_q20) | |
 
 
 ## Experiment Commands by Global Rounds
@@ -38,10 +38,10 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 
 ```bash
 # FedAvg - 2500 rounds, 1 local step
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -lbs 32 -go "iid_resnet18_e1_fedavg_exponential"
+# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -lbs 32 -go "iid_resnet18_e1_fedavg_exponential"
 
 # SCAFFOLD - 2500 rounds, 1 local step
-python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "iid_resnet18_e1_scaffold_exponential"
+# python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "iid_resnet18_e1_scaffold_exponential"
 
 # Spot (On-Demand: 20, Spot: 5, -jr=0.25)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "iid_resnet18_e1_spotq5_exponential"
@@ -62,10 +62,10 @@ python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr
 
 ```bash
 # FedAvg - 1250 rounds, 2 local steps
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -lbs 32 -go "iid_resnet18_e2_fedavg_exponential"
+# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -lbs 32 -go "iid_resnet18_e2_fedavg_exponential"
 
 # SCAFFOLD - 1250 rounds, 2 local steps
-python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "iid_resnet18_e2_scaffold_exponential"
+# python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "iid_resnet18_e2_scaffold_exponential"
 
 # FedAvg (On-Demand: 20, Spot: 5, -jr=0.25)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "iid_resnet18_e2_spotq5_exponential"
