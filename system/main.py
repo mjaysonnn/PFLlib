@@ -409,8 +409,8 @@ if __name__ == "__main__":
     parser.add_argument('-gr', "--global_rounds", type=int, default=2000)
     parser.add_argument('-tc', "--top_cnt", type=int, default=100, 
                         help="For auto_break")
-    parser.add_argument('-ls', "--local_epochs", type=int, default=1, 
-                        help="Multiple update steps in one local epoch.")
+    parser.add_argument('-ls', '--local_steps', type=int, default=10,
+                    help="Number of local update steps per round (formerly local epochs)")
     parser.add_argument('-algo', "--algorithm", type=str, default="FedAvg")
     parser.add_argument('-jr', "--join_ratio", type=float, default=1.0,
                         help="Ratio of clients per round")
