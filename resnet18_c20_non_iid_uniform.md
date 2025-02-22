@@ -34,7 +34,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 |  1250   | 2 | Spot(p20_q5) | `View2` |
 |  1250   | 2 | Spot(p20_q10) | `View3` |
 |  1250   | 2 | Spot(p20_q15) | `View4` |
-|  1250   | 2 | Spot(p20_q20) |  |
+|  1250   | 2 | Spot(p20_q20) | `View5` |
 
 ## Experiment Commands by Global Rounds
 
@@ -81,7 +81,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 # python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_spotq15_uniform"
 
 # FedAvg (On-Demand: 20, Spot: 20, -jr=0.4)
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_spotq20_uniform"
+# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_spotq20_uniform"
 
 ```
 
