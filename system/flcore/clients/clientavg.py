@@ -43,25 +43,29 @@ class clientAVG(Client):
         self.model.train()
         start_time = time.time()
 
-        max_local_epochs = self.local_epochs
+        # Edge case: Handle invalid local epochs
+        max_local_epochs = max(1, self.local_epochs)
         if self.train_slow:
-            max_local_epochs = np.random.randint(1, max_local_epochs // 2)
+            max_local_epochs = np.random.randint(1, max(2, max_local_epochs // 2))
 
+        # Edge case: Handle empty trainloader
         num_batches = len(trainloader)
+        if num_batches == 0:
+            print(f"Client {self.id} - Warning: No batches to process")
+            return
         
         for epoch in range(max_local_epochs):
             if "spot" in self.instance_type:
                 spot_index = int(self.instance_type.split('_')[1])
-                num_strata = self.spot_strata
+                # Edge case: Handle invalid spot_strata
+                num_strata = max(1, getattr(self, 'spot_strata', 1))
                 
-                if num_strata > num_batches:
-                    # Handle case where there are more spot instances than batches
+                # Edge case: Handle single batch
+                if num_batches <= 1:
+                    num_batches_to_process = 1
+                elif num_strata > num_batches:
                     batch_values = np.arange(1, num_batches + 1)
-                    
-                    # Step 1: Ensure each batch is assigned at least once
                     assigned_batches = list(batch_values[:min(len(batch_values), num_strata)])
-                    
-                    # Step 2: Handle remaining assignments
                     remaining_spots = num_strata - len(assigned_batches)
                     
                     if remaining_spots > 0:
@@ -69,39 +73,36 @@ class clientAVG(Client):
                         batch_bins = [list(range(i * bin_size + 1, min((i + 1) * bin_size + 1, num_batches + 1)))
                                     for i in range(remaining_spots)]
                         
-                        # Adjust last bin
                         last_bin_end = batch_bins[-1][-1] if batch_bins else 0
                         if last_bin_end < num_batches:
                             batch_bins[-1].extend(range(last_bin_end + 1, num_batches + 1))
                         
-                        # Assign from bins
                         for i in range(remaining_spots):
-                            assigned_batches.append(np.random.choice(batch_bins[i]))
-                            
-                    # Shuffle assignments for fairness
-                    np.random.shuffle(assigned_batches)
-                    num_batches_to_process = assigned_batches[spot_index % len(assigned_batches)]
+                            if batch_bins[i]:  # Edge case: Check if bin is not empty
+                                assigned_batches.append(np.random.choice(batch_bins[i]))
                     
+                    if not assigned_batches:  # Edge case: Handle empty assignments
+                        num_batches_to_process = 1
+                    else:
+                        np.random.shuffle(assigned_batches)
+                        num_batches_to_process = assigned_batches[spot_index % len(assigned_batches)]
                 else:
-                    # Normal binning process when spot_instances <= num_batches
-                    bin_size = num_batches // num_strata
+                    bin_size = max(1, num_batches // num_strata)
                     batch_bins = [list(range(i * bin_size + 1, min((i + 1) * bin_size + 1, num_batches + 1)))
                                 for i in range(num_strata)]
                     
-                    # Adjust last bin if needed
                     last_bin_end = batch_bins[-1][-1] if batch_bins else 0
                     if last_bin_end < num_batches:
                         batch_bins[-1].extend(range(last_bin_end + 1, num_batches + 1))
                     
-                    # Shuffle bins for fairness
                     np.random.shuffle(batch_bins)
-                    
-                    # Select from corresponding bin
                     bin_choice = batch_bins[spot_index % num_strata]
-                    num_batches_to_process = np.random.choice(bin_choice)
+                    num_batches_to_process = np.random.choice(bin_choice) if bin_choice else 1
+                
+                # Edge case: Ensure valid number of batches
+                num_batches_to_process = max(1, min(num_batches_to_process, num_batches))
                 
                 print(f"Client {self.id} (Spot_{spot_index}) - Processing {num_batches_to_process} batches")
-
                 
                 batch_count = 0
                 for i, (x, y) in enumerate(trainloader):
@@ -123,6 +124,7 @@ class clientAVG(Client):
                     batch_count += 1
                     if batch_count >= num_batches_to_process:
                         break
+
                 
             else:
                 # Original on-demand training code
