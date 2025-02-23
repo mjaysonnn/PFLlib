@@ -70,7 +70,7 @@ class clientAVG(Client):
                     # Ensure num_batches_to_process is within valid range
                     num_batches_to_process = max(1, min(num_batches_to_process, num_batches))
                 
-                print(f"Client {self.id} - Processing {num_batches_to_process} batches")
+                # print(f"Client {self.id} - Processing {num_batches_to_process} batches")
                 
                 batch_count = 0
                 for i, (x, y) in enumerate(trainloader):
