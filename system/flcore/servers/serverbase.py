@@ -119,7 +119,7 @@ class Server(object):
     def select_clients(self):
         """
         Selects clients randomly while ensuring fairness.
-        Assigns part of them as on-demand, and the rest as spot.
+        Assigns part of them as on-demand, and the rest as numbered spot instances.
         """
         if self.random_join_ratio:
             self.current_num_join_clients = np.random.choice(
@@ -127,6 +127,8 @@ class Server(object):
         else:
             self.current_num_join_clients = self.num_join_clients
 
+        
+        
         num_to_select = min(self.current_num_join_clients, len(self.clients))
         selected_clients = list(np.random.choice(self.clients, num_to_select, replace=False))
 
@@ -137,22 +139,20 @@ class Server(object):
         num_on_demand = min(self.on_demand_clients, len(selected_clients))
         on_demand_clients = selected_clients[:num_on_demand]
         spot_clients = selected_clients[num_on_demand:]
+        self.num_spot_clients = len(spot_clients)  # Store as instance 
 
+        # Assign on-demand type
         for client in on_demand_clients:
-            client.instance_type = "on-demand"  # Add instance_type to on-demand clients
-    
-        for client in spot_clients:
-            client.instance_type = "spot"  # Add instance_type to spot clients
-            
-
-        # print(f"\n=== Client Selection for Round {self.times} ===")
-        # print(f"Total Selected: {len(selected_clients)} / {self.num_clients}")
-        # for client in selected_clients:
-        #     print(f" - Client {client.id}: Local Epochs = {client.local_epochs} ({'On-Demand' if client in on_demand_clients else 'Spot'})")
-        #     print(f"Instance Type: {client.instance_type}")
-        # print("========================================\n")
+            client.instance_type = "on-demand"
+        
+        # Assign numbered spot types
+        for idx, client in enumerate(spot_clients):
+            client.instance_type = f"spot_{idx}"  # spot_0, spot_1, spot_2, etc.
+            client.spot_index = idx  # Store the spot index for use in training
+            client.spot_strata = self.num_spot_clients
 
         return selected_clients
+
 
     def send_models(self):
         assert (len(self.clients) > 0)
