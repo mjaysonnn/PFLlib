@@ -70,7 +70,7 @@ class clientAVG(Client):
                     batch_count += 1
 
                     if batch_count >= random_num_batches:
-                        print(f"Client {self.id} (SPOT): Epoch {epoch+1} - Processed {random_num_batches} batches. Breaking inner loop.")
+                        # print(f"Client {self.id} (SPOT): Epoch {epoch+1} - Processed {random_num_batches} batches. Breaking inner loop.")
                         break  # Exit the inner loop after processing the random number of batches
             else: # If on demand, don't do anything
                 # print(f"Client {self.id} (ON-DEMAND): Epoch {epoch+1} - Processing all batches.")
