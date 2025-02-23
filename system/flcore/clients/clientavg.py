@@ -51,13 +51,24 @@ class clientAVG(Client):
 
         for epoch in range(max_local_epochs):
             if self.instance_type == "spot":
-                # Calculate parameters for truncated Poisson
-                mu = max(1, num_batches * np.random.uniform(0.7, 0.95))
-                lower, upper = 1, num_batches
-                
-                # Generate number of batches using truncated Poisson
-                tpoisson = truncated_poisson(mu, lower, upper)
-                num_batches_to_process = int(tpoisson.rvs())
+                # Handle edge case where num_batches is 0 or 1
+                if num_batches <= 1:
+                    num_batches_to_process = 1
+                else:
+                    # Calculate parameters for truncated Poisson
+                    mu = max(1, num_batches * np.random.uniform(0.7, 0.95))
+                    lower, upper = 1, num_batches
+                    
+                    try:
+                        # Generate number of batches using truncated Poisson
+                        tpoisson = truncated_poisson(mu, lower, upper)
+                        num_batches_to_process = int(tpoisson.rvs())
+                    except ValueError:
+                        # Fallback if truncated Poisson fails
+                        num_batches_to_process = lower
+                    
+                    # Ensure num_batches_to_process is within valid range
+                    num_batches_to_process = max(1, min(num_batches_to_process, num_batches))
                 
                 print(f"Client {self.id} - Processing {num_batches_to_process} batches")
                 
