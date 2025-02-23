@@ -22,6 +22,17 @@ import time
 import random
 from flcore.clients.clientbase import Client
 import math
+from scipy.stats import rv_discrete
+from scipy.special import factorial# Import for truncated Poisson distribution
+
+
+def truncated_poisson(mu, lower, upper):
+    """Create a truncated Poisson distribution without subclassing."""
+    xk = np.arange(lower, upper + 1)
+    pmf = np.exp(-mu) * (mu**xk) / factorial(xk)
+    pmf /= pmf.sum()  # Normalize
+    return rv_discrete(values=(xk, pmf))
+
 
 class clientAVG(Client):
     def __init__(self, args, id, train_samples, test_samples, **kwargs):
@@ -40,30 +51,14 @@ class clientAVG(Client):
 
         for epoch in range(max_local_epochs):
             if self.instance_type == "spot":
-                total_rounds = self.args.global_rounds
-                current_round = self.times
+                # Calculate parameters for truncated Poisson
+                mu = max(1, num_batches * np.random.uniform(0.7, 0.95))
+                lower, upper = 1, num_batches
                 
-                # Calculate ranges based on number of batches
-                num_ranges = math.floor(math.log2(num_batches)) + 1
+                # Generate number of batches using truncated Poisson
+                tpoisson = truncated_poisson(mu, lower, upper)
+                num_batches_to_process = int(tpoisson.rvs())
                 
-                # Calculate batch ranges
-                ranges = [1]
-                for i in range(1, num_ranges):
-                    ranges.append(min(num_batches, 2**i))
-                if ranges[-1] < num_batches:
-                    ranges.append(num_batches)
-                
-                # Create batch ranges for each section
-                batch_ranges = [(ranges[i], ranges[i+1]) for i in range(len(ranges) - 1)]
-                
-                # Determine current section based on epoch
-                section = min(current_round // (total_rounds // len(batch_ranges)), len(batch_ranges) - 1)
-                min_batches, max_batches = batch_ranges[section]
-                
-                print(f"Client {self.id} - Round {current_round}: Section {section}/{len(batch_ranges)-1}, Batch range: {min_batches}-{max_batches}")
-                
-                # Generate number of batches to process
-                num_batches_to_process = np.random.randint(min_batches, max_batches + 1)
                 print(f"Client {self.id} - Processing {num_batches_to_process} batches")
                 
                 batch_count = 0
