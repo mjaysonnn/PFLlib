@@ -45,7 +45,11 @@ class clientAVG(Client):
 
         for epoch in range(max_local_epochs):  # training for number of local epochs
             if self.instance_type == "spot": # For spot Instance
-                random_num_batches = random.randint(1, num_batches)  # Randomly select the number of batches to process
+                if num_batches <= 1:
+                        random_num_batches = 1
+                else:
+                    random_num_batches = random.randint(1, num_batches)
+                
                 # print(f"Client {self.id} (SPOT): Epoch {epoch+1} - Processing {random_num_batches} random batches out of {num_batches}")
 
                 batch_count = 0
