@@ -120,7 +120,6 @@ class Server(object):
         """
         Selects clients randomly while ensuring fairness.
         Assigns part of them as on-demand, and the rest as spot.
-        Uses uniform sampling instead of Poisson.
         """
         if self.random_join_ratio:
             self.current_num_join_clients = np.random.choice(
