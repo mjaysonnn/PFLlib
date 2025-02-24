@@ -21,7 +21,7 @@ cd ../system
 
 
 |  1250   | 2 | Spot(p20_q5) | `View2` | Done
-|  1250   | 2 | Spot(p20_q10) | `View3` |
+|  1250   | 2 | Spot(p20_q10) | `View3` | Done
 |  1250   | 2 | Spot(p20_q15) | `Jisoo1 `|
 |  1250   | 2 | Spot(p20_q20) | `Jisoo2 `|
 
