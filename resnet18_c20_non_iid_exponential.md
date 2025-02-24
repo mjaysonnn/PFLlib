@@ -21,7 +21,7 @@ cd ../system
 
 
 |  1250   | 2 | Spot(p20_q5) | `View4` |
-|  1250   | 2 | Spot(p20_q10) | |
+|  1250   | 2 | Spot(p20_q10) | `View5` |
 |  1250   | 2 | Spot(p20_q15) | |
 |  1250   | 2 | Spot(p20_q20) | |
 
@@ -64,7 +64,7 @@ cd ../system
 # python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_spotq5_exponential"
 
 # FedAvg (On-Demand: 20, Spot: 10, -jr=0.3)
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_spotq10_exponential"
+# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_spotq10_exponential"
 
 # FedAvg (On-Demand: 20, Spot: 15, -jr=0.35)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_spotq15_exponential"
