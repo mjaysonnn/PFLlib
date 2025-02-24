@@ -17,7 +17,7 @@ cd ../system
 |  2500   | 1 | Spot(p20_q5) | `Jisoo1` |
 |  2500   | 1 | Spot(p20_q10) | `Jisoo2` |
 |  2500   | 1 | Spot(p20_q15) | `Jisoo3` |
-|  2500   | 1 | Spot(p20_q20) | |
+|  2500   | 1 | Spot(p20_q20) | `Jisoo4` |
 
 
 |  1250   | 2 | Spot(p20_q5) | |
@@ -47,7 +47,7 @@ cd ../system
 # python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e1_spotq15_exponential"
 
 # Spot (On-Demand: 20, Spot: 20, -jr=0.4)
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e1_spotq20_exponential"
+# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e1_spotq20_exponential"
 ```
 
 
