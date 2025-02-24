@@ -130,6 +130,9 @@ class Server(object):
 
         num_to_select = min(self.current_num_join_clients, len(self.clients))
         selected_clients = list(np.random.choice(self.clients, num_to_select, replace=False))
+        for client in selected_clients:
+            client.current_round = self.current_round
+            client.global_rounds = self.global_rounds  # Total rounds for reference
 
         if not selected_clients:
             print("⚠ Warning: No clients selected!")
@@ -146,7 +149,7 @@ class Server(object):
             client.instance_type = "spot"  # Add instance_type to spot clients
             
 
-        # print(f"\n=== Client Selection for Round {self.times} ===")
+        # print(f"\n=== Client Selection for Round {self.current_round} ===")
         # print(f"Total Selected: {len(selected_clients)} / {self.num_clients}")
         # for client in selected_clients:
         #     print(f" - Client {client.id}: Local Epochs = {client.local_epochs} ({'On-Demand' if client in on_demand_clients else 'Spot'})")
