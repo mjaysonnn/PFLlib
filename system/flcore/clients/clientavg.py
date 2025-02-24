@@ -45,11 +45,16 @@ class clientAVG(Client):
                     num_batches_to_process = 1
                     print(f"Client {self.id} - Processing {num_batches_to_process} batch (minimum)")
                 else:
-                    total_rounds = self.args.global_rounds
-                    current_round = self.times
+                                        
+                    total_rounds = self.global_rounds
+                    current_round = self.current_round
+                    # print(f"Client {self.id} - Total rounds: {total_rounds}, Current round: {current_round}")
+                    
+                    
                     
                     # Calculate ranges based on number of batches
                     num_ranges = math.floor(math.log2(num_batches)) + 1
+                    # print(f"Client {self.id} - Number of ranges: {num_ranges}")
                     
                     # Calculate batch ranges
                     ranges = [1]
@@ -57,19 +62,21 @@ class clientAVG(Client):
                         ranges.append(min(num_batches, 2**i))
                     if ranges[-1] < num_batches:
                         ranges.append(num_batches)
+                    # print(f"Client {self.id} - Batch ranges: {ranges}")
                     
                     # Create batch ranges for each section
                     batch_ranges = [(ranges[i], ranges[i+1]) for i in range(len(ranges) - 1)]
+                    # print(f"Client {self.id} - Batch ranges: {batch_ranges}")
                     
                     # Determine current section based on epoch
                     section = min(current_round // (total_rounds // len(batch_ranges)), len(batch_ranges) - 1)
                     min_batches, max_batches = batch_ranges[section]
-                    
-                    print(f"Client {self.id} - Round {current_round}: Section {section}/{len(batch_ranges)-1}, Batch range: {min_batches}-{max_batches}")
+                    # print(f"Client {self.id} - Round {current_round}: Section {section+ 1}/{len(batch_ranges)-1 + 1} , Batch range: {min_batches}-{max_batches}")
                     
                     # Generate number of batches to process
                     num_batches_to_process = np.random.randint(min_batches, max_batches + 1)
-                    print(f"Client {self.id} - Processing {num_batches_to_process} batches")
+                    # print(f"Client {self.id} - Processing {num_batches_to_process} batches")
+                    
                 
                 batch_count = 0
                 for i, (x, y) in enumerate(trainloader):
