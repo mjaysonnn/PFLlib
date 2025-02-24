@@ -25,6 +25,7 @@ class FedAvg(Server):
     def __init__(self, args, times):
         super().__init__(args, times)
         print(args)
+        self.current_round = 0  # Initialize round counter
         self.on_demand_clients = args.on_demand_clients  # Fraction of clients that are on-demand
         self.spot_clients = args.spot_clients            # Fraction of clients that are spot
         # self.participated_clients = int(self.num_clients * self.join_ratio)  # Clients participating per round
@@ -41,6 +42,7 @@ class FedAvg(Server):
 
     def train(self):
         for i in range(self.global_rounds+1):
+            self.current_round = i  # Update current round
             s_t = time.time()
             self.selected_clients = self.select_clients()
             self.send_models()
