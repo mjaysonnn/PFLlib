@@ -15,26 +15,19 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import copy
-import torch
 import numpy as np
 import time
-import random
-from flcore.clients.clientbase import Client
 import math
-from scipy.stats import rv_discrete
-from scipy.special import factorial# Import for truncated Poisson distribution
-
-
-def truncated_poisson(mu, lower, upper):
-    """Create a truncated Poisson distribution without subclassing."""
-    xk = np.arange(lower, upper + 1)
-    pmf = np.exp(-mu) * (mu**xk) / factorial(xk)
-    pmf /= pmf.sum()  # Normalize
-    return rv_discrete(values=(xk, pmf))
+from flcore.clients.clientbase import Client
 
 
 class clientAVG(Client):
+    """Client implementation for federated averaging with spot instance support.
+    
+    Implements stratified batch sampling for spot instances to ensure fair data
+    distribution across different spot instance types.
+    """
+
     def __init__(self, args, id, train_samples, test_samples, **kwargs):
         super().__init__(args, id, train_samples, test_samples, **kwargs)
 
@@ -42,6 +35,7 @@ class clientAVG(Client):
         trainloader = self.load_train_data()
         self.model.train()
         start_time = time.time()
+        num_batches = len(trainloader)
 
         # Edge case: Handle invalid local epochs
         max_local_epochs = max(1, self.local_epochs)
@@ -49,61 +43,74 @@ class clientAVG(Client):
             max_local_epochs = np.random.randint(1, max(2, max_local_epochs // 2))
 
         # Edge case: Handle empty trainloader
-        num_batches = len(trainloader)
         if num_batches == 0:
             print(f"Client {self.id} - Warning: No batches to process")
+            if self.learning_rate_decay:
+                self.learning_rate_scheduler.step()
+            self.train_time_cost['num_rounds'] += 1
+            self.train_time_cost['total_cost'] += time.time() - start_time
             return
-        
+
         for epoch in range(max_local_epochs):
             if "spot" in self.instance_type:
                 spot_index = int(self.instance_type.split('_')[1])
-                # Edge case: Handle invalid spot_strata
                 num_strata = max(1, getattr(self, 'spot_strata', 1))
+                # print(f"\nClient {self.id} (Spot_{spot_index}) - Configuration:")
+                # print(f"- Total batches: {num_batches}")
+                # print(f"- Number of strata: {num_strata}")
                 
-                # Edge case: Handle single batch
                 if num_batches <= 1:
                     num_batches_to_process = 1
+                    # print(f"- Single batch case: all spots process batch 1")
                 elif num_strata > num_batches:
-                    batch_values = np.arange(1, num_batches + 1)
-                    assigned_batches = list(batch_values[:min(len(batch_values), num_strata)])
-                    remaining_spots = num_strata - len(assigned_batches)
+                    base_assignments = list(range(1, num_batches + 1))
+                    # print(f"- Base assignments: {base_assignments}")
                     
-                    if remaining_spots > 0:
-                        bin_size = max(1, num_batches // remaining_spots)
-                        batch_bins = [list(range(i * bin_size + 1, min((i + 1) * bin_size + 1, num_batches + 1)))
-                                    for i in range(remaining_spots)]
-                        
-                        last_bin_end = batch_bins[-1][-1] if batch_bins else 0
-                        if last_bin_end < num_batches:
-                            batch_bins[-1].extend(range(last_bin_end + 1, num_batches + 1))
-                        
-                        for i in range(remaining_spots):
-                            if batch_bins[i]:  # Edge case: Check if bin is not empty
-                                assigned_batches.append(np.random.choice(batch_bins[i]))
-                    
-                    if not assigned_batches:  # Edge case: Handle empty assignments
-                        num_batches_to_process = 1
+                    if spot_index < num_batches:
+                        # First num_batches spots get direct assignments
+                        num_batches_to_process = base_assignments[spot_index]
+                        # print(f"- Spot_{spot_index} directly assigned to batch: {num_batches_to_process}")
                     else:
-                        np.random.shuffle(assigned_batches)
-                        num_batches_to_process = assigned_batches[spot_index % len(assigned_batches)]
+                        # Remaining spots use stratified sampling
+                        remaining_spot = spot_index - num_batches
+                        num_remaining_spots = num_strata - num_batches
+                        
+                        # Create stratified groups for remaining spots
+                        batches_per_stratum = math.ceil(num_batches / num_remaining_spots)
+                        strata_groups = []
+                        for i in range(0, num_batches, batches_per_stratum):
+                            group = base_assignments[i:i + batches_per_stratum]
+                            if group:  # Only add non-empty groups
+                                strata_groups.append(group)
+                                
+                        # print(f"- Stratified groups for remaining spots: {strata_groups}")
+                        stratum_index = remaining_spot % len(strata_groups)
+                        selected_stratum = strata_groups[stratum_index]
+                        num_batches_to_process = np.random.choice(selected_stratum)
+                        # print(f"- Remaining spot_{spot_index} assigned to stratum {stratum_index + 1}, batch: {num_batches_to_process}")
+
+
                 else:
-                    bin_size = max(1, num_batches // num_strata)
-                    batch_bins = [list(range(i * bin_size + 1, min((i + 1) * bin_size + 1, num_batches + 1)))
-                                for i in range(num_strata)]
+                    # Handle case when num_strata <= num_batches
+                    bin_size = num_batches // num_strata
+                    remaining_batches = num_batches % num_strata
+                    # print(f"- Base bin size: {bin_size}")
+                    # print(f"- Remaining batches: {remaining_batches}")
                     
-                    last_bin_end = batch_bins[-1][-1] if batch_bins else 0
-                    if last_bin_end < num_batches:
-                        batch_bins[-1].extend(range(last_bin_end + 1, num_batches + 1))
+                    batch_bins = []
+                    start = 1
+                    for i in range(num_strata):
+                        current_bin_size = bin_size + (1 if i < remaining_batches else 0)
+                        end = start + current_bin_size
+                        batch_bins.append(list(range(start, end)))
+                        start = end
                     
-                    np.random.shuffle(batch_bins)
+                    # print(f"- Bins distribution: {batch_bins}")
                     bin_choice = batch_bins[spot_index % num_strata]
-                    num_batches_to_process = np.random.choice(bin_choice) if bin_choice else 1
-                
-                # Edge case: Ensure valid number of batches
-                num_batches_to_process = max(1, min(num_batches_to_process, num_batches))
-                
-                print(f"Client {self.id} (Spot_{spot_index}) - Processing {num_batches_to_process} batches")
-                
+                    num_batches_to_process = np.random.choice(bin_choice)
+                    # print(f"- Selected batch: {num_batches_to_process}")
+
+                # Process batches with logging
                 batch_count = 0
                 for i, (x, y) in enumerate(trainloader):
                     if type(x) == type([]):
