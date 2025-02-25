@@ -20,7 +20,7 @@ cd ../system
 |  2500   | 1 | Spot(p20_q15) | `View5`  |
 |  2500   | 1 | Spot(p20_q20) | `View3`  |
 
-|  1250   | 2 | FedAvg        | |
+|  1250   | 2 | FedAvg        | `Jisoo1` |
 |  1250   | 2 | Scaffold      | |
 |  1250   | 2 | Spot(p20_q5)  | |
 |  1250   | 2 | Spot(p20_q10) | |
@@ -58,7 +58,7 @@ cd ../system
 
 ```bash
 # FedAvg - 1250 rounds, 2 local steps
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_fedavg_pathological_stratified"
+# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_fedavg_pathological_stratified"
 
 # SCAFFOLD - 1250 rounds, 2 local steps
 python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_resnet18_e2_scaffold_pathological_stratified"
