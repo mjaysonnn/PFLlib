@@ -30,7 +30,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 
 |  1250   | 2 | FedAvg | `View4` | IID
 
-|  1250   | 2 | FedAvg | `View4` | Non-IID
+
 
 
 ## Experiment Commands by Global Rounds
