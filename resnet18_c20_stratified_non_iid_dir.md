@@ -25,9 +25,6 @@ cd ../system
 |  1250   | 2 | Spot(p20_q15) | `Jisoo3` |
 |  1250   | 2 | Spot(p20_q20) | `Jisoo4` |
 
-|  2500   | 1 | FedAvg | `View5` | Non-IID
-
-
 ## Experiment Commands by Global Rounds
 
 
