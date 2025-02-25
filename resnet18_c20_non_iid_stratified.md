@@ -14,7 +14,7 @@ cd ../system
 | Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm | Run Name  | Status | 
 |-----------------------|--------------------|------------|------------|------------|
 
-|  2500   | 1 | Spot(p20_q5) | |
+|  2500   | 1 | Spot(p20_q5) | `Jisoo5` |
 |  2500   | 1 | Spot(p20_q10) | |
 |  2500   | 1 | Spot(p20_q15) | |
 |  2500   | 1 | Spot(p20_q20) | |
@@ -38,7 +38,7 @@ cd ../system
 # python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -bt 0.5 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_resnet18_e1_scaffold_stratified"
 
 # Spot (On-Demand: 20, Spot: 5, -jr=0.25)
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e1_spotq5_stratified"
+# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e1_spotq5_stratified"
 
 # Spot (On-Demand: 20, Spot: 10, -jr=0.3)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e1_spotq10_stratified"
