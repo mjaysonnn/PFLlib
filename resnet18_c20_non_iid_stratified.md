@@ -14,7 +14,7 @@ cd ../system
 | Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm | Run Name  | Status | 
 |-----------------------|--------------------|------------|------------|------------|
 
-|  2500   | 1 | Spot(p20_q5) | `Jisoo5` |
+|  2500   | 1 | Spot(p20_q5) | `Jisoo5` | Done
 |  2500   | 1 | Spot(p20_q10) | `View1` |
 |  2500   | 1 | Spot(p20_q15) | `View2` |
 |  2500   | 1 | Spot(p20_q20) | `View3` |
