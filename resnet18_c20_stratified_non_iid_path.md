@@ -13,17 +13,17 @@ cd ../system
 |-----------------------|--------------------|------------|------------|
 | Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm | Run Name  | Status | 
 |-----------------------|--------------------|------------|------------|------------|
-|  2500   | 1 | FedAvg        | `Jisoo5` |
-|  2500   | 1 | Scaffold      | `View1`  |
-|  2500   | 1 | Spot(p20_q5)  | `View4`  |
-|  2500   | 1 | Spot(p20_q10) | `View2`  |
-|  2500   | 1 | Spot(p20_q15) | `View5`  |
-|  2500   | 1 | Spot(p20_q20) | `View3`  |
+|  2500   | 1 | FedAvg        | `Jisoo5` | Done
+|  2500   | 1 | Scaffold      | `View1`  | Done
+|  2500   | 1 | Spot(p20_q5)  | `View4`  | Done
+|  2500   | 1 | Spot(p20_q10) | `View2`  | Done
+|  2500   | 1 | Spot(p20_q15) | `View5`  | Done
+|  2500   | 1 | Spot(p20_q20) | `View3`  | Done
 
-|  1250   | 2 | FedAvg        | `Jisoo1` |
-|  1250   | 2 | Scaffold      | `Jisoo2` |
-|  1250   | 2 | Spot(p20_q5)  | `Jisoo3` |
-|  1250   | 2 | Spot(p20_q10) | `Jisoo4` |
+|  1250   | 2 | FedAvg        | `Jisoo1` | Done
+|  1250   | 2 | Scaffold      | `Jisoo2` | Done
+|  1250   | 2 | Spot(p20_q5)  | `Jisoo3` | Done
+|  1250   | 2 | Spot(p20_q10) | `Jisoo4` | Done
 |  1250   | 2 | Spot(p20_q15) | |
 |  1250   | 2 | Spot(p20_q20) | |
 
