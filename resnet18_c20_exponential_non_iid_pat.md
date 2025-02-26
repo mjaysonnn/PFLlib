@@ -19,8 +19,6 @@ cd ../system
 | 2500 | 1 | Spot(p20_q15)| `Jisoo3` |
 | 2500 | 1 | Spot(p20_q20)|
 
-| 1250 | 2 | FedAvg       |
-| 1250 | 2 | SCAFFOLD     |
 | 1250 | 2 | Spot(p20_q5) |
 | 1250 | 2 | Spot(p20_q10)| 
 | 1250 | 2 | Spot(p20_q15)| 
