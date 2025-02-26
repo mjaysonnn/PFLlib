@@ -29,7 +29,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 | 250   | 10    | Spot(p20_q20)| `Jisoo2`|
 
 | 125   | 20    | FedAvg       | `Jisoo3`|
-| 125   | 20    | SCAFFOLD     |         |
+| 125   | 20    | SCAFFOLD     | `Jisoo4`|
 | 125   | 20    | Spot(p20_q5) |         |
 | 125   | 20    | Spot(p20_q10)|         |
 | 125   | 20    | Spot(p20_q15)|         |
@@ -74,7 +74,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 # python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "non_iid_resnet18_e20_stratified_pathological_fedavg"
 
 # SCAFFOLD - 125 rounds, 20 local steps
-python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 125 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_resnet18_e20_stratified_pathological_scaffold"
+# python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 125 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_resnet18_e20_stratified_pathological_scaffold"
 
 # Spot (On-Demand: 20, Spot: 5, -jr=0.25)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5  -lr 0.01 -lbs 32 -go "non_iid_resnet18_e20_stratified_pathological_spotq5"
