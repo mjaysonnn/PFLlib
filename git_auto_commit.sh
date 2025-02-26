@@ -5,6 +5,9 @@ echo "Pulling changes from the remote repository..."
 git pull
 
 # Check for changes
+# empty line
+echo ""
+echo "Checking for changes..."
 if [[ ! -z $(git status --porcelain) ]]; then
     # Stage all changes, including those in parent directories
     git add -A
