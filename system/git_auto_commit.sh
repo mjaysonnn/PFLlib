@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Git pull changes from the remote repository
+echo "Pulling changes from the remote repository..."
+git pull
+
 # Check for changes
 if [[ ! -z $(git status --porcelain) ]]; then
     # Stage all changes, including those in parent directories
