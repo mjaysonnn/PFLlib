@@ -21,7 +21,7 @@ cd ../system
 
 | 1250 | 2 | Spot(p20_q5) | `Jisoo5` |
 | 1250 | 2 | Spot(p20_q10)| `View1`  |
-| 1250 | 2 | Spot(p20_q15)| 
+| 1250 | 2 | Spot(p20_q15)| `View4`  |
 | 1250 | 2 | Spot(p20_q20)| 
 
 
@@ -65,7 +65,7 @@ cd ../system
 # python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_exponential_pathological_spotq10"
 
 # Spot (On-Demand: 20, Spot: 15, -jr=0.35)
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_exponential_pathological_spotq15"
+# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_exponential_pathological_spotq15"
 
 # Spot (On-Demand: 20, Spot: 20, -jr=0.4)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e2_exponential_pathological_spotq20"
