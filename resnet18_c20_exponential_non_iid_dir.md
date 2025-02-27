@@ -23,10 +23,10 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 | Size | Epochs | Method         | Server | Status |
 |------|--------|----------------|--------|--------|
 
-| 250  | 10     | Spot(p20_q5)   | `View2` 
-| 250  | 10     | Spot(p20_q10)  | `View3`
-| 250  | 10     | Spot(p20_q15)  | `View4`
-| 250  | 10     | Spot(p20_q20)  | `View5`
+| 250  | 10     | Spot(p20_q5)   | `View2` | Done   |
+| 250  | 10     | Spot(p20_q10)  | `View3` |
+| 250  | 10     | Spot(p20_q15)  | `View4` |
+| 250  | 10     | Spot(p20_q20)  | `View5` |
 
 | 125  | 20     | Spot(p20_q5)   | `Jisoo1`|
 | 125  | 20     | Spot(p20_q10)  | `Jisoo2`|
