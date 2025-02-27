@@ -19,7 +19,7 @@ cd ../system
 | 2500 | 1 | Spot(p20_q15)| `Jisoo3` | Done
 | 2500 | 1 | Spot(p20_q20)| `Jisoo4` |
 
-| 1250 | 2 | Spot(p20_q5) | `Jisoo5` |
+| 1250 | 2 | Spot(p20_q5) | `Jisoo5` | Done
 | 1250 | 2 | Spot(p20_q10)| `View1`  |
 | 1250 | 2 | Spot(p20_q15)| `View4`  |
 | 1250 | 2 | Spot(p20_q20)| `View5`  |
