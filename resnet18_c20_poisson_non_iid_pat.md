@@ -21,8 +21,8 @@ cd ../system
 
 
 |  1250   | 2 | Spot(p20_q5) | `View4` | Done
-|  1250   | 2 | Spot(p20_q10) | `View5`
-|  1250   | 2 | Spot(p20_q15) | `Jisoo1`
+|  1250   | 2 | Spot(p20_q10) | `View5` | Done
+|  1250   | 2 | Spot(p20_q15) | `Jisoo1` 
 |  1250   | 2 | Spot(p20_q20) | `Jisoo2`
 
 ## Experiment Commands by Global Rounds
