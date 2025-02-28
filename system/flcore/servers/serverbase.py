@@ -119,9 +119,20 @@ class Server(object):
     def select_clients(self):
         """
         Selects clients randomly while ensuring fairness.
-        Assigns part of them as on-demand, and the rest as spot.
+        If algorithm is SCAFFOLD, uses simple random selection.
+        Otherwise, assigns part of them as on-demand, and the rest as spot.
         Uses uniform sampling instead of Poisson.
         """
+        # For SCAFFOLD algorithm, use simple client selection
+        if hasattr(self, 'args') and self.args.algorithm == "SCAFFOLD":
+            if self.random_join_ratio:
+                self.current_num_join_clients = np.random.choice(range(self.num_join_clients, self.num_clients+1), 1, replace=False)[0]
+            else:
+                self.current_num_join_clients = self.num_join_clients
+            selected_clients = list(np.random.choice(self.clients, self.current_num_join_clients, replace=False))
+            return selected_clients
+        
+        # For other algorithms, use the more complex selection with on-demand and spot clients
         if self.random_join_ratio:
             self.current_num_join_clients = np.random.choice(
                 range(self.num_join_clients, self.num_clients + 1), 1, replace=False)[0]
@@ -144,11 +155,10 @@ class Server(object):
 
         for client in on_demand_clients:
             client.instance_type = "on-demand"  # Add instance_type to on-demand clients
-    
+
         for client in spot_clients:
             client.instance_type = "spot"  # Add instance_type to spot clients
             
-
         # print(f"\n=== Client Selection for Round {self.current_round} ===")
         # print(f"Total Selected: {len(selected_clients)} / {self.num_clients}")
         # for client in selected_clients:
@@ -157,6 +167,7 @@ class Server(object):
         # print("========================================\n")
 
         return selected_clients
+
 
     def send_models(self):
         assert (len(self.clients) > 0)
