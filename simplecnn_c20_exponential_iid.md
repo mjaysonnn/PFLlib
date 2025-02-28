@@ -24,7 +24,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 |  2500   | 1 | Spot(p20_q20) | `Jisoo2` |
 
 
-|  1250   | 2 | FedAvg |
+|  1250   | 2 | FedAvg | `Jisoo3`
 |  1250   | 2 | Scaffold |
 |  1250   | 2 | Spot(p20_q5) |
 |  1250   | 2 | Spot(p20_q10) |
@@ -63,7 +63,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 
 ```bash
 # FedAvg - 1250 rounds, 2 local steps
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "iid_CNN_e2_exponential_fedavg"
+# python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "iid_CNN_e2_exponential_fedavg"
 
 # SCAFFOLD - 1250 rounds, 2 local steps
 python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "iid_CNN_e2_exponential_scaffold"
