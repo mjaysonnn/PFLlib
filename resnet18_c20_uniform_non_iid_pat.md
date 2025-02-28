@@ -25,7 +25,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 | 250  | 10  | Spot(p20_q5) | `View4` |
 | 250  | 10  | Spot(p20_q10) | `View5` |
 | 250  | 10  | Spot(p20_q15) | `Jisoo1`  |
-| 250  | 10  | Spot(p20_q20) |
+| 250  | 10  | Spot(p20_q20) | `Jisoo2`  |
 
 | 125  | 20 | Spot(p20_q5) | |
 | 125  | 20 | Spot(p20_q10) | |
@@ -55,7 +55,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 # python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_uniform_pathological_spotq15"
 
 # FedAvg (On-Demand: 20, Spot: 20, -jr=0.4)
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_uniform_pathological_spotq20"
+# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_uniform_pathological_spotq20"
 ``` 
 
 
