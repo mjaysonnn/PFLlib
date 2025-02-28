@@ -20,7 +20,7 @@ cd ../system
 | 2500                  | 1                  | Spot(p20_q20) | `View3` |
 
 | 1250                  | 2                  | FedAvg | `View4` |
-| 1250                  | 2                  | Scaffold |
+| 1250                  | 2                  | Scaffold | `View5` |
 | 1250                  | 2                  | Spot(p20_q5) | 
 | 1250                  | 2                  | Spot(p20_q10) |
 | 1250                  | 2                  | Spot(p20_q15) |
@@ -57,7 +57,7 @@ cd ../system
 # python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "non_iid_CNN_e2_exponential_dirichlet_fedavg"
 
 # SCAFFOLD - 1250 rounds, 2 local steps
-python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_CNN_e2_exponential_dirichlet_scaffold"
+# python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_CNN_e2_exponential_dirichlet_scaffold"
 
 # FedAvg (On-Demand: 20, Spot: 5, -jr=0.25)
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5  -lr 0.01 -lbs 32 -go "non_iid_CNN_e2_exponential_dirichlet_spotq5"
