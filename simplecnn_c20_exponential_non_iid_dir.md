@@ -10,11 +10,11 @@ cd ../system
 
 ## Experiment Setup Table
 
-| Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm | Run Name  | Status | 
-|-----------------------|--------------------|------------|------------|------------|
-| 2500                  | 1                  | FedAvg |
-| 2500                  | 1                  | Scaffold |
-| 2500                  | 1                  | Spot(p20_q5) | 
+| Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm    | Run Name  | Status | 
+|-----------------------|--------------------|------------   |------------|------------|
+| 2500                  | 1                  | FedAvg        | `Jisoo3` |
+| 2500                  | 1                  | Scaffold      |
+| 2500                  | 1                  | Spot(p20_q5)  | 
 | 2500                  | 1                  | Spot(p20_q10) |
 | 2500                  | 1                  | Spot(p20_q15) |
 | 2500                  | 1                  | Spot(p20_q20) |
@@ -32,7 +32,7 @@ cd ../system
 
 ```bash
 # FedAvg - 2500 rounds, 1 local step
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_exponential_dirichlet_fedavg"
+# python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_exponential_dirichlet_fedavg"
 
 # SCAFFOLD - 2500 rounds, 1 local step
 python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_CNN_e1_exponential_dirichlet_scaffold"
