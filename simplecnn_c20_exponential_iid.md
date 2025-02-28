@@ -16,7 +16,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 
 | Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm | Run Name  | Status | 
 |-----------------------|--------------------|------------|------------|------------|
-| 2500    | 1 | FedAvg |
+| 2500    | 1 | FedAvg | `View2` | 
 | 2500    | 1 | Scaffold |
 |  2500   | 1 | Spot(p20_q5) |
 |  2500   | 1 | Spot(p20_q10) |
@@ -39,7 +39,7 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 
 ```bash
 # FedAvg - 2500 rounds, 1 local step
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "iid_CNN_e1_exponential_fedavg"
+# python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "iid_CNN_e1_exponential_fedavg"
 
 # SCAFFOLD - 2500 rounds, 1 local step
 python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "iid_CNN_e1_exponential_scaffold"
