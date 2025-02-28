@@ -19,7 +19,7 @@ cd ../system
 | 2500                  | 1                  | Spot(p20_q15) | `View2` |
 | 2500                  | 1                  | Spot(p20_q20) | `View3` |
 
-| 1250                  | 2                  | FedAvg |
+| 1250                  | 2                  | FedAvg | `View4` |
 | 1250                  | 2                  | Scaffold |
 | 1250                  | 2                  | Spot(p20_q5) | 
 | 1250                  | 2                  | Spot(p20_q10) |
@@ -54,7 +54,7 @@ cd ../system
 
 ```bash
 # FedAvg - 1250 rounds, 2 local steps
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "non_iid_CNN_e2_exponential_dirichlet_fedavg"
+# python main.py -data Cifar10 -m CNN -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "non_iid_CNN_e2_exponential_dirichlet_fedavg"
 
 # SCAFFOLD - 1250 rounds, 2 local steps
 python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_CNN_e2_exponential_dirichlet_scaffold"
