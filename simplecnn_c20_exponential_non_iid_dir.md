@@ -15,7 +15,7 @@ cd ../system
 | 2500                  | 1                  | FedAvg        | `Jisoo3` |
 | 2500                  | 1                  | Scaffold      | `Jisoo4` |
 | 2500                  | 1                  | Spot(p20_q5)  | `Jisoo5` |
-| 2500                  | 1                  | Spot(p20_q10) |
+| 2500                  | 1                  | Spot(p20_q10) | `View1` |
 | 2500                  | 1                  | Spot(p20_q15) |
 | 2500                  | 1                  | Spot(p20_q20) |
 
@@ -41,7 +41,7 @@ cd ../system
 # python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5  -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_exponential_dirichlet_spotq5"
 
 # Spot (On-Demand: 20, Spot: 10, -jr=0.3)
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10  -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_exponential_dirichlet_spotq10"
+# python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10  -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_exponential_dirichlet_spotq10"
 
 # Spot (On-Demand: 20, Spot: 15, -jr=0.35)
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15  -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_exponential_dirichlet_spotq15"
