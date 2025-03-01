@@ -122,6 +122,15 @@ class Server(object):
         Assigns part of them as on-demand, and the rest as spot.
         Uses uniform sampling instead of Poisson.
         """
+        
+        if hasattr(self, 'args') and self.args.algorithm == "SCAFFOLD":
+            if self.random_join_ratio:
+                self.current_num_join_clients = np.random.choice(range(self.num_join_clients, self.num_clients+1), 1, replace=False)[0]
+            else:
+                self.current_num_join_clients = self.num_join_clients
+            selected_clients = list(np.random.choice(self.clients, self.current_num_join_clients, replace=False))
+            return selected_clients
+        
         if self.random_join_ratio:
             self.current_num_join_clients = np.random.choice(
                 range(self.num_join_clients, self.num_clients + 1), 1, replace=False)[0]
