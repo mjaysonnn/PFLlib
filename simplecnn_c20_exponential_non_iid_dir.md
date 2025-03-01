@@ -21,10 +21,10 @@ cd ../system
 
 | 1250                  | 2                  | FedAvg | `View4` | Done
 | 1250                  | 2                  | Scaffold | `View5` | Done
-| 1250                  | 2                  | Spot(p20_q5) | `Jisoo1` 
-| 1250                  | 2                  | Spot(p20_q10) | `Jisoo1` 
-| 1250                  | 2                  | Spot(p20_q15) |`Jisoo1` 
-| 1250                  | 2                  | Spot(p20_q20) |`Jisoo1` 
+| 1250                  | 2                  | Spot(p20_q5) | `Jisoo1` (Done)
+| 1250                  | 2                  | Spot(p20_q10) | `Jisoo1` (Done)
+| 1250                  | 2                  | Spot(p20_q15) |`Jisoo1` (Done)
+| 1250                  | 2                  | Spot(p20_q20) |`Jisoo1` (Done)
 
 ## Experiment Commands by Global Rounds
 

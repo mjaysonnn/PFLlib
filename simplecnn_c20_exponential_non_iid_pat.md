@@ -20,12 +20,12 @@ cd ../system
 | 2500 | 1 | Spot(p20_q15)| 
 | 2500 | 1 | Spot(p20_q20)| 
 
-| 2500 | 2 | FedAvg | `Jisoo3`
-| 2500 | 2 | Scaffold |
-| 1250 | 2 | Spot(p20_q5) | 
-| 1250 | 2 | Spot(p20_q10)| 
-| 1250 | 2 | Spot(p20_q15)| 
-| 1250 | 2 | Spot(p20_q20)| 
+| 2500 | 2 | FedAvg | `Jisoo3` (Done)
+| 2500 | 2 | Scaffold | `Jisoo3` (Done)
+| 1250 | 2 | Spot(p20_q5) | `Jisoo3` (Done)
+| 1250 | 2 | Spot(p20_q10)| `Jisoo3` (Done)
+| 1250 | 2 | Spot(p20_q15)| `Jisoo3` (Done)
+| 1250 | 2 | Spot(p20_q20)| `Jisoo3` (Done)
 
 
 ### -gr 2500 (Local Steps: -ls 1)
