@@ -20,8 +20,8 @@ cd ../system
 | 2500 | 1 | Spot(p20_q15)| 
 | 2500 | 1 | Spot(p20_q20)| 
 
-| 2500 | 1 | FedAvg | `Jisoo3`
-| 2500 | 1 | Scaffold |
+| 2500 | 2 | FedAvg | `Jisoo3`
+| 2500 | 2 | Scaffold |
 | 1250 | 2 | Spot(p20_q5) | 
 | 1250 | 2 | Spot(p20_q10)| 
 | 1250 | 2 | Spot(p20_q15)| 
