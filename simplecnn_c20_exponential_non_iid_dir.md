@@ -19,8 +19,8 @@ cd ../system
 | 2500                  | 1                  | Spot(p20_q15) | `View2` | Done |
 | 2500                  | 1                  | Spot(p20_q20) | `View3` | Done |
 
-| 1250                  | 2                  | FedAvg | `View4` |
-| 1250                  | 2                  | Scaffold | `View5` |
+| 1250                  | 2                  | FedAvg | `View4` | Done
+| 1250                  | 2                  | Scaffold | `View5` | Done
 | 1250                  | 2                  | Spot(p20_q5) | 
 | 1250                  | 2                  | Spot(p20_q10) |
 | 1250                  | 2                  | Spot(p20_q15) |
