@@ -22,12 +22,12 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 
 | Size | Epochs | Method         | Server | Status |
 |------|--------|----------------|--------|--------|
-| 250  | 10     | FedAvg   | `View1` |
-| 250  | 10     | Scaffold  |
-| 250  | 10     | Spot(p20_q5)   | 
-| 250  | 10     | Spot(p20_q10)  | 
-| 250  | 10     | Spot(p20_q15)  | 
-| 250  | 10     | Spot(p20_q20)  | 
+| 250  | 10     | FedAvg   | `View1` | Done
+| 250  | 10     | Scaffold  | `View1` | Done
+| 250  | 10     | Spot(p20_q5)   | `View1` | Done
+| 250  | 10     | Spot(p20_q10)  | `View1` | Done
+| 250  | 10     | Spot(p20_q15)  | `View1` | Done
+| 250  | 10     | Spot(p20_q20)  | `View1` | Done
 
 |125   | 20     | FedAvg   | `View2`
 |125   | 20     | Scaffold  |
