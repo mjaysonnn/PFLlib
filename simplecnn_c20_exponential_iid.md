@@ -89,6 +89,8 @@ python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.35
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20  -lr 0.01 -lbs 32 -go "iid_CNN_e20_exponential_spotq20"
 ```
 
-
+```bash
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "iid_CNN_e20_exponential_fedavg" && python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 125 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "iid_CNN_e20_exponential_scaffold" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5  -lr 0.01 -lbs 32 -go "iid_CNN_e20_exponential_spotq5" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10  -lr 0.01 -lbs 32 -go "iid_CNN_e20_exponential_spotq10" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15  -lr 0.01 -lbs 32 -go "iid_CNN_e20_exponential_spotq15" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20  -lr 0.01 -lbs 32 -go "iid_CNN_e20_exponential_spotq20"
+```
 
 
