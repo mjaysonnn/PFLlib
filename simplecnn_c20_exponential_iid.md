@@ -28,12 +28,12 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 | 250  | 10     | Spot(p20_q15)  | `Jisoo4` (Done) 
 | 250  | 10     | Spot(p20_q20)  | `Jisoo4` (Done) 
 
-| 125  | 20     | FedAvg   | `Jisoo5` 
-| 125  | 20     | Scaffold  |
-| 125  | 20     | Spot(p20_q5)   | 
-| 125  | 20     | Spot(p20_q10)  | 
-| 125  | 20     | Spot(p20_q15)  | 
-| 125  | 20     | Spot(p20_q20)  |
+| 125  | 20     | FedAvg   | `Jisoo5` (Done)
+| 125  | 20     | Scaffold  |`Jisoo5` (Done)
+| 125  | 20     | Spot(p20_q5)   | `Jisoo5` (Done)
+| 125  | 20     | Spot(p20_q10)  | `Jisoo5` (Done)
+| 125  | 20     | Spot(p20_q15)  | `Jisoo5` (Done)
+| 125  | 20     | Spot(p20_q20)  |`Jisoo5` (Done)
 
 
 
