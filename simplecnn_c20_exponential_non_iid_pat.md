@@ -13,7 +13,7 @@ cd ../system
 | Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm | Run Name | Status |
 |-----------------------|--------------------|-----------|----------|--------|
 
-| 2500 | 1 | FedAvg | `Jisoo2` 
+| 2500 | 1 | FedAvg | `Jisoo2` (Done)
 | 2500 | 1 | Scaffold |
 | 2500 | 1 | Spot(p20_q5) | 
 | 2500 | 1 | Spot(p20_q10)| 
