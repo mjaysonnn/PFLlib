@@ -14,7 +14,7 @@ cd ../system
 | Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm | Run Name  | Status | 
 |-----------------------|--------------------|------------|------------|------------|
 
-|  2500   | 1 | Spot(p20_q5)  | 
+|  2500   | 1 | Spot(p20_q5)  | `Jisoo5` |
 |  2500   | 1 | Spot(p20_q10) | 
 |  2500   | 1 | Spot(p20_q15) | 
 |  2500   | 1 | Spot(p20_q20) | 
@@ -50,6 +50,9 @@ python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.35
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_stratified_dirichlet_spotq20"
 ```
 
+```bash
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_stratified_dirichlet_spotq5" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_stratified_dirichlet_spotq10" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_stratified_dirichlet_spotq15" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20 -bt 0.5 -lr 0.01 -lbs 32 -go "non_iid_CNN_e1_stratified_dirichlet_spotq20"
+```
 
 ## -gr 1250 (Local Steps: -ls 2)
 
