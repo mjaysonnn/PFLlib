@@ -22,14 +22,14 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 | Size | Epochs | Method         | Server | Status |
 |------|--------|----------------|--------|--------|
 
-| 250  | 10     | FedAvg   | `View3` |
+| 250  | 10     | FedAvg   | `View3` | (Done)
 | 250  | 10     | Scaffold  |
 | 250  | 10     | Spot(p20_q5)   | 
 | 250  | 10     | Spot(p20_q10)  | 
 | 250  | 10     | Spot(p20_q15)  | 
 | 250  | 10     | Spot(p20_q20)  | 
 
-| 125  | 20     | FedAvg   | `View4` |
+| 125  | 20     | FedAvg   | `View4` | (Done)
 | 125  | 20     | Scaffold  |
 | 125  | 20     | Spot(p20_q5)   | 
 | 125  | 20     | Spot(p20_q10)  | 
@@ -93,7 +93,9 @@ python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.4 
 ```
 
 ```bash
-python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "non_iid_CNN_e20_exponential_pathological_fedavg" && python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 125 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_CNN_e20_exponential_pathological_scaffold" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5  -lr 0.01 -lbs 32 -go "non_iid_CNN_e20_exponential_pathological_spotq5" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10  -lr 0.01 -lbs 32 -go "non_iid_CNN_e20_exponential_pathological_spotq10" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15  -lr 0.01 -lbs 32 -go "non_iid_CNN_e20_exponential_pathological_spotq15" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20  -lr 0.01 -lbs 32 -go "non_iid_CNN_e20_exponential_pathological_spotq20"
+# python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "non_iid_CNN_e20_exponential_pathological_fedavg" && 
+
+python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 125 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_CNN_e20_exponential_pathological_scaffold" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5  -lr 0.01 -lbs 32 -go "non_iid_CNN_e20_exponential_pathological_spotq5" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10  -lr 0.01 -lbs 32 -go "non_iid_CNN_e20_exponential_pathological_spotq10" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15  -lr 0.01 -lbs 32 -go "non_iid_CNN_e20_exponential_pathological_spotq15" && python main.py -data Cifar10 -m CNN -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20  -lr 0.01 -lbs 32 -go "non_iid_CNN_e20_exponential_pathological_spotq20"
 
 ```
 
