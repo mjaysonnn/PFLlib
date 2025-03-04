@@ -22,15 +22,15 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 | Size | Epochs | Method         | Server | Status |
 |------|--------|----------------|--------|--------|
 
-| 250  | 10     | Spot(p20_q5)   | `Jisoo5`| Done |
-| 250  | 10     | Spot(p20_q10)  | `View1` | Done |
-| 250  | 10     | Spot(p20_q15)  | `View2` | Done |
-| 250  | 10     | Spot(p20_q20)  | `View3` | Done |
+| 250  | 10     | Spot(p30_q5)   | 
+| 250  | 10     | Spot(p30_q10)  | 
+| 250  | 10     | Spot(p30_q15)  | 
+| 250  | 10     | Spot(p30_q20)  | 
 
-| 125  | 20     | Spot(p20_q5)   | `View4` | Done | 
-| 125  | 20     | Spot(p20_q10)  | `View5` | Done |
-| 125  | 20     | Spot(p20_q15)  | `Jisoo1`| Done |
-| 125  | 20     | Spot(p20_q20)  | `Jisoo2`| Done |
+| 125  | 20     | Spot(p30_q5)   | 
+| 125  | 20     | Spot(p30_q10)  | 
+| 125  | 20     | Spot(p30_q15)  | 
+| 125  | 20     | Spot(p30_q20)  | 
 
 
 ## Experiment Commands by Global Rounds
@@ -40,22 +40,23 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 
 ```bash
 # FedAvg - 250 rounds, 10 local steps
-# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_fedavg_exponential"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_exponential_pathological_p30_fedavg"
 
 # SCAFFOLD - 250 rounds, 10 local steps
-# python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 250 -ls 10 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_resnet18_e10_scaffold_exponential"
+python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 250 -ls 10 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_resnet18_e10_exponential_pathological_p30_scaffold"
 
-# Spot (On-Demand: 20, Spot: 5, -jr=0.25)
-# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5  -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_exponential_pathological_spotq5"
+# Spot (On-Demand: 30, Spot: 5, -jr=0.35)
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.35 --on_demand_clients 30 --spot_clients 5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_exponential_pathological_p30_spotq5"
 
-# Spot (On-Demand: 20, Spot: 10, -jr=0.3)
-# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10  -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_exponential_pathological_spotq10"
+# Spot (On-Demand: 30, Spot: 10, -jr=0.4)
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.4 --on_demand_clients 30 --spot_clients 10 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_exponential_pathological_p30_spotq10"
 
-# FedAvg (On-Demand: 20, Spot: 15, -jr=0.35)
-# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15  -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_exponential_pathological_spotq15"
+# Spot (On-Demand: 30, Spot: 15, -jr=0.45)
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.45 --on_demand_clients 30 --spot_clients 15 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_exponential_pathological_p30_spotq15"
 
-# FedAvg (On-Demand: 20, Spot: 20, -jr=0.4)
-# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20  -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_exponential_pathological_spotq20"
+# Spot (On-Demand: 30, Spot: 20, -jr=0.5)
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e10_exponential_pathological_p30_spotq20"
+
 ``` 
 
 
@@ -65,22 +66,23 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 
 ```bash
 # FedAvg - 125 rounds, 20 local steps
-# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -lbs 32 -go "non_iid_resnet18_e20_fedavg_exponential"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e20_exponential_pathological_p30_fedavg"
 
 # SCAFFOLD - 125 rounds, 20 local steps
-# python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 125 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0  -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_resnet18_e20_scaffold_exponential"
+python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 125 -ls 20 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_resnet18_e20_exponential_pathological_p30_scaffold"
 
-# Spot (On-Demand: 20, Spot: 5, -jr=0.25)
-# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.25 --on_demand_clients 20 --spot_clients 5  -lr 0.01 -lbs 32 -go "non_iid_resnet18_e20_exponential_pathological_spotq5"
+# Spot (On-Demand: 30, Spot: 5, -jr=0.35)
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.35 --on_demand_clients 30 --spot_clients 5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e20_exponential_pathological_p30_spotq5"
 
-# Spot (On-Demand: 20, Spot: 10, -jr=0.3)
-# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.3 --on_demand_clients 20 --spot_clients 10  -lr 0.01 -lbs 32 -go "non_iid_resnet18_e20_exponential_pathological_spotq10"
+# Spot (On-Demand: 30, Spot: 10, -jr=0.4)
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.4 --on_demand_clients 30 --spot_clients 10 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e20_exponential_pathological_p30_spotq10"
 
-# Spot (On-Demand: 20, Spot: 15, -jr=0.35)
-# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.35 --on_demand_clients 20 --spot_clients 15  -lr 0.01 -lbs 32 -go "non_iid_resnet18_e20_exponential_pathological_spotq15"
+# Spot (On-Demand: 30, Spot: 15, -jr=0.45)
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.45 --on_demand_clients 30 --spot_clients 15 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e20_exponential_pathological_p30_spotq15"
 
-# Spot (On-Demand: 20, Spot: 20, -jr=0.4)
-# python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.4 --on_demand_clients 20 --spot_clients 20  -lr 0.01 -lbs 32 -go "non_iid_resnet18_e20_exponential_pathological_spotq20"
+# Spot (On-Demand: 30, Spot: 20, -jr=0.5)
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e20_exponential_pathological_p30_spotq20"
+
 ```
 
 
