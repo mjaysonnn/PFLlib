@@ -22,7 +22,7 @@ cd ../system
 | 2500 | 1 | Spot(p30_q15)| 
 | 2500 | 1 | Spot(p30_q20)| 
 
-| 2500 | 2 | FedAvg | 
+| 2500 | 2 | FedAvg | `View1`
 | 2500 | 2 | Scaffold | 
 | 1250 | 2 | Spot(p30_q5) | 
 | 1250 | 2 | Spot(p30_q10)| 
@@ -76,4 +76,8 @@ python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr
 
 # Spot (On-Demand: 30, Spot: 20, -jr=0.5)
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -lr 0.01 -lbs 32 -go "non_iid_ResNet18_e2_exponential_pathological_p30_spotq20"
+```
+
+```bash
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -lr 0.01 -lbs 32 -go "non_iid_ResNet18_e2_exponential_pathological_p30_fedavg" && python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 1250 -ls 2 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_ResNet18_e2_exponential_pathological_p30_scaffold" && python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.35 --on_demand_clients 30 --spot_clients 5 -lr 0.01 -lbs 32 -go "non_iid_ResNet18_e2_exponential_pathological_p30_spotq5" && python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.4 --on_demand_clients 30 --spot_clients 10 -lr 0.01 -lbs 32 -go "non_iid_ResNet18_e2_exponential_pathological_p30_spotq10" && python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.45 --on_demand_clients 30 --spot_clients 15 -lr 0.01 -lbs 32 -go "non_iid_ResNet18_e2_exponential_pathological_p30_spotq15" && python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -lr 0.01 -lbs 32 -go "non_iid_ResNet18_e2_exponential_pathological_p30_spotq20"
 ```
