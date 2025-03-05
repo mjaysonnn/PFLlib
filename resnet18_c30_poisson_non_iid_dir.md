@@ -14,7 +14,7 @@ cd ../system
 | Global Rounds (`-gr`) | Local Steps (`-ls`) | Algorithm | Run Name  | Status | 
 |-----------------------|--------------------|------------|------------|------------|
 
-|  2500   | 1 | Spot(p30_q5) |
+|  2500   | 1 | Spot(p30_q5) | `View4` |
 |  2500   | 1 | Spot(p30_q10) |
 |  2500   | 1 | Spot(p30_q15) |
 |  2500   | 1 | Spot(p30_q20) |
@@ -51,6 +51,9 @@ python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr
 
 ```
 
+```bash
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e1_poisson_p30_fedavg" && python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 30 --spot_clients 0 -lr 0.01 -slr 1.0 -lbs 32 -go "non_iid_resnet18_e1_poisson_p30_scaffold" && python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.35 --on_demand_clients 30 --spot_clients 5 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e1_poisson_p30_spotq5" && python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.4 --on_demand_clients 30 --spot_clients 10 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e1_poisson_p30_spotq10" && python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.45 --on_demand_clients 30 --spot_clients 15 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e1_poisson_p30_spotq15" && python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -lr 0.01 -lbs 32 -go "non_iid_resnet18_e1_poisson_p30_spotq20"
+```
 
 ## -gr 1250 (Local Steps: -ls 2)
 
