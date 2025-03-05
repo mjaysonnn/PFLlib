@@ -18,14 +18,14 @@ cd ../system
 
 | Size | Epochs | Method         | Server | Status |
 |------|--------|----------------|--------|--------|
-| 250  | 10     | FedAvg         |
+| 250  | 10     | FedAvg         | `View4` |
 | 250  | 10     | SCAFFOLD       |
 | 250  | 10     | Spot(p30_q5)   |
 | 250  | 10     | Spot(p30_q10)  |
 | 250  | 10     | Spot(p30_q15)  |
 | 250  | 10     | Spot(p20_q20)  |
 
-| 125  | 20     | FedAvg         |
+| 125  | 20     | FedAvg         | `View5` |
 | 125  | 20     | SCAFFOLD       |
 | 125  | 20     | Spot(p30_q5)   |
 | 125  | 20     | Spot(p30_q10)  |
