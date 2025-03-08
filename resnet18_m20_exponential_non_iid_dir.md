@@ -25,7 +25,7 @@ cd ../system
 
 | Global Rounds | Local Steps | Algorithm |
 |--------------|-------------|-----------|
-| 1250 | 2 | FedAvg |
+| 1250 | 2 | FedAvg | `Jisoo4` |
 | 1250 | 2 | Spot(p5_q20) |
 | 1250 | 2 | Spot(p5_q30) |
 | 1250 | 2 | Spot(p5_q40) |
