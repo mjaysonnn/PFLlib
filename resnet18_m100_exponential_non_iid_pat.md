@@ -21,48 +21,48 @@ Each experiment runs FedAvg and SCAFFOLD with the same number of communication r
 
 | Global Rounds | Local Steps | Algorithm |
 |--------------|-------------|-----------|
-| 2500 | 1 | FedAvg |
-| 2500 | 1 | Spot(p0_q100) |
-| 2500 | 1 | Spot(p10_q90) |
-| 2500 | 1 | Spot(p10_q100) |
-| 2500 | 1 | Spot(p20_q80) |
-| 2500 | 1 | Spot(p20_q90) |
-| 2500 | 1 | Spot(p20_q100) |
-| 2500 | 1 | Spot(p40_q60) |
-| 2500 | 1 | Spot(p40_q70) |
-| 2500 | 1 | Spot(p40_q80) |
-| 2500 | 1 | Spot(p40_q90) |
-| 2500 | 1 | Spot(p40_q100) |
-| 2500 | 1 | Spot(p60_q40) |
-| 2500 | 1 | Spot(p60_q50) |
-| 2500 | 1 | Spot(p60_q60) |
-| 2500 | 1 | Spot(p60_q70) |
-| 2500 | 1 | Spot(p60_q80) |
-| 2500 | 1 | Spot(p60_q90) |
-| 2500 | 1 | Spot(p60_q100) |
+| 250 | 1 | FedAvg |
+| 250 | 1 | Spot(p0_q100) |
+| 250 | 1 | Spot(p10_q90) |
+| 250 | 1 | Spot(p10_q100) |
+| 250 | 1 | Spot(p20_q80) |
+| 250 | 1 | Spot(p20_q90) |
+| 250 | 1 | Spot(p20_q100) |
+| 250 | 1 | Spot(p40_q60) |
+| 250 | 1 | Spot(p40_q70) |
+| 250 | 1 | Spot(p40_q80) |
+| 250 | 1 | Spot(p40_q90) |
+| 250 | 1 | Spot(p40_q100) |
+| 250 | 1 | Spot(p60_q40) |
+| 250 | 1 | Spot(p60_q50) |
+| 250 | 1 | Spot(p60_q60) |
+| 250 | 1 | Spot(p60_q70) |
+| 250 | 1 | Spot(p60_q80) |
+| 250 | 1 | Spot(p60_q90) |
+| 250 | 1 | Spot(p60_q100) |
 
 
 | Global Rounds | Local Steps | Algorithm |
 |--------------|-------------|-----------|
-| 1250 | 2 | FedAvg |
-| 1250 | 2 | Spot(p0_q100) |
-| 1250 | 2 | Spot(p10_q90) |
-| 1250 | 2 | Spot(p10_q100) |
-| 1250 | 2 | Spot(p20_q80) |
-| 1250 | 2 | Spot(p20_q90) |
-| 1250 | 2 | Spot(p20_q100) |
-| 1250 | 2 | Spot(p40_q60) |
-| 1250 | 2 | Spot(p40_q70) |
-| 1250 | 2 | Spot(p40_q80) |
-| 1250 | 2 | Spot(p40_q90) |
-| 1250 | 2 | Spot(p40_q100) |
-| 1250 | 2 | Spot(p60_q40) |
-| 1250 | 2 | Spot(p60_q50) |
-| 1250 | 2 | Spot(p60_q60) |
-| 1250 | 2 | Spot(p60_q70) |
-| 1250 | 2 | Spot(p60_q80) |
-| 1250 | 2 | Spot(p60_q90) |
-| 1250 | 2 | Spot(p60_q100)|
+| 125 | 2 | FedAvg |
+| 125 | 2 | Spot(p0_q100) |
+| 125 | 2 | Spot(p10_q90) |
+| 125 | 2 | Spot(p10_q100) |
+| 125 | 2 | Spot(p20_q80) |
+| 125 | 2 | Spot(p20_q90) |
+| 125 | 2 | Spot(p20_q100) |
+| 125 | 2 | Spot(p40_q60) |
+| 125 | 2 | Spot(p40_q70) |
+| 125 | 2 | Spot(p40_q80) |
+| 125 | 2 | Spot(p40_q90) |
+| 125 | 2 | Spot(p40_q100) |
+| 125 | 2 | Spot(p60_q40) |
+| 125 | 2 | Spot(p60_q50) |
+| 125 | 2 | Spot(p60_q60) |
+| 125 | 2 | Spot(p60_q70) |
+| 125 | 2 | Spot(p60_q80) |
+| 125 | 2 | Spot(p60_q90) |
+| 125 | 2 | Spot(p60_q100)|
 
 ## Experiment Commands by Global Rounds
 
