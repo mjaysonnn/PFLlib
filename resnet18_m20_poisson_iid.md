@@ -12,7 +12,7 @@ cd ../system
 
 | Global Rounds | Local Steps | Algorithm |
 |--------------|-------------|-----------|
-| 250 | 10 | FedAvg |
+| 250 | 10 | FedAvg | `View2` |
 | 250 | 10 | Spot(p5_q20) |
 | 250 | 10 | Spot(p5_q30) |
 | 250 | 10 | Spot(p5_q40) |
