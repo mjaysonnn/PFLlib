@@ -30,7 +30,7 @@ cd ../system
 
 | Global Rounds | Local Steps | Algorithm |
 |--------------|-------------|-----------|
-| 1250 | 2 | FedAvg | `View5` |
+| 1250 | 2 | FedAvg | `Jisoo4` |
 | 1250 | 2 | Spot(p10_q70) |
 | 1250 | 2 | Spot(p10_q80) |
 | 1250 | 2 | Spot(p20_q30) |
