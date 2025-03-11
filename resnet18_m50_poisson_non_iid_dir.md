@@ -13,6 +13,9 @@ cd ../system
 | Global Rounds | Local Steps | Algorithm |
 |--------------|-------------|-----------|
 | 250 | 10 | FedAvg | `view2` |
+| 250 | 10 | Spot(p10_q40) |
+| 250 | 10 | Spot(p10_q50) |
+| 250 | 10 | Spot(p10_q60) |
 | 250 | 10 | Spot(p10_q70) |
 | 250 | 10 | Spot(p10_q80) |
 | 250 | 10 | Spot(p20_q30) |
@@ -31,6 +34,9 @@ cd ../system
 | Global Rounds | Local Steps | Algorithm |
 |--------------|-------------|-----------|
 | 125 | 20 |FedAvg | `View3` |
+| 125 | 20 |Spot(p10_q40) |
+| 125 | 20 |Spot(p10_q50) |
+| 125 | 20 |Spot(p10_q60) |
 | 125 | 20 |Spot(p10_q70) |
 | 125 | 20 |Spot(p10_q80) |
 | 125 | 20 |Spot(p20_q30) |
