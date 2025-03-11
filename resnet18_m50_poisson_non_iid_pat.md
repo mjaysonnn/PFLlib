@@ -12,7 +12,7 @@ cd ../system
 
 | Global Rounds | Local Steps | Algorithm |
 |--------------|-------------|-----------|
-| 2500 | 1 | FedAvg | 
+| 2500 | 1 | FedAvg | `View1` |
 | 2500 | 1 | Spot(p10_q70) |
 | 2500 | 1 | Spot(p10_q80) |
 | 2500 | 1 | Spot(p20_q30) |
@@ -30,7 +30,7 @@ cd ../system
 
 | Global Rounds | Local Steps | Algorithm |
 |--------------|-------------|-----------|
-| 1250 | 2 | FedAvg | 
+| 1250 | 2 | FedAvg | `Jisoo1` |
 | 1250 | 2 | Spot(p10_q70) |
 | 1250 | 2 | Spot(p10_q80) |
 | 1250 | 2 | Spot(p20_q30) |
