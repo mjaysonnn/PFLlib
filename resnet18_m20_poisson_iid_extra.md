@@ -28,11 +28,11 @@ cd ../system
 
 ```bash
 # FedAvg - 250 rounds, 10 local step
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10  -nc 20 -jr 1.0 --on_demand_clients 5 --spot_clients 15 -lr 0.01 -lbs 32 -go "ResNet18_e10_iid_poisson_m20_p5q15"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10  -nc 20 -jr 1.0 --on_demand_clients 5 --spot_clients 15 -lr 0.01 -lbs 32 -go "ResNet18_e10_poisson_iid_m20_p5q15"
 
 
 # Spot(p15_q30) - 250 rounds, 10 local step
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10  -nc 20 -jr 1.0 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "ResNet18_e10_iid_poisson_m20_p15q5"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10  -nc 20 -jr 1.0 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "ResNet18_e10_poisson_iid_m20_p15q5"
 
 ```
 
@@ -43,11 +43,11 @@ python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10  -nc 20 -jr
 
 ```bash
 # FedAvg - 250 rounds, 10 local step
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20  -nc 20 -jr 1.0 --on_demand_clients 5 --spot_clients 15 -lr 0.01 -lbs 32 -go "ResNet18_e20_iid_poisson_m20_p5q15"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20  -nc 20 -jr 1.0 --on_demand_clients 5 --spot_clients 15 -lr 0.01 -lbs 32 -go "ResNet18_e20_poisson_iid_m20_p5q15"
 
 
 # Spot(p15_q30) - 250 rounds, 10 local step
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20  -nc 20 -jr 1.0 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "ResNet18_e20_iid_poisson_m20_p15q5"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20  -nc 20 -jr 1.0 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "ResNet18_e20_poisson_iid_m20_p15q5"
 ```
 
 ```bash
