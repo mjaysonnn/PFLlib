@@ -46,8 +46,8 @@ generate_noniid_data 40
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 40 -jr 1.0 --on_demand_clients 10 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_e10_poisson_dirichlet_m20_p10q30"
 
 # Spot(p15_q5) - 250 rounds, 10 local step
-generate_noniid_data 25
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 25 -jr 1.0 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "ResNet18_e10_poisson_dirichlet_m20_p15q5"
+generate_noniid_data 20
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 10 -nc 20 -jr 1.0 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "ResNet18_e10_poisson_dirichlet_m20_p15q5"
 
 # Spot(p15_q10) - 250 rounds, 10 local step
 generate_noniid_data 25
@@ -97,8 +97,8 @@ generate_noniid_data 40
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 40 -jr 1.0 --on_demand_clients 10 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_e20_poisson_dirichlet_m20_p10q30"
 
 # Spot(p15_q5) - 125 rounds, 20 local steps
-generate_noniid_data 25
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 25 -jr 1.0 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "ResNet18_e20_poisson_dirichlet_m20_p15q5"
+generate_noniid_data 20
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 125 -ls 20 -nc 20 -jr 1.0 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "ResNet18_e20_poisson_dirichlet_m20_p15q5"
 
 # Spot(p15_q10) - 125 rounds, 20 local steps
 generate_noniid_data 25
