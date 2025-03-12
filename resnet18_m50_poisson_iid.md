@@ -13,27 +13,31 @@ cd ../system
 | Global Rounds | Local Steps | Algorithm |
 |--------------|-------------|-----------|
 | 250 | 10 | FedAvg |  `Jisoo3` |
+
 | 250 | 10 | Spot(p10_q40) |
 | 250 | 10 | Spot(p10_q50) |
 | 250 | 10 | Spot(p10_q60) |
 | 250 | 10 | Spot(p10_q70) |
 | 250 | 10 | Spot(p10_q80) |
+
 | 250 | 10 | Spot(p20_q30) |
 | 250 | 10 | Spot(p20_q40) |
 | 250 | 10 | Spot(p20_q50) |
 | 250 | 10 | Spot(p20_q60) |
 | 250 | 10 | Spot(p20_q70) |
+
 | 250 | 10 | Spot(p30_q20) |
 | 250 | 10 | Spot(p30_q30) |
 | 250 | 10 | Spot(p30_q40) |
 | 250 | 10 | Spot(p30_q50) |
+
 | 250 | 10 | Spot(p40_q10) |
 | 250 | 10 | Spot(p40_q20) |
 | 250 | 10 | Spot(p40_q30) |
 
 | Global Rounds | Local Steps | Algorithm |
 |--------------|-------------|-----------|
-| 125 | 20 |FedAvg | `Jisoo5` |
+| 125 | 20 |FedAvg | 
 | 250 | 10 |Spot(p10_q40) |
 | 250 | 10 |Spot(p10_q50) |
 | 250 | 10 |Spot(p10_q60) |
