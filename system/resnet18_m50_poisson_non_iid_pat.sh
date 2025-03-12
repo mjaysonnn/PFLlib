@@ -11,10 +11,10 @@ generate_pathological_data() {
     cd ../system
 }
 
-# Experiments with 250 rounds and 10 local steps
-echo "Starting pathological non-IID experiments with 250 rounds and 10 local steps (m50)"
+# Experiments with 500 rounds, and 1 local step
+echo "Starting pathological non-IID experiments with 500 rounds, and 1 local step (m50)"
 
-# FedAvg - 250 rounds, 10 local steps
+# FedAvg - 500 rounds, 1 local steps
 generate_pathological_data 50
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "ResNet18_e1_pathological_poisson_m50_fedavg"
 
@@ -73,10 +73,10 @@ python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 60 -jr 1
 generate_pathological_data 70
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 70 -jr 1.0 --on_demand_clients 40 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_e1_pathological_poisson_m50_p40q30"
 
-# Experiments with 125 rounds and 20 local steps
-echo "Starting pathological non-IID experiments with 125 rounds and 20 local steps (m50)"
+# Experiments with 250 rounds, and 2 local step
+echo "Starting pathological non-IID experiments with 250 rounds, and 2 local step (m50)"
 
-# FedAvg - 125 rounds, 20 local steps
+# FedAvg - 250 rounds, 2 local steps
 generate_pathological_data 50
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "ResNet18_e2_pathological_poisson_m50_fedavg"
 
