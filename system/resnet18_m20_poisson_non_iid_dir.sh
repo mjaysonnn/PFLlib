@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Running on View3
+
 # Non-IID Data Generation and Experiment Scripts
 
 # Function to generate non-IID data with specified number of clients
