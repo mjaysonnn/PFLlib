@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Running on Jisoo5
+
 # Non-IID (Dirichlet) Data Generation and Experiment Scripts
 
 # Function to generate non-IID data with specified number of clients
