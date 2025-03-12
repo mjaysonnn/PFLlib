@@ -5,7 +5,8 @@
 # Function to generate data with specified number of clients
 generate_data() {
     echo "Generating IID CIFAR-10 data with $1 clients..."
-    cd ../dataset
+    cd ../dataset 
+    rm -rf Cifar10/  # Deletes the entire Cifar10 folder
     python generate_Cifar10.py iid balance - $1
     cd ../system
 }
@@ -15,6 +16,7 @@ echo "Starting experiments with 250 rounds and 10 local steps"
 
 # FedAvg - 250 rounds, 10 local step
 generate_data 20
+exit
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_fedavg"
 
 # Spot(p5_q15) - 250 rounds, 10 local step
