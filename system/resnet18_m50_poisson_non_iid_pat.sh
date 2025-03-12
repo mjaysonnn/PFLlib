@@ -11,8 +11,8 @@ generate_pathological_data() {
     cd ../system
 }
 
-# Experiments with 250 rounds and 10 local steps
-echo "Starting pathological non-IID experiments with 250 rounds and 10 local steps (m50)"
+# Experiments with 50 rounds and 10 local steps
+echo "Starting pathological non-IID experiments with 50 rounds and 10 local steps (m50)"
 
 # FedAvg - 50 rounds, 10 local steps
 generate_pathological_data 50
@@ -73,8 +73,8 @@ python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 60 -jr 1
 generate_pathological_data 70
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 70 -jr 1.0 --on_demand_clients 40 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_e10_pathological_poisson_m50_p40q30"
 
-# Experiments with 125 rounds and 20 local steps
-echo "Starting pathological non-IID experiments with 125 rounds and 20 local steps (m50)"
+# Experiments with 25 rounds and 20 local steps
+echo "Starting pathological non-IID experiments with 25 rounds and 20 local steps (m50)"
 
 # FedAvg - 25 rounds, 20 local steps
 generate_pathological_data 50
