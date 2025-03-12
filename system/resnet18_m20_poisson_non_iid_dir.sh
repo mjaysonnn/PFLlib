@@ -8,10 +8,10 @@
 # Function to generate non-IID data with specified number of clients
 generate_noniid_data() {
     echo "Generating non-IID Dirichlet CIFAR-10 data with $1 clients..."
-    cd ../dataset
+    cd ../dataset || exit
     rm -rf Cifar10/  # Deletes the entire Cifar10 folder
     python generate_Cifar10.py noniid - dir $1
-    cd ../system
+    cd ../system || exit
 }
 
 # Experiments with 500 rounds, and 1 local step

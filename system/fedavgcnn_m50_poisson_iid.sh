@@ -7,10 +7,10 @@
 # Function to generate IID data with specified number of clients
 generate_data() {
     echo "Generating IID CIFAR-10 data with $1 clients..."
-    cd ../dataset
+    cd ../dataset || exit
     rm -rf Cifar10/  # Deletes the entire Cifar10 folder
     python generate_Cifar10.py iid balance - $1
-    cd ../system
+    cd ../system || exit
 }
 
 # Experiments with 500 rounds, and 1 local step
