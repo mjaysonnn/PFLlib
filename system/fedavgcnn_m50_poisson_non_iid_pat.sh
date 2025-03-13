@@ -20,6 +20,10 @@ echo "Starting pathological non-IID experiments with 500 rounds, and 1 local ste
 generate_pathological_data 50
 python main.py -data Cifar10 -m FedAvgCNN -algo FedAvg -gr 500 -ls 1 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_pathological_poisson_m50_fedavg"
 
+# SCAFFOLD - 500 rounds, 1 local steps
+generate_pathological_data 50
+python main.py -data Cifar10 -m FedAvgCNN -algo SCAFFOLD -gr 500 -ls 1 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_pathological_poisson_m50_scaffold"
+
 # Spot configurations with 10 on-demand clients
 generate_pathological_data 50
 python main.py -data Cifar10 -m FedAvgCNN -algo FedAvg -gr 500 -ls 1 -nc 50 -jr 1.0 --on_demand_clients 10 --spot_clients 40 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_pathological_poisson_m50_p10q40"
@@ -81,6 +85,10 @@ echo "Starting pathological non-IID experiments with 250 rounds, and 2 local ste
 # FedAvg - 250 rounds, 2 local steps
 generate_pathological_data 50
 python main.py -data Cifar10 -m FedAvgCNN -algo FedAvg -gr 250 -ls 2 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e2_pathological_poisson_m50_fedavg"
+
+# SCAFFOLD - 250 rounds, 2 local steps
+generate_pathological_data 50
+python main.py -data Cifar10 -m FedAvgCNN -algo SCAFFOLD -gr 250 -ls 2 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e2_pathological_poisson_m50_scaffold"
 
 # Spot configurations with 10 on-demand clients
 generate_pathological_data 50
