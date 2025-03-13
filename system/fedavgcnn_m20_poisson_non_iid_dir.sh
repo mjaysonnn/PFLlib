@@ -20,6 +20,10 @@ echo "Starting non-IID experiments with 50 rounds and 10 local steps"
 generate_noniid_data 20
 python main.py -data Cifar10 -m FedAvgCNN -algo FedAvg -gr 50 -ls 10 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e10_poisson_dirichlet_m20_fedavg"
 
+# SCAFFOLD - 50 rounds, 10 local steps
+generate_noniid_data 20
+python main.py -data Cifar10 -m FedAvgCNN -algo SCAFFOLD -gr 50 -ls 10 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e10_poisson_dirichlet_m20_scaffold"
+
 # Spot(p5_q15) - 50 rounds, 10 local step
 generate_noniid_data 20
 python main.py -data Cifar10 -m FedAvgCNN -algo FedAvg -gr 50 -ls 10 -nc 20 -jr 1.0 --on_demand_clients 5 --spot_clients 15 -lr 0.01 -lbs 32 -go "FedAvgCNN_e10_poisson_dirichlet_m20_p5q15"
@@ -56,12 +60,19 @@ python main.py -data Cifar10 -m FedAvgCNN -algo FedAvg -gr 50 -ls 10 -nc 35 -jr 
 generate_noniid_data 45
 python main.py -data Cifar10 -m FedAvgCNN -algo FedAvg -gr 50 -ls 10 -nc 45 -jr 1.0 --on_demand_clients 15 --spot_clients 30 -lr 0.01 -lbs 32 -go "FedAvgCNN_e10_poisson_dirichlet_m20_p15q30"
 
+
+
+
 # Experiments with 25 rounds and 20 local steps
 echo "Starting non-IID experiments with 25 rounds and 20 local steps"
 
 # FedAvg - 25 rounds, 20 local steps
 generate_noniid_data 20
 python main.py -data Cifar10 -m FedAvgCNN -algo FedAvg -gr 25 -ls 20 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e20_poisson_dirichlet_m20_fedavg"
+
+# SCAFFOLD - 25 rounds, 20 local steps
+generate_noniid_data 20
+python main.py -data Cifar10 -m FedAvgCNN -algo SCAFFOLD -gr 25 -ls 20 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e20_poisson_dirichlet_m20_scaffold"
 
 # Spot(p5_q15) - 25 rounds, 20 local steps
 generate_noniid_data 20
