@@ -23,6 +23,13 @@ generate_data 50
 python main.py -data Cifar10 -m ResNet18 -algo SCAFFOLD -gr 25 -ls 20 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "ResNet18_e20_iid_poisson_m50_scaffold"
 
 
+# Spot(p10_q70) - 25 rounds, 20 local steps (corrected from 250 rounds in table)
+generate_data 80
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 80 -jr 1.0 --on_demand_clients 10 --spot_clients 70 -lr 0.01 -lbs 32 -go "ResNet18_e20_iid_poisson_m50_p10q70"
+# Spot(p10_q80) - 25 rounds, 20 local steps (corrected from 250 rounds in table)
+generate_data 90
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 90 -jr 1.0 --on_demand_clients 10 --spot_clients 80 -lr 0.01 -lbs 32 -go "ResNet18_e20_iid_poisson_m50_p10q80"
+
 
 # Function to generate non-IID data with specified number of clients
 generate_noniid_data() {
