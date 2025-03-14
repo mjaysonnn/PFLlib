@@ -17,10 +17,10 @@ generate_data() {
 echo "Starting experiments with 500 rounds and 1 local steps"
 
 # FedAvg - 500 rounds, 1 local step
-# generate_data 20
+generate_data 20
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 1 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_iid_poisson_m20_fedavg"
 
-exit
+
 # SCAFFOLD - 500 rounds, 1 local step
 generate_data 20
 python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 500 -ls 1 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_iid_poisson_m20_scaffold"
