@@ -93,7 +93,6 @@ python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -n
 # Spot(p15_q20) - 250 rounds, 2 local steps
 generate_noniid_data 35
 python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 35 -jr 1.0 --on_demand_clients 15 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e2_poisson_dirichlet_m20_p15q20"
-
 # Spot(p15_q30) - 250 rounds, 2 local steps
 generate_noniid_data 45
 python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 45 -jr 1.0 --on_demand_clients 15 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e2_poisson_dirichlet_m20_p15q30"
