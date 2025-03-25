@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Running on Jisoo3
-
 # Pathological Non-IID Data Generation and Experiment Scripts
 
 # Function to generate pathological non-IID data with specified number of clients

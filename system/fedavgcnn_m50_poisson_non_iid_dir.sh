@@ -21,8 +21,8 @@ generate_noniid_data 50
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 1 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_dirichlet_poisson_m50_fedavg"
 
 # SCAFFOLD - 500 rounds, 1 local steps
-generate_noniid_data 50
-python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 500 -ls 1 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_dirichlet_poisson_m50_scaffold"
+# generate_noniid_data 50
+# python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 500 -ls 1 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_dirichlet_poisson_m50_scaffold"
 
 # Spot(p10_q40) - 500 rounds, 1 local steps
 generate_noniid_data 50
@@ -100,8 +100,8 @@ generate_noniid_data 50
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 2 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e2_dirichlet_poisson_m50_fedavg"
 
 # SCAFFOLD - 250 rounds, 2 local steps
-generate_noniid_data 50
-python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 250 -ls 2 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e2_dirichlet_poisson_m50_scaffold"
+# generate_noniid_data 50
+# python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 250 -ls 2 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e2_dirichlet_poisson_m50_scaffold"
 
 # Spot(p10_q40) - 250 rounds, 2 local steps
 generate_noniid_data 50

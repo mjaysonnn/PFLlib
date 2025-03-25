@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Running on Jisoo4
-
 # IID Data Generation and Experiment Scripts
 
 # Function to generate IID data with specified number of clients
@@ -91,8 +89,10 @@ python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.6 -
 # Spot(p10_q60) - 250 rounds, 2 local steps
 generate_data 100
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.7 --on_demand_clients 10 --spot_clients 60 -lr 0.01 -lbs 32 -go "CNN_e2_iid_poisson_m50_p10q60"
+# Spot(p10_q70) - 250 rounds, 2 local steps
 generate_data 100
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.8 --on_demand_clients 10 --spot_clients 70 -lr 0.01 -lbs 32 -go "CNN_e2_iid_poisson_m50_p10q70"
+# Spot(p10_q80) - 250 rounds, 2 local steps
 generate_data 100
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.9 --on_demand_clients 10 --spot_clients 80 -lr 0.01 -lbs 32 -go "CNN_e2_iid_poisson_m50_p10q80"
 

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Running on Jisoo1
-
 # IID Data Generation and Experiment Scripts
 
 # Function to generate data with specified number of clients

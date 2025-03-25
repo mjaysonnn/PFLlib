@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Running on View1
-
 # Pathological Non-IID Data Generation and Experiment Scripts with 50 clients
 
 # Function to generate pathological non-IID data with specified number of clients

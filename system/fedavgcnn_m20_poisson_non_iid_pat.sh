@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Running on Jisoo3
-
-
 # Pathological Non-IID Data Generation and Experiment Scripts
 
 # Function to generate pathological non-IID data with specified number of clients
@@ -22,9 +19,8 @@ generate_pathological_data 20
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 1 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_poisson_pathological_m20_fedavg"
 
 # SCAFFOLD - 500 rounds, 1 local step
-generate_pathological_data 20
-python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 500 -ls 1 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_poisson_pathological_m20_scaffold"
-
+# generate_pathological_data 20
+# python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 500 -ls 1 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_poisson_pathological_m20_scaffold"
 
 # Spot(p5_q15) - 500 rounds, 1 local step
 generate_pathological_data 20
@@ -70,8 +66,8 @@ generate_pathological_data 20
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 2 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e2_poisson_pathological_m20_fedavg"
 
 # SCAFFOLD - 250 rounds, 2 local steps
-generate_pathological_data 20
-python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 250 -ls 2 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e2_poisson_pathological_m20_scaffold"
+# generate_pathological_data 20
+# python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 250 -ls 2 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e2_poisson_pathological_m20_scaffold"
 
 # Spot(p5_q15) - 250 rounds, 2 local steps
 generate_pathological_data 20

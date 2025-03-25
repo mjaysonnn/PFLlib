@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Running on Jisoo1
-
 # IID Data Generation and Experiment Scripts
 
 # Function to generate data with specified number of clients
@@ -85,7 +83,6 @@ python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 30 -jr 1
 # Spot(p10_q30) - 250 rounds, 2 local steps
 generate_data 40
 python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 40 -jr 1.0 --on_demand_clients 10 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_p10q30"
-
 
 # Spot(p15_q5) - 250 rounds, 2 local steps
 generate_data 20

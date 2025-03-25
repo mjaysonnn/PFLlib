@@ -93,7 +93,6 @@ python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.25 
 # Spot(p15_q20) - 250 rounds, 2 local steps
 generate_noniid_data 100
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.35 --on_demand_clients 15 --spot_clients 20 -lr 0.01 -lbs 32 -go "CNN_e2_poisson_dirichlet_m20_p15q20"
-
 # Spot(p15_q30) - 250 rounds, 2 local steps
 generate_noniid_data 100
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.45 --on_demand_clients 15 --spot_clients 30 -lr 0.01 -lbs 32 -go "CNN_e2_poisson_dirichlet_m20_p15q30"

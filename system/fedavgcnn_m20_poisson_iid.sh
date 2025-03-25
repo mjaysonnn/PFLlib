@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Running on Jisoo1
-
 # IID Data Generation and Experiment Scripts
 
 # Function to generate data with specified number of clients
@@ -20,10 +18,9 @@ echo "Starting experiments with 500 rounds and 1 local steps"
 generate_data 20
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 500 -ls 1 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_iid_poisson_m20_fedavg"
 
-
 # SCAFFOLD - 500 rounds, 1 local step
-generate_data 20
-python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 500 -ls 1 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_iid_poisson_m20_scaffold"
+# generate_data 20
+# python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 500 -ls 1 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e1_iid_poisson_m20_scaffold"
 
 # Spot(p5_q15) - 500 rounds, 1 local step
 generate_data 20
@@ -69,8 +66,8 @@ generate_data 20
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 250 -ls 2 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e2_iid_poisson_m20_fedavg"
 
 # SCAFFOLD - 250 rounds, 2 local steps
-generate_data 20
-python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 250 -ls 2 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e2_iid_poisson_m20_scaffold"
+# generate_data 20
+# python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 250 -ls 2 -nc 20 -jr 1.0 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "FedAvgCNN_e2_iid_poisson_m20_scaffold"
 
 # Spot(p5_q15) - 250 rounds, 2 local steps
 generate_data 20
