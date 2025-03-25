@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Running on View2
-
 # IID Data Generation and Experiment Scripts
 
 # Function to generate data with specified number of clients

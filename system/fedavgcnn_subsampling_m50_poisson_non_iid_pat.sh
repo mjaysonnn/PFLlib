@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Non-IID (Dirichlet) Data Generation and Experiment Scripts
+# Non-IID (Pathological) Data Generation and Experiment Scripts
 
 # Function to generate pathological non-IID data with specified number of clients
 generate_pathological_data() {
