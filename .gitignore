@@ -4,3 +4,5 @@ results/
 tmp/
 system/models/
 archive/
+dataset/TinyImagenet/
+

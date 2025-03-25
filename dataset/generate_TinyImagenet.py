@@ -27,7 +27,7 @@ from torchvision.datasets import ImageFolder, DatasetFolder
 
 random.seed(1)
 np.random.seed(1)
-num_clients = 20
+# num_clients = 20
 dir_path = "TinyImagenet/"
 
 # https://github.com/QinbinLi/MOON/blob/6c7a4ed1b1a8c0724fa2976292a667a828e3ff5d/datasets.py#L148
@@ -130,4 +130,7 @@ if __name__ == "__main__":
     balance = True if sys.argv[2] == "balance" else False
     partition = sys.argv[3] if sys.argv[3] != "-" else None
 
+    # Add num_clients as optional last argument
+    num_clients = int(sys.argv[4]) if len(sys.argv) >= 5 else 100  # Default 100
+    
     generate_dataset(dir_path, num_clients, niid, balance, partition)
