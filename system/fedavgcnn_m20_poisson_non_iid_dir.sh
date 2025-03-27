@@ -6,8 +6,8 @@
 generate_noniid_data() {
     echo "Generating non-IID Dirichlet CIFAR-10 data with $1 clients..."
     cd ../dataset || exit
-    rm -rf TinyImagenet/  # Deletes the entire Cifar10 folder
-    python generate_TinyImagenet.py noniid - dir $1
+    rm -rf Cifar100/  # Deletes the entire Cifar10 folder
+    python generate_Cifar100.py noniid - dir $1
     cd ../system || exit
 }
 

@@ -6,9 +6,8 @@
 generate_pathological_data() {
     echo "Generating pathological non-IID CIFAR-10 data with $1 clients..."
     cd ../dataset || exit
-    rm -rf TinyImagenet/  # Deletes the entire Cifar10 folder
-    rm -rf TinyImagenet/  # Deletes the entire TinyImagenet folder
-    python generate_TinyImagenet.py noniid - pat $1
+    rm -rf Cifar100/  # Deletes the entire Cifar10 folder
+    python generate_Cifar100.py noniid - pat $1
     cd ../system || exit
 }
 
