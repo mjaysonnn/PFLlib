@@ -7,7 +7,7 @@ generate_data() {
     echo "Generating IID CIFAR-100 data with $1 clients..."
     cd ../dataset || exit
     rm -rf Cifar100/  # Deletes the entire Cifar10 folder
-    python generate_Cifar10.py iid balance - $1
+    python generate_Cifar100.py iid balance - $1
     cd ../system || exit
 }
 
