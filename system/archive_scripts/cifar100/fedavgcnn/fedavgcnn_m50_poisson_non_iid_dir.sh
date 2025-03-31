@@ -19,8 +19,8 @@ generate_noniid_data 50
 python main.py -data Cifar100 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 10 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar100_CNN_e10_dirichlet_m50_fedavg"
 
 # SCAFFOLD - 50 rounds, 10 local steps
-generate_noniid_data 50
-python main.py -data Cifar100 -ncl 100 -m CNN -algo SCAFFOLD -gr 50 -ls 10 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar100_CNN_e10_dirichlet_m50_scaffold"
+# generate_noniid_data 50
+# python main.py -data Cifar100 -ncl 100 -m CNN -algo SCAFFOLD -gr 50 -ls 10 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar100_CNN_e10_dirichlet_m50_scaffold"
 
 # Spot(p10_q40) - 50 rounds, 10 local steps
 generate_noniid_data 50
@@ -102,8 +102,8 @@ generate_noniid_data 50
 python main.py -data Cifar100 -ncl 100 -m CNN -algo FedAvg -gr 25 -ls 20 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar100_CNN_e20_dirichlet_m50_fedavg"
 
 # SCAFFOLD - 25 rounds, 20 local steps
-generate_noniid_data 50
-python main.py -data Cifar100 -ncl 100 -m CNN -algo SCAFFOLD -gr 25 -ls 20 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar100_CNN_e20_dirichlet_m50_scaffold"
+# generate_noniid_data 50
+# python main.py -data Cifar100 -ncl 100 -m CNN -algo SCAFFOLD -gr 25 -ls 20 -nc 50 -jr 1.0 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar100_CNN_e20_dirichlet_m50_scaffold"
 
 # Spot(p10_q40) - 25 rounds, 20 local steps
 generate_noniid_data 50
