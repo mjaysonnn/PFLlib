@@ -18,85 +18,85 @@ echo "Starting experiments with 500 rounds and 1 local steps"
 
 # FedAvg - 500 rounds, 1 local step
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_fedavg"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e1_iid_poisson_m20_fedavg"
 
 # Spot(p5_q15) - 500 rounds, 1 local step
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 5 --spot_clients 15 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_p5q15"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 5 --spot_clients 15 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e1_iid_poisson_m20_p5q15"
 # Spot(p5_q20) - 500 rounds, 1 local step
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 100 -jr 0.25 --on_demand_clients 5 --spot_clients 20 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_p5q20"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.25 --on_demand_clients 5 --spot_clients 20 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e1_iid_poisson_m20_p5q20"
 # Spot(p5_q30) - 500 rounds, 1 local step
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 100 -jr 0.35 --on_demand_clients 5 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_p5q30"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.35 --on_demand_clients 5 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e1_iid_poisson_m20_p5q30"
 # Spot(p5_q40) - 500 rounds, 1 local step
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 100 -jr 0.45 --on_demand_clients 5 --spot_clients 40 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_p5q40"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.45 --on_demand_clients 5 --spot_clients 40 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e1_iid_poisson_m20_p5q40"
 
 # Spot(p10_q10) - 500 rounds, 1 local step
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 10 --spot_clients 10 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_p10q10"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 10 --spot_clients 10 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e1_iid_poisson_m20_p10q10"
 # Spot(p10_q20) - 500 rounds, 1 local step
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 10 --spot_clients 20 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_p10q20"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 10 --spot_clients 20 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e1_iid_poisson_m20_p10q20"
 # Spot(p10_q30) - 500 rounds, 1 local step
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 100 -jr 0.4 --on_demand_clients 10 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_p10q30"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.4 --on_demand_clients 10 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e1_iid_poisson_m20_p10q30"
 
 # Spot(p15_q5) - 500 rounds, 1 local step
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_p15q5"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e1_iid_poisson_m20_p15q5"
 # Spot(p15_q10) - 500 rounds, 1 local step
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 100 -jr 0.25 --on_demand_clients 15 --spot_clients 10 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_p15q10"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.25 --on_demand_clients 15 --spot_clients 10 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e1_iid_poisson_m20_p15q10"
 # Spot(p15_q20) - 500 rounds, 1 local step
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 100 -jr 0.35 --on_demand_clients 15 --spot_clients 20 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_p15q20"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.35 --on_demand_clients 15 --spot_clients 20 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e1_iid_poisson_m20_p15q20"
 # Spot(p15_q30) - 500 rounds, 1 local step
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 500 -ls 1 -nc 100 -jr 0.45 --on_demand_clients 15 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_e1_iid_poisson_m20_p15q30"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.45 --on_demand_clients 15 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e1_iid_poisson_m20_p15q30"
 
 # Experiments with 250 rounds, and 2 local step
 echo "Starting experiments with 250 rounds and 2 local steps"
 
 # FedAvg - 250 rounds, 2 local steps
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_fedavg"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e2_iid_poisson_m20_fedavg"
 
 # Spot(p5_q15) - 250 rounds, 2 local steps
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 5 --spot_clients 15 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_p5q15"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 5 --spot_clients 15 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e2_iid_poisson_m20_p5q15"
 # Spot(p5_q20) - 250 rounds, 2 local steps
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.25 --on_demand_clients 5 --spot_clients 20 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_p5q20"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.25 --on_demand_clients 5 --spot_clients 20 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e2_iid_poisson_m20_p5q20"
 # Spot(p5_q30) - 250 rounds, 2 local steps
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.35 --on_demand_clients 5 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_p5q30"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.35 --on_demand_clients 5 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e2_iid_poisson_m20_p5q30"
 # Spot(p5_q40) - 250 rounds, 2 local steps
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.45 --on_demand_clients 5 --spot_clients 40 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_p5q40"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.45 --on_demand_clients 5 --spot_clients 40 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e2_iid_poisson_m20_p5q40"
 
 # Spot(p10_q10) - 250 rounds, 2 local steps
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 10 --spot_clients 10 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_p10q10"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 10 --spot_clients 10 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e2_iid_poisson_m20_p10q10"
 # Spot(p10_q20) - 250 rounds, 2 local steps
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.3 --on_demand_clients 10 --spot_clients 20 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_p10q20"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.3 --on_demand_clients 10 --spot_clients 20 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e2_iid_poisson_m20_p10q20"
 # Spot(p10_q30) - 250 rounds, 2 local steps
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.4 --on_demand_clients 10 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_p10q30"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.4 --on_demand_clients 10 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e2_iid_poisson_m20_p10q30"
 
 # Spot(p15_q5) - 250 rounds, 2 local steps
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_p15q5"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.2 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e2_iid_poisson_m20_p15q5"
 # Spot(p15_q10) - 250 rounds, 2 local steps
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.25 --on_demand_clients 15 --spot_clients 10 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_p15q10"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.25 --on_demand_clients 15 --spot_clients 10 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e2_iid_poisson_m20_p15q10"
 # Spot(p15_q20) - 250 rounds, 2 local steps
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.35 --on_demand_clients 15 --spot_clients 20 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_p15q20"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.35 --on_demand_clients 15 --spot_clients 20 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e2_iid_poisson_m20_p15q20"
 # Spot(p15_q30) - 250 rounds, 2 local steps
 generate_data 100
-python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 250 -ls 2 -nc 100 -jr 0.45 --on_demand_clients 15 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_e2_iid_poisson_m20_p15q30"
+python main.py -data Cifar10 -m ResNet18 -algo FedAvg -gr 1250 -ls 2 -nc 100 -jr 0.45 --on_demand_clients 15 --spot_clients 30 -lr 0.01 -lbs 32 -go "ResNet18_subsample_e2_iid_poisson_m20_p15q30"
 
 echo "All experiments completed!"
