@@ -1,0 +1,99 @@
+#!/bin/bash
+
+# Pathological Non-IID Data Generation and Experiment Scripts
+
+# Function to generate pathological non-IID data with specified number of clients
+generate_pathological_data() {
+    echo "Generating pathological non-IID CIFAR-10 data with $1 clients..."
+    cd ../dataset || exit
+    rm -rf Cifar100/  # Deletes the entire Cifar10 folder
+    python generate_Cifar100.py noniid - pat $1
+    cd ../system || exit
+}
+
+# Experiments with 50 rounds and 10 local steps
+echo "Starting pathological non-IID experiments with 50 rounds and 10 local steps"
+
+# FedAvg - 50 rounds, 10 local step
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e10_pathological_m20_fedavg"
+
+# Spot(p5_q15) - 50 rounds, 10 local step
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 100 -jr 0.2 --on_demand_clients 5 --spot_clients 15 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e10_pathological_m20_p5q15"
+# Spot(p5_q20) - 50 rounds, 10 local step
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 100 -jr 0.25 --on_demand_clients 5 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e10_pathological_m20_p5q20"
+# Spot(p5_q30) - 50 rounds, 10 local step
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 100 -jr 0.35 --on_demand_clients 5 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e10_pathological_m20_p5q30"
+# Spot(p5_q40) - 50 rounds, 10 local step
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 100 -jr 0.45 --on_demand_clients 5 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e10_pathological_m20_p5q40"
+
+# Spot(p10_q10) - 50 rounds, 10 local step
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 100 -jr 0.2 --on_demand_clients 10 --spot_clients 10 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e10_pathological_m20_p10q10"
+# Spot(p10_q20) - 50 rounds, 10 local step
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 100 -jr 0.3 --on_demand_clients 10 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e10_pathological_m20_p10q20"
+# Spot(p10_q30) - 50 rounds, 10 local step
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 100 -jr 0.4 --on_demand_clients 10 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e10_pathological_m20_p10q30"
+
+# Spot(p15_q5) - 50 rounds, 10 local step
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 100 -jr 0.2 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e10_pathological_m20_p15q5"
+# Spot(p15_q10) - 50 rounds, 10 local step
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 100 -jr 0.25 --on_demand_clients 15 --spot_clients 10 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e10_pathological_m20_p15q10"
+# Spot(p15_q20) - 50 rounds, 10 local step
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 100 -jr 0.35 --on_demand_clients 15 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e10_pathological_m20_p15q20"
+# Spot(p15_q30) - 50 rounds, 10 local step
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 50 -ls 10 -nc 100 -jr 0.45 --on_demand_clients 15 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e10_pathological_m20_p15q30"
+
+# Experiments with 25 rounds and 20 local steps
+echo "Starting pathological non-IID experiments with 25 rounds and 20 local steps"
+
+# FedAvg - 25 rounds, 20 local steps
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e20_pathological_m20_fedavg"
+# Spot(p5_q15) - 25 rounds, 20 local steps
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 5 --spot_clients 15 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e20_pathological_m20_p5q15"
+# Spot(p5_q20) - 25 rounds, 20 local steps
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 100 -jr 0.25 --on_demand_clients 5 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e20_pathological_m20_p5q20"
+# Spot(p5_q30) - 25 rounds, 20 local steps
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 100 -jr 0.35 --on_demand_clients 5 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e20_pathological_m20_p5q30"
+# Spot(p5_q40) - 25 rounds, 20 local steps
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 100 -jr 0.45 --on_demand_clients 5 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e20_pathological_m20_p5q40"
+
+# Spot(p10_q10) - 25 rounds, 20 local steps
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 10 --spot_clients 10 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e20_pathological_m20_p10q10"
+# Spot(p10_q20) - 25 rounds, 20 local steps
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 100 -jr 0.3 --on_demand_clients 10 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e20_pathological_m20_p10q20"
+# Spot(p10_q30) - 25 rounds, 20 local steps
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 100 -jr 0.4 --on_demand_clients 10 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e20_pathological_m20_p10q30"
+
+# Spot(p15_q5) - 25 rounds, 20 local steps
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 100 -jr 0.2 --on_demand_clients 15 --spot_clients 5 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e20_pathological_m20_p15q5"
+# Spot(p15_q10) - 25 rounds, 20 local steps
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 100 -jr 0.25 --on_demand_clients 15 --spot_clients 10 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e20_pathological_m20_p15q10"
+# Spot(p15_q20) - 25 rounds, 20 local steps
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 100 -jr 0.35 --on_demand_clients 15 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e20_pathological_m20_p15q20"
+# Spot(p15_q30) - 25 rounds, 20 local steps
+generate_pathological_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 25 -ls 20 -nc 100 -jr 0.45 --on_demand_clients 15 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar100_Resnet18_subsampling_e20_pathological_m20_p15q30"
+
+echo "All pathological non-IID experiments completed!"
