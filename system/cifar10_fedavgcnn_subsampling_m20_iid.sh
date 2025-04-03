@@ -11,8 +11,8 @@ generate_data() {
     cd ../system || exit
 }
 
-# Experiments with 500 rounds, and 1 local step
-echo "Starting experiments with 500 rounds and 1 local steps"
+# Experiments with 2500 rounds, and 1 local step
+echo "Starting experiments with 2500 rounds and 1 local steps"
 
 # FedAvg - 500 rounds, 1 local step
 generate_data 100
@@ -54,8 +54,8 @@ python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.35
 generate_data 100
 python main.py -data Cifar10 -m CNN -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.45 --on_demand_clients 15 --spot_clients 30 -lr 0.01 -lbs 32 -go "CNN_subsample_e1_iid_poisson_m20_p15q30"
 
-# Experiments with 250 rounds, and 2 local step
-echo "Starting experiments with 250 rounds and 2 local steps"
+# Experiments with 1250 rounds, and 2 local step
+echo "Starting experiments with 1250 rounds and 2 local steps"
 
 # FedAvg - 250 rounds, 2 local steps
 generate_data 100
