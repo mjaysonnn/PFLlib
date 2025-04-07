@@ -6,8 +6,8 @@
 generate_pathological_data() {
     echo "Generating pathological non-IID CIFAR-10 data with $1 clients..."
     cd ../dataset || exit
-    rm -rf Cifar100/  # Deletes the entire Cifar10 folder
-    python generate_Cifar100.py noniid - pat $1
+    rm -rf cifar10/  # Deletes the entire Cifar10 folder
+    python generate_cifar10.py noniid - pat $1
     cd ../system || exit
 }
 
@@ -16,157 +16,157 @@ echo "Starting non-IID (Dirichlet) experiments with 50 rounds and 10 local steps
 
 # FedAvg - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_fedavg"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_fedavg"
 
 # SCAFFOLD - 50 rounds, 10 local steps
 # generate_pathological_data 100
-# python main.py -data Cifar10 -ncl 100 -m CNN -algo SCAFFOLD -gr 100 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_scaffold"
+# python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 100 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_scaffold"
 
 # Spot(p10_q40) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 10 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p10q40"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 10 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p10q40"
 
 # Spot(p10_q50) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.6 --on_demand_clients 10 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p10q50"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.6 --on_demand_clients 10 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p10q50"
 
 # Spot(p10_q60) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.7 --on_demand_clients 10 --spot_clients 60 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p10q60"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.7 --on_demand_clients 10 --spot_clients 60 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p10q60"
 
 # Spot(p10_q70) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.8 --on_demand_clients 10 --spot_clients 70 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p10q70"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.8 --on_demand_clients 10 --spot_clients 70 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p10q70"
 
 # Spot(p10_q80) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.9 --on_demand_clients 10 --spot_clients 80 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p10q80"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.9 --on_demand_clients 10 --spot_clients 80 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p10q80"
 
 # Spot(p20_q30) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 20 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p20q30"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 20 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p20q30"
 
 # Spot(p20_q40) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.6 --on_demand_clients 20 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p20q40"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.6 --on_demand_clients 20 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p20q40"
 
 # Spot(p20_q50) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.7 --on_demand_clients 20 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p20q50"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.7 --on_demand_clients 20 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p20q50"
 
 # Spot(p20_q60) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.8 --on_demand_clients 20 --spot_clients 60 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p20q60"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.8 --on_demand_clients 20 --spot_clients 60 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p20q60"
 
 # Spot(p20_q70) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.9 --on_demand_clients 20 --spot_clients 70 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p20q70"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.9 --on_demand_clients 20 --spot_clients 70 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p20q70"
 
 # Spot(p30_q20) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p30q20"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p30q20"
 
 # Spot(p30_q30) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.6 --on_demand_clients 30 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p30q30"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.6 --on_demand_clients 30 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p30q30"
 
 # Spot(p30_q40) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.7 --on_demand_clients 30 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p30q40"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.7 --on_demand_clients 30 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p30q40"
 
 # Spot(p30_q50) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.8 --on_demand_clients 30 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p30q50"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.8 --on_demand_clients 30 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p30q50"
 
 # Spot(p40_q10) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 40 --spot_clients 10 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p40q10"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.5 --on_demand_clients 40 --spot_clients 10 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p40q10"
 
 # Spot(p40_q20) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.6 --on_demand_clients 40 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p40q20"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.6 --on_demand_clients 40 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p40q20"
 
 # Spot(p40_q30) - 50 rounds, 10 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.7 --on_demand_clients 40 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p40q30"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 100 -ls 10 -nc 100 -jr 0.7 --on_demand_clients 40 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e10_pathological_m50_p40q30"
 
 # Experiments with 25 rounds and 20 local steps
 echo "Starting non-IID (Dirichlet) experiments with 25 rounds and 20 local steps"
 
 # FedAvg - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_fedavg"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_fedavg"
 
 # SCAFFOLD - 25 rounds, 20 local steps
 # generate_pathological_data 100
-# python main.py -data Cifar10 -ncl 100 -m CNN -algo SCAFFOLD -gr 50 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_scaffold"
+# python main.py -data Cifar10 -m CNN -algo SCAFFOLD -gr 50 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_scaffold"
 
 # Spot(p10_q40) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 10 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p10q40"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 10 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p10q40"
 
 # Spot(p10_q50) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.6 --on_demand_clients 10 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p10q50"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.6 --on_demand_clients 10 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p10q50"
 
 # Spot(p10_q60) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.7 --on_demand_clients 10 --spot_clients 60 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p10q60"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.7 --on_demand_clients 10 --spot_clients 60 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p10q60"
 
 # Spot(p10_q70) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.8 --on_demand_clients 10 --spot_clients 70 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p10q70"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.8 --on_demand_clients 10 --spot_clients 70 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p10q70"
 
 # Spot(p10_q80) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.9 --on_demand_clients 10 --spot_clients 80 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p10q80"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.9 --on_demand_clients 10 --spot_clients 80 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p10q80"
 
 # Spot(p20_q30) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 20 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p20q30"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 20 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p20q30"
 
 # Spot(p20_q40) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.6 --on_demand_clients 20 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p20q40"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.6 --on_demand_clients 20 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p20q40"
 
 # Spot(p20_q50) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.7 --on_demand_clients 20 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p20q50"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.7 --on_demand_clients 20 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p20q50"
 
 # Spot(p20_q60) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.8 --on_demand_clients 20 --spot_clients 60 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p20q60"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.8 --on_demand_clients 20 --spot_clients 60 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p20q60"
 
 # Spot(p20_q70) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.9 --on_demand_clients 20 --spot_clients 70 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p20q70"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.9 --on_demand_clients 20 --spot_clients 70 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p20q70"
 
 # Spot(p30_q20) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p30q20"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 30 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p30q20"
 
 # Spot(p30_q30) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.6 --on_demand_clients 30 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p30q30"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.6 --on_demand_clients 30 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p30q30"
 
 # Spot(p30_q40) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.7 --on_demand_clients 30 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p30q40"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.7 --on_demand_clients 30 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p30q40"
 
 # Spot(p30_q50) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.8 --on_demand_clients 30 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p30q50"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.8 --on_demand_clients 30 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p30q50"
 
 # Spot(p40_q10) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 40 --spot_clients 10 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p40q10"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.5 --on_demand_clients 40 --spot_clients 10 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p40q10"
 
 # Spot(p40_q20) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.6 --on_demand_clients 40 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p40q20"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.6 --on_demand_clients 40 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p40q20"
 
 # Spot(p40_q30) - 25 rounds, 20 local steps
 generate_pathological_data 100
-python main.py -data Cifar10 -ncl 100 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.7 --on_demand_clients 40 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p40q30"
+python main.py -data Cifar10 -m CNN -algo FedAvg -gr 50 -ls 20 -nc 100 -jr 0.7 --on_demand_clients 40 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar10_CNN_subsampling_e20_pathological_m50_p40q30"
 
 echo "Completed non-IID (Path) experiments"
