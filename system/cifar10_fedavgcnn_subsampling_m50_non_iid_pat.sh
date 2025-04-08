@@ -12,7 +12,7 @@ generate_pathological_data() {
 }
 
 # Experiments with 50 rounds and 10 local steps
-echo "Starting non-IID (Dirichlet) experiments with 50 rounds and 10 local steps"
+echo "Starting non-IID (Pathological) experiments with 50 rounds and 10 local steps"
 
 # FedAvg - 50 rounds, 10 local steps
 generate_pathological_data 100
