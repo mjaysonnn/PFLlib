@@ -12,7 +12,7 @@ generate_data() {
 }
 
 # Experiments with 50 rounds and 10 local steps
-echo "Starting experiments with 50 rounds and 10 local steps"
+echo "Starting experiments with 250 rounds and 10 local steps"
 
 # FedAvg - 50 rounds, 10 local step
 generate_data 100
