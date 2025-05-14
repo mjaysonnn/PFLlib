@@ -23,26 +23,26 @@ generate_noniid_data() {
 # --on_demand_clients 10 --spot_clients 20 -lr 0.01 -lbs 32 \
 # -go "MobileNet_cifar100_e10_dirichlet_p10q20"
 
-# Intermediate 1 (8 OD + 22 Spot)
-generate_noniid_data 100
-python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 \
---on_demand_clients 8 --spot_clients 22 -lr 0.01 -lbs 32 \
--go "MobileNet_cifar100_e10_dirichlet_p8q22"
-
-# Intermediate 2 (6 OD + 24 Spot)
-generate_noniid_data 100
-python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 \
---on_demand_clients 6 --spot_clients 24 -lr 0.01 -lbs 32 \
--go "MobileNet_cifar100_e10_dirichlet_p6q24"
-
-# # Spot-Heavy (5 OD + 25 Spot)
+# # Intermediate 1 (8 OD + 22 Spot)
 # generate_noniid_data 100
 # python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 \
-# --on_demand_clients 5 --spot_clients 25 -lr 0.01 -lbs 32 \
-# -go "MobileNet_cifar100_e10_dirichlet_p5q25"
+# --on_demand_clients 8 --spot_clients 22 -lr 0.01 -lbs 32 \
+# -go "MobileNet_cifar100_e10_dirichlet_p8q22"
 
-# # Max-Spot (2 OD + 28 Spot)
+# # Intermediate 2 (6 OD + 24 Spot)
 # generate_noniid_data 100
 # python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 \
-# --on_demand_clients 2 --spot_clients 28 -lr 0.01 -lbs 32 \
-# -go "MobileNet_cifar100_e10_dirichlet_p2q28"
+# --on_demand_clients 6 --spot_clients 24 -lr 0.01 -lbs 32 \
+# -go "MobileNet_cifar100_e10_dirichlet_p6q24"
+
+# Spot-Heavy (5 OD + 25 Spot)
+generate_noniid_data 100
+python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 \
+--on_demand_clients 5 --spot_clients 25 -lr 0.01 -lbs 32 \
+-go "MobileNet_cifar100_e10_dirichlet_p5q25"
+
+# Max-Spot (2 OD + 28 Spot)
+generate_noniid_data 100
+python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 \
+--on_demand_clients 2 --spot_clients 28 -lr 0.01 -lbs 32 \
+-go "MobileNet_cifar100_e10_dirichlet_p2q28"
