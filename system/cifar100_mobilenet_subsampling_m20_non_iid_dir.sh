@@ -15,12 +15,12 @@ generate_noniid_data() {
 # Dataset: Cifar100, Model: MobileNet, Distribution: Dirichlet, Local Epochs: 1
 
 # Pure On-Demand (20 clients)
-generate_noniid_data Cifar100 100
-python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "MobileNet_cifar100_e1_dirichlet_m20_fedavg"
+# generate_noniid_data Cifar100 100
+# python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.2 --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 -go "MobileNet_cifar100_e1_dirichlet_m20_fedavg"
 
 # # 10 On-Demand + 20 Spot (p10q20)
-# generate_noniid_data Cifar100 100
-# python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 10 --spot_clients 20 -lr 0.01 -lbs 32 -go "MobileNet_cifar100_e1_dirichlet_m20_p10q20"
+generate_noniid_data Cifar100 100
+python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.3 --on_demand_clients 10 --spot_clients 20 -lr 0.01 -lbs 32 -go "MobileNet_cifar100_e1_dirichlet_m20_p10q20"
 
 # # 15 On-Demand + 10 Spot (p15q10)
 # generate_noniid_data Cifar100 100
