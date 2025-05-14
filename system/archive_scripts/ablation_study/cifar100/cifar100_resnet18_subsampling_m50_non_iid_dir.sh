@@ -63,34 +63,34 @@ echo "Starting IID experiments with 1000 rounds, and 1 local step"
 # generate_noniid_data 100
 # python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 1000 -ls 1 -nc 100 -jr 0.8 --on_demand_clients 30 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e1_dirichlet_m50_p30q50"
 
-# # Spot(p40_q10) - 500 rounds, 1 local steps
-# generate_noniid_data 100
-# python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 1000 -ls 1 -nc 100 -jr 0.5 --on_demand_clients 40 --spot_clients 10 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e1_dirichlet_m50_p40q10"
-# # Spot(p40_q20) - 500 rounds, 1 local steps
-# generate_noniid_data 100
-# python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 1000 -ls 1 -nc 100 -jr 0.6 --on_demand_clients 40 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e1_dirichlet_m50_p40q20"
-# # Spot(p40_q30) - 500 rounds, 1 local steps
-# generate_noniid_data 100
-# python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 1000 -ls 1 -nc 100 -jr 0.7 --on_demand_clients 40 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e1_dirichlet_m50_p40q30"
+# Spot(p40_q10) - 500 rounds, 1 local steps
+generate_noniid_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 1000 -ls 1 -nc 100 -jr 0.5 --on_demand_clients 40 --spot_clients 10 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e1_dirichlet_m50_p40q10"
+# Spot(p40_q20) - 500 rounds, 1 local steps
+generate_noniid_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 1000 -ls 1 -nc 100 -jr 0.6 --on_demand_clients 40 --spot_clients 20 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e1_dirichlet_m50_p40q20"
+# Spot(p40_q30) - 500 rounds, 1 local steps
+generate_noniid_data 100
+python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 1000 -ls 1 -nc 100 -jr 0.7 --on_demand_clients 40 --spot_clients 30 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e1_dirichlet_m50_p40q30"
 
-# Experiments with 500 rounds, and 2 local step
-echo "Starting IID experiments with 500 rounds, and 2 local step"
+# # Experiments with 500 rounds, and 2 local step
+# echo "Starting IID experiments with 500 rounds, and 2 local step"
 
-# FedAvg - 250 rounds, 2 local steps
-generate_noniid_data 100
-python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 500 -ls 2 -nc 100 -jr 0.5 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e2_dirichlet_m50_fedavg"
+# # FedAvg - 250 rounds, 2 local steps
+# generate_noniid_data 100
+# python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 500 -ls 2 -nc 100 -jr 0.5 --on_demand_clients 50 --spot_clients 0 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e2_dirichlet_m50_fedavg"
 
-# Spot(p10_q40) - 250 rounds, 2 local steps
-generate_noniid_data 100
-python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 500 -ls 2 -nc 100 -jr 0.5 --on_demand_clients 10 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e2_dirichlet_m50_p10q40"
-# Spot(p10_q50) - 250 rounds, 2 local steps
-generate_noniid_data 100
-python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 500 -ls 2 -nc 100 -jr 0.6 --on_demand_clients 10 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e2_dirichlet_m50_p10q50"
-# Spot(p10_q60) - 250 rounds, 2 local steps
-generate_noniid_data 100
-python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 500 -ls 2 -nc 100 -jr 0.7 --on_demand_clients 10 --spot_clients 60 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e2_dirichlet_m50_p10q60"
-generate_noniid_data 100
-python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 500 -ls 2 -nc 100 -jr 0.8 --on_demand_clients 10 --spot_clients 70 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e2_dirichlet_m50_p10q70"
+# # Spot(p10_q40) - 250 rounds, 2 local steps
+# generate_noniid_data 100
+# python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 500 -ls 2 -nc 100 -jr 0.5 --on_demand_clients 10 --spot_clients 40 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e2_dirichlet_m50_p10q40"
+# # Spot(p10_q50) - 250 rounds, 2 local steps
+# generate_noniid_data 100
+# python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 500 -ls 2 -nc 100 -jr 0.6 --on_demand_clients 10 --spot_clients 50 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e2_dirichlet_m50_p10q50"
+# # Spot(p10_q60) - 250 rounds, 2 local steps
+# generate_noniid_data 100
+# python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 500 -ls 2 -nc 100 -jr 0.7 --on_demand_clients 10 --spot_clients 60 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e2_dirichlet_m50_p10q60"
+# generate_noniid_data 100
+# python main.py -data Cifar100 -ncl 100 -m ResNet18 -algo FedAvg -gr 500 -ls 2 -nc 100 -jr 0.8 --on_demand_clients 10 --spot_clients 70 -lr 0.01 -lbs 32 -go "Cifar100_ResNet18_e2_dirichlet_m50_p10q70"
 
 
 # Exit
