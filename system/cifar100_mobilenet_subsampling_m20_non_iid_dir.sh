@@ -11,29 +11,29 @@ generate_noniid_data() {
 
 # Local Epochs = 10, Batch Size = 32, Learning Rate = 0.01
 
-# Pure On-Demand (20 OD)
-generate_noniid_data 100
-python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.2 \
---on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 \
--go "MobileNet_cifar100_e10_dirichlet_p20q0"
+# # Pure On-Demand (20 OD)
+# generate_noniid_data 100
+# python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.2 \
+# --on_demand_clients 20 --spot_clients 0 -lr 0.01 -lbs 32 \
+# -go "MobileNet_cifar100_e10_dirichlet_p20q0"
 
-# Balanced (10 OD + 20 Spot)
+# # Balanced (10 OD + 20 Spot)
+# generate_noniid_data 100
+# python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 \
+# --on_demand_clients 10 --spot_clients 20 -lr 0.01 -lbs 32 \
+# -go "MobileNet_cifar100_e10_dirichlet_p10q20"
+
+# Intermediate 1 (8 OD + 22 Spot)
 generate_noniid_data 100
 python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 \
---on_demand_clients 10 --spot_clients 20 -lr 0.01 -lbs 32 \
--go "MobileNet_cifar100_e10_dirichlet_p10q20"
+--on_demand_clients 8 --spot_clients 22 -lr 0.01 -lbs 32 \
+-go "MobileNet_cifar100_e10_dirichlet_p8q22"
 
-# # Intermediate 1 (8 OD + 22 Spot)
-# generate_noniid_data 100
-# python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 \
-# --on_demand_clients 8 --spot_clients 22 -lr 0.01 -lbs 32 \
-# -go "MobileNet_cifar100_e10_dirichlet_p8q22"
-
-# # Intermediate 2 (6 OD + 24 Spot)
-# generate_noniid_data 100
-# python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 \
-# --on_demand_clients 6 --spot_clients 24 -lr 0.01 -lbs 32 \
-# -go "MobileNet_cifar100_e10_dirichlet_p6q24"
+# Intermediate 2 (6 OD + 24 Spot)
+generate_noniid_data 100
+python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 250 -ls 10 -nc 100 -jr 0.3 \
+--on_demand_clients 6 --spot_clients 24 -lr 0.01 -lbs 32 \
+-go "MobileNet_cifar100_e10_dirichlet_p6q24"
 
 # # Spot-Heavy (5 OD + 25 Spot)
 # generate_noniid_data 100
