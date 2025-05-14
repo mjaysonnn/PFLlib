@@ -31,9 +31,9 @@ generate_noniid_data() {
 # python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.24 --on_demand_clients 16 --spot_clients 8 -lr 0.01 -lbs 32 -go "MobileNet_cifar100_e1_dirichlet_m20_p16q8"
 
 # # 17 On-Demand + 6 Spot (p17q6) - Jisoo5
-generate_noniid_data Cifar100 100
-python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.23 --on_demand_clients 17 --spot_clients 6 -lr 0.01 -lbs 32 -go "MobileNet_cifar100_e1_dirichlet_m20_p17q6"
-
-# # 18 On-Demand + 4 Spot (p18q4)
 # generate_noniid_data Cifar100 100
-# python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.22 --on_demand_clients 18 --spot_clients 4 -lr 0.01 -lbs 32 -go "MobileNet_cifar100_e1_dirichlet_m20_p18q4"
+# python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.23 --on_demand_clients 17 --spot_clients 6 -lr 0.01 -lbs 32 -go "MobileNet_cifar100_e1_dirichlet_m20_p17q6"
+
+# # 18 On-Demand + 4 Spot (p18q4) - Jisoo6
+generate_noniid_data Cifar100 100
+python main.py -data Cifar100 -ncl 100 -m MobileNet -algo FedAvg -gr 2500 -ls 1 -nc 100 -jr 0.22 --on_demand_clients 18 --spot_clients 4 -lr 0.01 -lbs 32 -go "MobileNet_cifar100_e1_dirichlet_m20_p18q4"
