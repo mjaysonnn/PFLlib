@@ -13,7 +13,6 @@ generate_noniid_data() {
 }
 
 # Dataset: Cifar10, Model: ResNet
-
 # 20 On-Demand + 0 Spot (p20q0) 
 generate_noniid_data Cifar10 20
 python main.py \
@@ -21,7 +20,7 @@ python main.py \
   -ncl 10 \
   -m ResNet18 \
   -algo FedAvg \
-  -gr 100 \
+  -gr 1000 \
   -ls 5 \
   -nc 20 \
   -jr 1.0 \
@@ -29,16 +28,16 @@ python main.py \
   --spot_clients 0 \
   -lr 0.01 \
   -lbs 128 \
-  -go "ResNet_cifar10_dirichlet_r100_m20_p20q0_e5"
+  -go "ResNet_cifar10_dirichlet_r1000_m20_e5_p20q0"
 
-# 20 Spot + 0 On-Demand (p0q20)
+# 0 On-Demand + 20 Spot (p0q20)
 generate_noniid_data Cifar10 20
 python main.py \
   -data Cifar10 \
   -ncl 10 \
   -m ResNet18 \
   -algo FedAvg \
-  -gr 100 \
+  -gr 1000 \
   -ls 5 \
   -nc 20 \
   -jr 1.0 \
@@ -46,38 +45,55 @@ python main.py \
   --spot_clients 20 \
   -lr 0.01 \
   -lbs 128 \
-  -go "ResNet_cifar10_dirichlet_r100_m20_p0q20_e5"
+  -go "ResNet_cifar10_dirichlet_r1000_m20_e5_p0q20"
 
-# 10 On-Demand + 20 Spot (p10q20)
-generate_noniid_data Cifar10 30
+# 0 On-Demand + 40 Spot (p0q40)
+generate_noniid_data Cifar10 40
 python main.py \
   -data Cifar10 \
   -ncl 10 \
   -m ResNet18 \
   -algo FedAvg \
-  -gr 100 \
+  -gr 1000 \
   -ls 5 \
-  -nc 30 \
+  -nc 40 \
   -jr 1.0 \
-  --on_demand_clients 10 \
-  --spot_clients 20 \
+  --on_demand_clients 0 \
+  --spot_clients 40 \
   -lr 0.01 \
   -lbs 128 \
-  -go "ResNet_cifar10_dirichlet_r100_m30_p10q20_e5"
+  -go "ResNet_cifar10_dirichlet_r1000_m40_e5_p0q40"
 
-# 5 On-Demand + 30 Spot (p5q30)
-generate_noniid_data Cifar10 35
-python main.py \
-  -data Cifar10 \
-  -ncl 10 \
-  -m ResNet18 \
-  -algo FedAvg \
-  -gr 100 \
-  -ls 5 \
-  -nc 35 \
-  -jr 1.0 \
-  --on_demand_clients 5 \
-  --spot_clients 30 \
-  -lr 0.01 \
-  -lbs 128 \
-  -go "ResNet_cifar10_dirichlet_r100_m35_p5q30_e5"
+# # 10 On-Demand + 20 Spot (p10q20)
+# generate_noniid_data Cifar10 30
+# python main.py \
+#   -data Cifar10 \
+#   -ncl 10 \
+#   -m ResNet18 \
+#   -algo FedAvg \
+#   -gr 1000 \
+#   -ls 5 \
+#   -nc 30 \
+#   -jr 1.0 \
+#   --on_demand_clients 10 \
+#   --spot_clients 20 \
+#   -lr 0.01 \
+#   -lbs 128 \
+#   -go "ResNet_cifar10_dirichlet_r1000_m30_e5_p10q20"
+
+# # 5 On-Demand + 30 Spot (p5q30)
+# generate_noniid_data Cifar10 35
+# python main.py \
+#   -data Cifar10 \
+#   -ncl 10 \
+#   -m ResNet18 \
+#   -algo FedAvg \
+#   -gr 1000 \
+#   -ls 5 \
+#   -nc 35 \
+#   -jr 1.0 \
+#   --on_demand_clients 5 \
+#   --spot_clients 30 \
+#   -lr 0.01 \
+#   -lbs 128 \
+#   -go "ResNet_cifar10_dirichlet_r1000_m35_e5_p5q30"
