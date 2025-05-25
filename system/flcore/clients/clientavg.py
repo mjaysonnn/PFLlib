@@ -49,7 +49,7 @@ class clientAVG(Client):
         if self.instance_type == "spot":
             if random.random() < spot_preemption_probability:
                 # Simulate preemption — skip this round entirely
-                print(f"Client {self.id} (spot) preempted this round")
+                # print(f"Client {self.id} (spot) preempted this round")
                 self.participated_this_round = 0
                 return
             else:
