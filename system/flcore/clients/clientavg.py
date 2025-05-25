@@ -43,73 +43,39 @@ class clientAVG(Client):
         self.model.train()
         start_time = time.time()
 
-        max_local_epochs = self.local_epochs
-        if self.train_slow:
-            max_local_epochs = np.random.randint(1, max_local_epochs // 2)
+        spot_preemption_probability = 0.1  # You can adjust or pass this as a parameter
 
-        num_batches = len(trainloader)
-
-        for epoch in range(max_local_epochs):
-            if self.instance_type == "spot":
-                # Handle edge case where num_batches is 0 or 1
-                if num_batches <= 1:
-                    num_batches_to_process = 1
-                else:
-                    # Calculate parameters for truncated Poisson
-                    mu = max(1, num_batches * np.random.uniform(0.7, 0.95))
-                    lower, upper = 1, num_batches
-                    
-                    try:
-                        # Generate number of batches using truncated Poisson
-                        tpoisson = truncated_poisson(mu, lower, upper)
-                        num_batches_to_process = int(tpoisson.rvs())
-                    except ValueError:
-                        # Fallback if truncated Poisson fails
-                        num_batches_to_process = lower
-                    
-                    # Ensure num_batches_to_process is within valid range
-                    num_batches_to_process = max(1, min(num_batches_to_process, num_batches))
-                
-                # print(f"Client {self.id} - Processing {num_batches_to_process} batches")
-                
-                batch_count = 0
-                for i, (x, y) in enumerate(trainloader):
-                    if type(x) == type([]):
-                        x[0] = x[0].to(self.device)
-                    else:
-                        x = x.to(self.device)
-                    y = y.to(self.device)
-                    
-                    if self.train_slow:
-                        time.sleep(0.1 * np.abs(np.random.rand()))
-                        
-                    output = self.model(x)
-                    loss = self.loss(output, y)
-                    self.optimizer.zero_grad()
-                    loss.backward()
-                    self.optimizer.step()
-
-                    batch_count += 1
-                    if batch_count >= num_batches_to_process:
-                        break
-                
+        # Check if this spot client survives this round
+        if self.instance_type == "spot":
+            if random.random() < spot_preemption_probability:
+                # Simulate preemption — skip this round entirely
+                print(f"Client {self.id} (spot) preempted this round")
+                self.participated_this_round = 0
+                return
             else:
-                # Original on-demand training code
-                for i, (x, y) in enumerate(trainloader):
-                    if type(x) == type([]):
-                        x[0] = x[0].to(self.device)
-                    else:
-                        x = x.to(self.device)
-                    y = y.to(self.device)
-                    
-                    if self.train_slow:
-                        time.sleep(0.1 * np.abs(np.random.rand()))
-                        
-                    output = self.model(x)
-                    loss = self.loss(output, y)
-                    self.optimizer.zero_grad()
-                    loss.backward()
-                    self.optimizer.step()
+                self.participated_this_round = 1
+        else:
+            self.participated_this_round = 1  # On-demand always participates
+
+        # Process exactly one batch
+        for i, (x, y) in enumerate(trainloader):
+            if type(x) == type([]):
+                x[0] = x[0].to(self.device)
+            else:
+                x = x.to(self.device)
+            y = y.to(self.device)
+
+            if self.train_slow:
+                time.sleep(0.1 * np.abs(np.random.rand()))
+
+            output = self.model(x)
+            loss = self.loss(output, y)
+            self.optimizer.zero_grad()
+            loss.backward()
+            self.optimizer.step()
+
+            # Only one batch per round → break after first
+            break
 
         if self.learning_rate_decay:
             self.learning_rate_scheduler.step()
