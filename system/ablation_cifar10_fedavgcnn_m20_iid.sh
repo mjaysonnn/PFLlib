@@ -30,7 +30,7 @@ run_experiment() {
         --on_demand_clients "$2" \
         --spot_clients "$3" \
         -lr 0.01 \
-        -lbs 128 \
+        -lbs 32 \
         -go "$4"
 }
 
