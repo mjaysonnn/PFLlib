@@ -38,48 +38,48 @@ echo "Starting experiments with 1000 rounds and 1 local step"
 
 # FedAvg - baseline
 generate_pathological_data 20
-run_experiment 20 20 0 "${MODEL}_b1_iid_poisson_m20_fedavg"
+run_experiment 20 20 0 "${MODEL}_b1_pathological_m20_fedavg"
 
 # Spot(p5_q15)
 generate_pathological_data 20
-run_experiment 20 5 15 "${MODEL}_e1_iid_poisson_m20_p5q15"
+run_experiment 20 5 15 "${MODEL}_b1_pathological_m20_p5q15"
 
 # Spot(p5_q20)
 generate_pathological_data 25
-run_experiment 25 5 20 "${MODEL}_e1_iid_poisson_m20_p5q20"
+run_experiment 25 5 20 "${MODEL}_b1_pathological_m20_p5q20"
 
 # Spot(p5_q30)
 generate_pathological_data 35
-run_experiment 35 5 30 "${MODEL}_e1_iid_poisson_m20_p5q30"
+run_experiment 35 5 30 "${MODEL}_b1_pathological_m20_p5q30"
 
 # Spot(p5_q40)
 generate_pathological_data 45
-run_experiment 45 5 40 "${MODEL}_e1_iid_poisson_m20_p5q40"
+run_experiment 45 5 40 "${MODEL}_b1_pathological_m20_p5q40"
 
 # Spot(p10_q10)
 generate_pathological_data 20
-run_experiment 20 10 10 "${MODEL}_e1_iid_poisson_m20_p10q10"
+run_experiment 20 10 10 "${MODEL}_b1_pathological_m20_p10q10"
 
 # Spot(p10_q20)
 generate_pathological_data 30
-run_experiment 30 10 20 "${MODEL}_e1_iid_poisson_m20_p10q20"
+run_experiment 30 10 20 "${MODEL}_b1_pathological_m20_p10q20"
 
 # Spot(p10_q30)
 generate_pathological_data 40
-run_experiment 40 10 30 "${MODEL}_e1_iid_poisson_m20_p10q30"
+run_experiment 40 10 30 "${MODEL}_b1_pathological_m20_p10q30"
 
 # Spot(p15_q5)
 generate_pathological_data 20
-run_experiment 20 15 5 "${MODEL}_e1_iid_poisson_m20_p15q5"
+run_experiment 20 15 5 "${MODEL}_b1_pathological_m20_p15q5"
 
 # Spot(p15_q10)
 generate_pathological_data 25
-run_experiment 25 15 10 "${MODEL}_e1_iid_poisson_m20_p15q10"
+run_experiment 25 15 10 "${MODEL}_b1_pathological_m20_p15q10"
 
 # Spot(p15_q20)
 generate_pathological_data 35
-run_experiment 35 15 20 "${MODEL}_e1_iid_poisson_m20_p15q20"
+run_experiment 35 15 20 "${MODEL}_b1_pathological_m20_p15q20"
 
 # Spot(p15_q30)
 generate_pathological_data 45
-run_experiment 45 15 30 "${MODEL}_e1_iid_poisson_m20_p15q30"
+run_experiment 45 15 30 "${MODEL}_b1_pathological_m20_p15q30"
