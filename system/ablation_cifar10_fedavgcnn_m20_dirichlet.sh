@@ -61,8 +61,8 @@ generate_noniid_data 20
 run_experiment 20 10 10 "${MODEL}_e1_iid_poisson_m20_p10q10"
 
 # Spot(p10_q20)
-generate_noniid_data 25
-run_experiment 25 10 20 "${MODEL}_e1_iid_poisson_m20_p10q20"
+generate_noniid_data 30
+run_experiment 30 10 20 "${MODEL}_e1_iid_poisson_m20_p10q20"
 
 # Spot(p10_q30)
 generate_noniid_data 40
