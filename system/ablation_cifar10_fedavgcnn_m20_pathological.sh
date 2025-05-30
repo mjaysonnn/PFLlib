@@ -5,8 +5,9 @@ set -e  # Exit on any error
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Global variables
-DATASET=${1:-Cifar10}  # Default to Cifar10 if not provided
+DATASET=${1:-Cifar10}          # Default to Cifar10 if not provided
 MODEL="CNN"
+PARTITION_TYPE="pat"           # Can be 'pat', 'dir', or other types
 
 # Validate dataset choice
 if [[ "$DATASET" != "Cifar10" && "$DATASET" != "Cifar100" ]]; then
@@ -14,12 +15,12 @@ if [[ "$DATASET" != "Cifar10" && "$DATASET" != "Cifar100" ]]; then
     exit 1
 fi
 
-# Function to generate pathological non-IID data with specified number of clients
-generate_pathological_data() {
-    echo "Generating pathological non-IID ${DATASET} data with $1 clients..."
+# Function to generate non-IID data with specified number of clients
+generate_data() {
+    echo "Generating ${PARTITION_TYPE} non-IID ${DATASET} data with $1 clients..."
     cd "$SCRIPT_DIR/../dataset" || exit
     rm -rf "${DATASET}/"  # Deletes the dataset folder (Cifar10 or Cifar100)
-    python "generate_${DATASET}.py" noniid - pat "$1"
+    python "generate_${DATASET}.py" noniid - ${PARTITION_TYPE} "$1"
     cd "$SCRIPT_DIR/../system" || exit
 }
 
@@ -57,15 +58,15 @@ EXPERIMENTS=(
     "45 15 30 p15q30"
 )
 
-echo "Starting experiments with dataset: ${DATASET}, model: ${MODEL}, 1000 rounds, 1 local step"
+echo "Starting experiments with dataset: ${DATASET}, model: ${MODEL}, partition: ${PARTITION_TYPE}, 1000 rounds, 1 local step"
 
 for EXP in "${EXPERIMENTS[@]}"; do
     set -- $EXP  # splits into $1 $2 $3 $4
     NC=$1
     ON_DEMAND=$2
     SPOT=$3
-    NAME="${MODEL}_b1_pathological_m${NC}_${4}"
+    NAME="${MODEL}_b1_${PARTITION_TYPE}_m${NC}_${4}"
 
-    generate_pathological_data "$NC"
+    generate_data "$NC"
     run_experiment "$NC" "$ON_DEMAND" "$SPOT" "$NAME"
 done
