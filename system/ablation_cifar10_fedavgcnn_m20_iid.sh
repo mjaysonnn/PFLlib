@@ -1,19 +1,28 @@
 #!/bin/bash
 set -e  # Exit on any error
 
-# Global variables
-DATASET="Cifar10"
-MODEL="CNN"
+# Detect script directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# IID Data Generation and Experiment Scripts
+# Global variables
+DATASET=${1:-Cifar10}         # Default to Cifar10 if not provided
+MODEL="CNN"
+PARTITION_TYPE="iid"          # Can change if needed (e.g., noniid)
+BALANCE_TYPE="balance"        # Can change if needed (e.g., imbalance)
+
+# Validate dataset choice
+if [[ "$DATASET" != "Cifar10" && "$DATASET" != "Cifar100" ]]; then
+    echo "Unsupported dataset: $DATASET"
+    exit 1
+fi
 
 # Function to generate data with specified number of clients
 generate_data() {
-    echo "Generating IID ${DATASET} data with $1 clients..."
-    cd ../dataset || exit
+    echo "Generating ${PARTITION_TYPE} ${BALANCE_TYPE} ${DATASET} data with $1 clients..."
+    cd "$SCRIPT_DIR/../dataset" || exit
     rm -rf "${DATASET}/"  # Deletes the dataset folder
-    python generate_${DATASET}.py iid balance - "$1"
-    cd ../system || exit
+    python "generate_${DATASET}.py" "${PARTITION_TYPE}" "${BALANCE_TYPE}" - "$1"
+    cd "$SCRIPT_DIR/../system" || exit
 }
 
 # Function to run experiment
@@ -34,51 +43,31 @@ run_experiment() {
         -go "$4"
 }
 
+# Define experiments: format "nc on_demand spot name_suffix"
+EXPERIMENTS=(
+    "20 20 0 fedavg"
+    "20 5 15 p5q15"
+    "25 5 20 p5q20"
+    "35 5 30 p5q30"
+    "45 5 40 p5q40"
+    "20 10 10 p10q10"
+    "30 10 20 p10q20"
+    "40 10 30 p10q30"
+    "20 15 5 p15q5"
+    "25 15 10 p15q10"
+    "35 15 20 p15q20"
+    "45 15 30 p15q30"
+)
 
-# FedAvg - baseline
-# generate_data 20
-# run_experiment 20 20 0 "${MODEL}_b1_iid_poisson_m20_fedavg"
+echo "Starting IID experiments with dataset: ${DATASET}, model: ${MODEL}, 1000 rounds, 1 local step"
 
-# # Spot(p5_q15)
-# generate_data 20
-# run_experiment 20 5 15 "${MODEL}_e1_iid_poisson_m20_p5q15"
+for EXP in "${EXPERIMENTS[@]}"; do
+    set -- $EXP  # splits into $1 $2 $3 $4
+    NC=$1
+    ON_DEMAND=$2
+    SPOT=$3
+    NAME="${MODEL}_b1_${PARTITION_TYPE}_${BALANCE_TYPE}_m${NC}_${4}"
 
-# # Spot(p5_q20)
-# generate_data 25
-# run_experiment 25 5 20 "${MODEL}_e1_iid_poisson_m20_p5q20"
-
-# # Spot(p5_q30)
-# generate_data 35
-# run_experiment 35 5 30 "${MODEL}_e1_iid_poisson_m20_p5q30"
-
-# # Spot(p5_q40)
-# generate_data 45
-# run_experiment 45 5 40 "${MODEL}_e1_iid_poisson_m20_p5q40"
-
-# # Spot(p10_q10)
-# generate_data 20
-# run_experiment 20 10 10 "${MODEL}_e1_iid_poisson_m20_p10q10"
-
-# Spot(p10_q20)
-generate_data 30
-run_experiment 30 10 20 "${MODEL}_e1_iid_poisson_m20_p10q20"
-
-# Spot(p10_q30)
-generate_data 40
-run_experiment 40 10 30 "${MODEL}_e1_iid_poisson_m20_p10q30"
-
-# Spot(p15_q5)
-generate_data 20
-run_experiment 20 15 5 "${MODEL}_e1_iid_poisson_m20_p15q5"
-
-# Spot(p15_q10)
-generate_data 25
-run_experiment 25 15 10 "${MODEL}_e1_iid_poisson_m20_p15q10"
-
-# Spot(p15_q20)
-generate_data 35
-run_experiment 35 15 20 "${MODEL}_e1_iid_poisson_m20_p15q20"
-
-# Spot(p15_q30)
-generate_data 45
-run_experiment 45 15 30 "${MODEL}_e1_iid_poisson_m20_p15q30"
+    generate_data "$NC"
+    run_experiment "$NC" "$ON_DEMAND" "$SPOT" "$NAME"
+done
