@@ -5,10 +5,9 @@ set -e  # Exit on any error
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Global variables
-DATASET=${1:-Cifar100}         # Default to Cifar100 if not provided
+DATASET=${1:-Cifar100}         # Default to Cifar10 if not provided
 MODEL="ResNet18"
-PARTITION_TYPE="iid"          # Can change if needed (e.g., noniid)
-BALANCE_TYPE="balance"        # Can change if needed (e.g., imbalance)
+PARTITION_TYPE="dir"          # Dirichlet partitioning
 
 # Validate dataset choice
 if [[ "$DATASET" != "Cifar10" && "$DATASET" != "Cifar100" ]]; then
@@ -16,12 +15,12 @@ if [[ "$DATASET" != "Cifar10" && "$DATASET" != "Cifar100" ]]; then
     exit 1
 fi
 
-# Function to generate data with specified number of clients
+# Function to generate non-IID Dirichlet data with specified number of clients
 generate_data() {
-    echo "Generating ${PARTITION_TYPE} ${BALANCE_TYPE} ${DATASET} data with $1 clients..."
+    echo "Generating non-IID ${PARTITION_TYPE} ${DATASET} data with $1 clients..."
     cd "$SCRIPT_DIR/../dataset" || exit
     rm -rf "${DATASET}/"  # Deletes the dataset folder
-    python "generate_${DATASET}.py" "${PARTITION_TYPE}" "${BALANCE_TYPE}" - "$1"
+    python "generate_${DATASET}.py" noniid - "${PARTITION_TYPE}" "$1"
     cd "$SCRIPT_DIR/../system" || exit
 }
 
@@ -30,8 +29,8 @@ run_experiment() {
     echo "Running experiment: $4"
     python main.py \
         -data "${DATASET}" \
-        -ncl 100 \
         -m "${MODEL}" \
+        -ncl 100 \
         -algo FedAvg \
         -gr 1000 \
         -ls 1 \
@@ -60,14 +59,14 @@ EXPERIMENTS=(
     "45 15 30 p15q30"
 )
 
-echo "Starting IID experiments with dataset: ${DATASET}, model: ${MODEL}, 1000 rounds, 1 local step"
+echo "Starting Dirichlet experiments with dataset: ${DATASET}, model: ${MODEL}, 1000 rounds, 1 local step"
 
 for EXP in "${EXPERIMENTS[@]}"; do
     set -- $EXP  # splits into $1 $2 $3 $4
     NC=$1
     ON_DEMAND=$2
     SPOT=$3
-    NAME="${MODEL}_b1_${PARTITION_TYPE}_${BALANCE_TYPE}_m${NC}_${4}"
+    NAME="${MODEL}_b1_${PARTITION_TYPE}_m${NC}_${4}"
 
     generate_data "$NC"
     run_experiment "$NC" "$ON_DEMAND" "$SPOT" "$NAME"
